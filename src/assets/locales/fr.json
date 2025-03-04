@@ -1,0 +1,36 @@
+{
+  "login" : {
+    "title": "Se connecter",
+    "subtitle": "Connectez-vous à votre compte",
+    "email": "Adresse e-mail",
+    "emailPlaceholder": "votre{'@'}email.com",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié ?",
+    "submit": "Se connecter",
+    "error": "Identifiants incorrects. Veuillez réessayer.",
+    "logoAlt": "Logo de l'application",
+    "register": "Vous n'avez pas de compte ?",
+    "registerInstead": "Créez-en un maintenant"
+  },
+  "register" : {
+    "title": "Créer un compte",
+    "subtitle": "Commencez votre voyage avec nous",
+    "username": "Nom d'utilisateur",
+    "usernamePlaceholder": "DarkVador",
+    "emailPlaceholder": "your{'@'}email.com",
+    "passwordPlaceholder": "Enter your password",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "confirmPasswordPlaceholder": "••••••••",
+    "agreeToTerms": "J'accepte les",
+    "termsOfService": "Conditions d'utilisation",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "termsRequired": "Vous devez accepter les conditions",
+    "existingAccount": "Vous avez déjà un compte ?",
+    "loginInstead": "Connectez-vous plutôt",
+    "submit": "Créer un compte"
+  }
+}

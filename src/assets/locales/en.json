@@ -1,0 +1,36 @@
+{
+  "login" : {
+    "title": "Sign In",
+    "subtitle": "Sign in to continue to your account",
+    "email": "Email Address",
+    "emailPlaceholder": "your{'@'}email.com",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "submit": "Sign In",
+    "error": "Invalid credentials. Please try again.",
+    "logoAlt": "Application Logo",
+    "register": "Don't have an account?",
+    "registerInstead": "Create one now"
+  },
+  "register": {
+    "title": "Create Account",
+    "subtitle": "Start your journey with us",
+    "username": "Username",
+    "usernamePlaceholder": "DarkVador",
+    "emailPlaceholder": "your{'@'}email.com",
+    "passwordPlaceholder": "Enter your password",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "••••••••",
+    "agreeToTerms": "I agree to the",
+    "termsOfService": "Terms of Service",
+    "passwordMismatch": "Passwords do not match",
+    "termsRequired": "You must agree to the terms",
+    "existingAccount": "Already have an account?",
+    "loginInstead": "Log in instead",
+    "submit": "Create Account"
+  }
+}
