@@ -1,5 +1,4 @@
 import axios, { type AxiosResponse } from 'axios'
-import {storeToken} from '@/client/clientCommon'
 
 type RegisterCredentials = {
     username: string
@@ -23,21 +22,21 @@ function decodeJwt(token: string): any {
     }
 }
 
-async function login(credentials: any): Promise<any> {
-    try {
-        const response: AxiosResponse = await axios.post<any>('/login', credentials)
-        storeToken(response.data.jwt);
-        const userStore = useUserStore();
-        const jwt = decodeJwt(response.data.jwt);
-        userStore.loginUser(jwt.username);
-        return response.data.message
-    } catch (error) {
-        console.error('Login failed', error)
-        throw error
-    }
+async function login(credentials: LoginCredentials): Promise<any> {
+    return await axios
+        .post('/login', credentials)
+        .then((response: AxiosResponse) => {
+            console.log('Login successful', response)
+            return response.data.message
+        })
+        .catch(
+            (error: any) => {
+                console.error('Login failed', error)
+            }
+        )
 }
 
-async function register(credentials: RegisterInfo): Promise<any> {
+async function register(credentials: RegisterCredentials): Promise<any> {
     return await axios
         .post('/register', credentials)
         .then((response: AxiosResponse) => {
@@ -47,7 +46,6 @@ async function register(credentials: RegisterInfo): Promise<any> {
         .catch(
             (error: any) => {
                 console.error('Register failed', error)
-                return reject('Register failed')
             }
         )
 }

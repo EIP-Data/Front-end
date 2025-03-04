@@ -3,9 +3,7 @@ import type {AxiosResponse} from 'axios'
 import type {Router} from 'vue-router'
 
 export function configureAxios(router: Router): void {
-    axios.defaults.baseURL = "http://localhost:8080"
-    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
-    axios.defaults.headers.common['Access-Control-Allow-Methods'] = 'POST, GET, OPTIONS, PUT, DELETE'
+    axios.defaults.baseURL = import.meta.env.VITE_API_ENDPOINT
     axios.defaults.headers.common['Content-Type'] = 'application/json'
 
     axios.interceptors.response.use(

@@ -37,7 +37,7 @@ const passwordStrength = computed(() => {
     <div class="w-full max-w-md space-y-8">
       <div class="text-center">
         <img
-            src="../../public/logo.webp"
+            src="/logo.webp"
             class="h-16 mx-auto mb-4"
             :alt="t('login.logoAlt')"
         >

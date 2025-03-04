@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import {useI18n} from 'vue-i18n'
-import {ref, computed} from 'vue'
+import {ref, computed, onMounted} from 'vue'
 import {register, type RegisterCredentials} from "@/client/clientAuth.ts";
+import {ping} from "@/client/clientPing.ts";
 
 const {t} = useI18n()
 
@@ -44,6 +45,11 @@ const passwordStrength = computed(() => {
   if (password.value.length < 8) return 1
   if (/[A-Z]/.test(password.value) && /[0-9]/.test(password.value)) return 3
   return 2
+})
+
+onMounted( async() => {
+  console.log("Register view mounted");
+  await ping();
 })
 </script>
 
