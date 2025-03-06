@@ -1,4 +1,6 @@
-import axios, { type AxiosResponse } from 'axios'
+import axios, {type AxiosResponse} from 'axios'
+import { useUserStore } from '@/stores/userStore'
+import {storeToken} from "./clientCommon.ts";
 
 type RegisterCredentials = {
     username: string
@@ -7,27 +9,34 @@ type RegisterCredentials = {
 }
 
 type LoginCredentials = {
-    username: string
+    email: string
     password: string
 }
 
-function decodeJwt(token: string): any {
-    try {
-        const payloadBase64 = token.split('.')[1];
-        const payload = atob(payloadBase64);
-        return JSON.parse(payload);
-    } catch (error) {
-        console.error('Error decoding JWT:', error);
-        return null;
-    }
+type RegisterResponse = {
+    email: string,
+    jwt: string,
+    username: string
 }
 
-async function login(credentials: LoginCredentials): Promise<any> {
+type LoginResponse = {
+    jwt: string
+}
+
+async function login(credentials: LoginCredentials): Promise<LoginResponse> {
     return await axios
         .post('/login', credentials)
         .then((response: AxiosResponse) => {
+            if (response.status !== 200) {
+                console.error('Login failed', response)
+                return;
+            }
             console.log('Login successful', response)
-            return response.data.message
+            let data = response.data as LoginResponse;
+            const userStore = useUserStore();
+            userStore.setEmail(credentials.email);
+            storeToken(data.jwt);
+            return response.data as LoginResponse;
         })
         .catch(
             (error: any) => {
@@ -36,12 +45,20 @@ async function login(credentials: LoginCredentials): Promise<any> {
         )
 }
 
-async function register(credentials: RegisterCredentials): Promise<any> {
+async function register(credentials: RegisterCredentials): Promise<RegisterResponse> {
     return await axios
         .post('/register', credentials)
         .then((response: AxiosResponse) => {
-            console.log('Register successful', response)
-            return response.data.message
+            if (response.status !== 200) {
+                console.error('Login failed', response)
+                return;
+            }
+            console.log('Register successful', response);
+            let data = response.data as RegisterResponse;
+            const userStore = useUserStore();
+            userStore.setInformation(data.username, data.email);
+            storeToken(data.jwt);
+            return data;
         })
         .catch(
             (error: any) => {
@@ -50,4 +67,4 @@ async function register(credentials: RegisterCredentials): Promise<any> {
         )
 }
 
-export { RegisterCredentials, LoginCredentials, login, register }
+export {RegisterCredentials, LoginCredentials, login, register}

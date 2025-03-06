@@ -18,7 +18,7 @@
     "title": "Créer un compte",
     "subtitle": "Commencez votre voyage avec nous",
     "username": "Nom d'utilisateur",
-    "usernamePlaceholder": "DarkVador",
+    "usernamePlaceholder": "Votre nom d'utilistateur",
     "emailPlaceholder": "your{'@'}email.com",
     "passwordPlaceholder": "Enter your password",
     "email": "Adresse e-mail",
@@ -31,6 +31,167 @@
     "termsRequired": "Vous devez accepter les conditions",
     "existingAccount": "Vous avez déjà un compte ?",
     "loginInstead": "Connectez-vous plutôt",
-    "submit": "Créer un compte"
+    "submit": "Créer un compte",
+    "weakPassword": "Le mot de passe est trop faible - doit comporter au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre"
+  },
+  "home": {
+    "heroBanner": {
+      "title": "Bienvenue sur Datalyz",
+      "paragraph": "Transformez des données brutes en informations exploitables grâce à des outils avancés de collecte, d’analyse et de visualisation.",
+      "getStarted": "Commencer",
+      "learnMore": "En savoir plus"
+    },
+    "coreFeatures": {
+      "title": "Nos Fonctionnalités Clés",
+      "description": "Découvrez les outils qui font de Datalyz la solution ultime pour l’analyse de données.",
+      "features": {
+        "dataCollection": {
+          "title": "Collecte de Données",
+          "description": "Automatisez l’extraction de données grâce à nos outils avancés pour recueillir efficacement des données utilisateur."
+        },
+        "dataAnalysis": {
+          "title": "Analyse de Données",
+          "description": "Explorez le fonctionnement des algorithmes d’hyper-personnalisation avec une précision scientifique."
+        },
+        "dataVisualization": {
+          "title": "Visualisation de Données",
+          "description": "Obtenez des insights précis sur les comportements grâce à nos outils de visualisation intuitifs."
+        }
+      }
+    },
+    "researchGoal": {
+      "title": "Notre Objectif de Recherche",
+      "description": "Favoriser l’innovation par l’exploration scientifique.",
+      "content": [
+        "Chez Datalyz, notre objectif ultime est de contribuer à la communauté scientifique en publiant un article de recherche sur l’hyper-personnalisation. Nous cherchons à dévoiler les mécanismes derrière la personnalisation algorithmique et à fournir des insights exploitables sur l’influence de ces systèmes sur le comportement des utilisateurs.",
+        "En combinant une collecte de données avancée, une analyse rigoureuse et une visualisation intuitive, nous nous efforçons de repousser les limites de la compréhension et de l’optimisation des systèmes hyper-personnalisés."
+      ]
+    },
+    "ctaBanner": {
+      "title": "Prêt à Transformer Vos Données ?",
+      "description": "Rejoignez Datalyz dès aujourd’hui et exploitez pleinement le potentiel de vos données.",
+      "getStarted": "Commencer"
+    },
+    "aboutUs": {
+      "title": "A propos de nous",
+      "description": "Rencontrez l'équipe de Datalyz et leurs spécialités."
+    },
+    "process": {
+      "title": "Notre processus en 4 étapes",
+      "description": "Une approche structurée pour transformer les données en insights.",
+      "steps": [
+        {
+          "title": "Collecte des données",
+          "description": "Automatisez la collecte de données utilisateur à partir de plusieurs sources grâce à nos outils avancés.",
+          "videoUrl": "https://www.youtube.com/embed/video1_fr"
+        },
+        {
+          "title": "Nettoyage des données",
+          "description": "Assurez la qualité des données en supprimant les incohérences et en les préparant pour l'analyse.",
+          "videoUrl": "https://www.youtube.com/embed/video2_fr"
+        },
+        {
+          "title": "Analyse des données",
+          "description": "Appliquez des méthodes scientifiques pour découvrir des modèles et des insights dans les données.",
+          "videoUrl": "https://www.youtube.com/embed/video3_fr"
+        },
+        {
+          "title": "Visualisation & Reporting",
+          "description": "Présentez les résultats grâce à des visualisations intuitives et des rapports détaillés.",
+          "videoUrl": "https://www.youtube.com/embed/video4_fr"
+        }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "description": "Une question ou une collaboration en vue ? Nous serions ravis d’échanger avec vous !",
+    "form": {
+      "name": "Nom",
+      "email": "E-mail",
+      "message": "Message",
+      "placeholder": {
+        "name": "Votre nom",
+        "email": "Votre e-mail",
+        "message": "Votre message"
+      },
+      "submit": "Envoyer le message",
+      "alert": {
+        "emptyFields": "Veuillez remplir tous les champs.",
+        "success": "Merci pour votre message ! Nous vous répondrons bientôt."
+      }
+    }
+  },
+  "footer": {
+    "description": "Nous transformons vos données en insights exploitables.",
+    "quickLinks": "Liens rapides",
+    "categories": "Catégories",
+    "contact": "Contact",
+    "links": {
+      "home": "Accueil",
+      "services": "Services",
+      "about": "À propos",
+      "statistics": "Statistiques",
+      "contact": "Contact",
+      "terms": "Conditions d'utilisation",
+      "visualization": "Visualisation",
+      "machineLearning": "Machine Learning",
+      "bigData": "Big Data"
+    },
+    "settings": "Paramètres",
+    "contactInfo": {
+      "email": "Email : contact@datalyz.com",
+      "phone": "Téléphone : +33 1 23 45 67 89",
+      "address": "Adresse : Paris, France"
+    },
+    "darkMode": "Mode sombre",
+    "on": "Activé",
+    "off": "Désactivé",
+    "language": "Langue",
+    "copyright": "Tous droits réservés."
+  },
+  "navbar": {
+    "company": "Datalyz",
+    "links": {
+      "home": "Accueil",
+      "services": "Services",
+      "about": "À propos",
+      "statistics": "Statistiques",
+      "contact": "Contact",
+      "signIn": "Connexion",
+      "signUp": "Inscription",
+      "dashboard": "Tableau de bord"
+    }
+  },
+  "statistics": {
+    "title": "Statistiques",
+    "description": "Explorez les données et les tendances de Datalyz.",
+    "activeUsers": "Utilisateurs actifs",
+    "dataCollected": "Données collectées",
+    "satisfactionRate": "Taux de satisfaction",
+    "thisMonth": "ce mois-ci",
+    "dataCollectedByMonth": "Données collectées par mois",
+    "userTrends": "Tendances des utilisateurs actifs",
+    "dataDistribution": "Répartition des données par catégorie"
+  },
+  "months": {
+    "jan": "Jan",
+    "feb": "Fév",
+    "mar": "Mar",
+    "apr": "Avr",
+    "may": "Mai",
+    "jun": "Juin",
+    "jul": "Juil",
+    "aug": "Août",
+    "sep": "Sep",
+    "oct": "Oct",
+    "nov": "Nov",
+    "dec": "Déc"
+  },
+  "categories": {
+    "a": "Catégorie A",
+    "b": "Catégorie B",
+    "c": "Catégorie C",
+    "d": "Catégorie D"
   }
 }

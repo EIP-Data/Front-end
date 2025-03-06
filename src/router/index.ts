@@ -1,22 +1,58 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
-import RegisterView from "../views/RegisterView.vue";
-import LoginView from "../views/LoginView.vue";
-import HomeView from "../views/HomeView.vue";
-
 const routes = [
     {
         path: '/',
         name: 'Home',
-        component: HomeView,
+        component: () => import('../views/HomeView.vue'),
         meta: {
             title: 'Home'
         }
     },
     {
+      path: '/contact',
+      name: 'Contact',
+      component: () => import('../views/ContactView.vue'),
+      meta: {
+          title: 'Contact'
+      }
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: () => import('../views/AboutView.vue'),
+        meta: {
+            title: 'About'
+        }
+    },
+    {
+        path: '/services',
+        name: 'Services',
+        component: () => import('../views/ServicesView.vue'),
+        meta: {
+            title: 'Services'
+        }
+    },
+    {
+        path: '/statistics',
+        name: 'Statistics',
+        component: () => import('../views/StatisticsView.vue'),
+        meta: {
+            title: 'Statistics'
+        }
+    },
+    {
+        path: '/terms-of-services',
+        name: 'TermsOfServices',
+        component: () => import('../views/TermsOfServicesView.vue'),
+        meta: {
+            title: 'Terms of Services'
+        }
+    },
+    {
         path: '/register',
         name: 'Register',
-        component: RegisterView,
+        component: () => import('../views/RegisterView.vue'),
         meta: {
             title: 'Register'
         }
@@ -24,7 +60,7 @@ const routes = [
     {
         path: '/login',
         name: 'Login',
-        component: LoginView,
+        component: () => import('../views/LoginView.vue'),
         meta: {
             title: 'Login'
         }
