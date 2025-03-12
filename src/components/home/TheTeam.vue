@@ -37,7 +37,7 @@ let people = [
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div v-for="person in people" :key="person.name">
           <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
-            <img :src="person.image" alt="Person picture" class="mx-auto mb-4 rounded-full"/>
+            <img :src="person.image" alt="Person picture" class="mx-auto w-40 mb-4 rounded-full"/>
             <h3 class="text-xl font-semibold text-[#F9AB3B] mb-2">{{ person.name }}</h3>
             <p class="text-gray-600 dark:text-gray-300">{{ person.speciality }}</p>
           </div>

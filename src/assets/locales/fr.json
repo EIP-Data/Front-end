@@ -62,10 +62,10 @@
     "researchGoal": {
       "title": "Notre Objectif de Recherche",
       "description": "Favoriser l’innovation par l’exploration scientifique.",
-      "content": [
-        "Chez Datalyz, notre objectif ultime est de contribuer à la communauté scientifique en publiant un article de recherche sur l’hyper-personnalisation. Nous cherchons à dévoiler les mécanismes derrière la personnalisation algorithmique et à fournir des insights exploitables sur l’influence de ces systèmes sur le comportement des utilisateurs.",
-        "En combinant une collecte de données avancée, une analyse rigoureuse et une visualisation intuitive, nous nous efforçons de repousser les limites de la compréhension et de l’optimisation des systèmes hyper-personnalisés."
-      ]
+      "contentList": {
+        "content1": "Chez Datalyz, notre objectif ultime est de contribuer à la communauté scientifique en publiant un article de recherche sur l’hyper-personnalisation. Nous cherchons à dévoiler les mécanismes derrière la personnalisation algorithmique et à fournir des insights exploitables sur l’influence de ces systèmes sur le comportement des utilisateurs.",
+        "content2": "En combinant une collecte de données avancée, une analyse rigoureuse et une visualisation intuitive, nous nous efforçons de repousser les limites de la compréhension et de l’optimisation des systèmes hyper-personnalisés."
+      }
     },
     "ctaBanner": {
       "title": "Prêt à Transformer Vos Données ?",
@@ -83,22 +83,22 @@
         {
           "title": "Collecte des données",
           "description": "Automatisez la collecte de données utilisateur à partir de plusieurs sources grâce à nos outils avancés.",
-          "videoUrl": "https://www.youtube.com/embed/video1_fr"
+          "videoUrl": "https://www.youtube.com/embed/0GLokqqVb_M?si=VrS9SVPB0FboYDY8"
         },
         {
           "title": "Nettoyage des données",
           "description": "Assurez la qualité des données en supprimant les incohérences et en les préparant pour l'analyse.",
-          "videoUrl": "https://www.youtube.com/embed/video2_fr"
+          "videoUrl": "https://www.youtube.com/embed/0GLokqqVb_M?si=VrS9SVPB0FboYDY8"
         },
         {
           "title": "Analyse des données",
           "description": "Appliquez des méthodes scientifiques pour découvrir des modèles et des insights dans les données.",
-          "videoUrl": "https://www.youtube.com/embed/video3_fr"
+          "videoUrl": "https://www.youtube.com/embed/0GLokqqVb_M?si=VrS9SVPB0FboYDY8"
         },
         {
           "title": "Visualisation & Reporting",
           "description": "Présentez les résultats grâce à des visualisations intuitives et des rapports détaillés.",
-          "videoUrl": "https://www.youtube.com/embed/video4_fr"
+          "videoUrl": "https://www.youtube.com/embed/0GLokqqVb_M?si=VrS9SVPB0FboYDY8"
         }
       ]
     }

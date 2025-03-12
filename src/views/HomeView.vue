@@ -41,21 +41,21 @@ const { t } = useI18n();
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
-          <img src="https://placehold.co/150" alt="Data Collection" class="mx-auto mb-4" />
+          <img src="@/assets/images/home/collect_data.png" alt="Data Collection" class="mx-auto w-40 <mb-4 rounded" />
           <h3 class="text-xl font-semibold text-[#F9AB3B] mb-2">{{ $t('home.coreFeatures.features.dataCollection.title') }}</h3>
           <p class="text-gray-600 dark:text-gray-300">
             {{ $t('home.coreFeatures.features.dataCollection.description') }}
           </p>
         </div>
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
-          <img src="https://placehold.co/150" alt="Data Analysis" class="mx-auto mb-4" />
+          <img src="@/assets/images/home/analyze_data.png" alt="Data Analysis" class="mx-auto w-40 mb-4 rounded" />
           <h3 class="text-xl font-semibold text-[#F9AB3B] mb-2">{{ $t('home.coreFeatures.features.dataAnalysis.title') }}</h3>
           <p class="text-gray-600 dark:text-gray-300">
             {{ $t('home.coreFeatures.features.dataAnalysis.description') }}
           </p>
         </div>
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
-          <img src="https://placehold.co/150" alt="Data Visualization" class="mx-auto mb-4" />
+          <img src="@/assets/images/home/visualize_data.png" alt="Data Visualization" class="mx-auto w-40 mb-4 rounded" />
           <h3 class="text-xl font-semibold text-[#F9AB3B] mb-2">{{ $t('home.coreFeatures.features.dataVisualization.title') }}</h3>
           <p class="text-gray-600 dark:text-gray-300">
             {{ $t('home.coreFeatures.features.dataVisualization.description') }}
