@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import HeroBanner from "@/components/home/HeroBanner.vue";
-import HowTo from "@/components/home/HowTo.vue";
-import TheTeam from "@/components/home/TheTeam.vue";
 import LayoutShowcase from "@/components/common/LayoutShowcase.vue";
 import DatalyzBanner from "@/components/common/DatalyzBanner.vue";
 import Purpose from "@/components/home/Purpose.vue";
