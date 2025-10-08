@@ -5,6 +5,10 @@ import HowTo from "@/components/home/HowTo.vue";
 import TheTeam from "@/components/home/TheTeam.vue";
 import LayoutShowcase from "@/components/common/LayoutShowcase.vue";
 import DatalyzBanner from "@/components/common/DatalyzBanner.vue";
+import Purpose from "@/components/home/Purpose.vue";
+import Research from "@/components/home/Research.vue";
+import FilterYourData from "@/components/home/FilterYourData.vue";
+import Testimonial from "@/components/home/Testimonial.vue";
 
 const { t } = useI18n();
 </script>
@@ -30,60 +34,8 @@ const { t } = useI18n();
       </template>
     </HeroBanner>
 
-    <section class="bg-white dark:bg-gray-900 px-6 py-16">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-[#F9AB3B] mb-4">
-          {{ $t('home.coreFeatures.title') }}
-        </h2>
-        <p class="text-gray-600 dark:text-gray-300">
-          {{ $t('home.coreFeatures.description') }}
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
-          <img src="@/assets/images/home/collect_data.png" alt="Data Collection" class="mx-auto w-40 <mb-4 rounded" />
-          <h3 class="text-xl font-semibold text-[#F9AB3B] mb-2">{{ $t('home.coreFeatures.features.dataCollection.title') }}</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            {{ $t('home.coreFeatures.features.dataCollection.description') }}
-          </p>
-        </div>
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
-          <img src="@/assets/images/home/analyze_data.png" alt="Data Analysis" class="mx-auto w-40 mb-4 rounded" />
-          <h3 class="text-xl font-semibold text-[#F9AB3B] mb-2">{{ $t('home.coreFeatures.features.dataAnalysis.title') }}</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            {{ $t('home.coreFeatures.features.dataAnalysis.description') }}
-          </p>
-        </div>
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md text-center">
-          <img src="@/assets/images/home/visualize_data.png" alt="Data Visualization" class="mx-auto w-40 mb-4 rounded" />
-          <h3 class="text-xl font-semibold text-[#F9AB3B] mb-2">{{ $t('home.coreFeatures.features.dataVisualization.title') }}</h3>
-          <p class="text-gray-600 dark:text-gray-300">
-            {{ $t('home.coreFeatures.features.dataVisualization.description') }}
-          </p>
-        </div>
-      </div>
-    </section>
+    <Purpose/>
 
-    <section class="bg-gray-50 dark:bg-gray-800 py-16">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-[#F9AB3B] mb-4">
-            {{ $t('home.researchGoal.title') }}
-          </h2>
-          <p class="text-gray-600 dark:text-gray-300">
-            {{ $t('home.researchGoal.description') }}
-          </p>
-        </div>
-        <div class="max-w-2xl mx-auto text-center">
-          <p v-for="i in 2" :key="i" class="text-gray-600 dark:text-gray-300 mb-6">
-            {{ $t(`home.researchGoal.contentList.content${i}`) }}
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <HowTo />
-    <TheTeam />
     <DatalyzBanner>
       <div class="text-center">
         <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6">
@@ -100,6 +52,10 @@ const { t } = useI18n();
         </router-link>
       </div>
     </DatalyzBanner>
+
+    <Research/>
+    <FilterYourData/>
+    <Testimonial/>
   </LayoutShowcase>
 </template>
 

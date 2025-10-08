@@ -158,9 +158,12 @@
       "about": "About",
       "statistics": "Statistics",
       "contact": "Contact",
-      "signIn": "Sign In",
-      "signUp": "Sign Up",
-      "dashboard": "Dashboard"
+      "signIn": "Login",
+      "signUp": "Register",
+      "dashboard": "Dashboard",
+      "our_work": "Our Work",
+      "get_involved": "Get Involved",
+      "about_us": "About us"
     }
   },
   "statistics": {
@@ -168,7 +171,7 @@
     "description": "Explore Datalyz's data and trends.",
     "activeUsers": "Active Users",
     "dataCollected": "Data Collected",
-    "satisfactionRate": "Satisfaction Rate",
+    "satisfactionRate": "Analyze done",
     "thisMonth": "this month",
     "dataCollectedByMonth": "Data Collected by Month",
     "userTrends": "User Trends",

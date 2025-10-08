@@ -7,6 +7,7 @@ import Footer from "@/components/common/Footer.vue";
   <div>
     <Navbar/>
     <slot></slot>
+    <img src="/src/assets/images/home/footer_datalyz.png"/>
     <Footer/>
   </div>
 </template>

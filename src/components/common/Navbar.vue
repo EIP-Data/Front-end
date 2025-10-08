@@ -61,9 +61,9 @@ onMounted(() => {
 
       <div class="hidden md:flex flex-1 justify-center space-x-6">
         <router-link to="/" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.home") }}</router-link>
-        <router-link to="/services" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.services") }}</router-link>
-        <router-link to="/about" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.about") }}</router-link>
-        <router-link to="/statistics" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.statistics") }}</router-link>
+        <router-link to="/our_work" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.our_work") }}</router-link>
+        <router-link to="/get_involved" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.get_involved") }}</router-link>
+        <router-link to="/about_us" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.about_us") }}</router-link>
         <router-link to="/contact" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.contact") }}</router-link>
       </div>
 

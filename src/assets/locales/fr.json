@@ -160,7 +160,10 @@
       "contact": "Contact",
       "signIn": "Connexion",
       "signUp": "Inscription",
-      "dashboard": "Tableau de bord"
+      "dashboard": "Tableau de bord",
+      "our_work": "Notre travail",
+      "get_involved": "Nous rejoindre",
+      "about_us": "A propos"
     }
   },
   "statistics": {
@@ -168,7 +171,7 @@
     "description": "Explorez les données et les tendances de Datalyz.",
     "activeUsers": "Utilisateurs actifs",
     "dataCollected": "Données collectées",
-    "satisfactionRate": "Taux de satisfaction",
+    "satisfactionRate": "Analyses effectuées",
     "thisMonth": "ce mois-ci",
     "dataCollectedByMonth": "Données collectées par mois",
     "userTrends": "Tendances des utilisateurs actifs",

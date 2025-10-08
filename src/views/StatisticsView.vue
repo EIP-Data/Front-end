@@ -62,7 +62,7 @@ const pieChartData = ref({
       </template>
     </HeroBanner>
 
-    <div class="container mx-auto px-6 py-12">
+    <div class="px-6 py-12">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
           <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200">{{ t('statistics.activeUsers') }}</h3>
@@ -76,7 +76,7 @@ const pieChartData = ref({
         </div>
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
           <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-200">{{ t('statistics.satisfactionRate') }}</h3>
-          <p class="text-3xl font-bold text-[#F9AB3B]">92%</p>
+          <p class="text-3xl font-bold text-[#F9AB3B]">202 543</p>
           <p class="text-gray-500 dark:text-gray-400">+2% {{ t('statistics.thisMonth') }}</p>
         </div>
       </div>
