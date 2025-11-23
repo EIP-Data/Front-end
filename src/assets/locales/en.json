@@ -103,6 +103,99 @@
       ]
     }
   },
+  "ourWork": {
+    "hero": {
+      "title": "Our Work",
+      "subtitle": "Developing innovative tools to help researchers understand hyper-personalization algorithms and their impact on user behavior."
+    },
+    "goal": {
+      "title": "Our Mission",
+      "description": "Our project aims to create a comprehensive toolkit for researchers to analyze and understand how hyper-personalization algorithms work. By collecting and analyzing browsing data, we seek to predict and explain what these algorithms understand about users based on their online activity.",
+      "features": {
+        "understand": {
+          "title": "Understand",
+          "description": "Decode how algorithms interpret your digital footprint"
+        },
+        "analyze": {
+          "title": "Analyze",
+          "description": "Process browsing data to reveal algorithmic patterns"
+        },
+        "publish": {
+          "title": "Publish",
+          "description": "Contribute to scientific research on personalization"
+        }
+      }
+    }
+  },
+  "getInvolved": {
+    "hero": {
+      "title": "Get Involved",
+      "subtitle": "Join our research by contributing your browsing data. Your participation helps us understand how algorithms shape online experiences."
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "We offer two methods to collect browsing data depending on your device type."
+    },
+    "mobile": {
+      "title": "Mobile Tracking",
+      "description": "For mobile devices, we use a VPN solution that captures your browsing activity while ensuring your privacy and security.",
+      "features": {
+        "vpn": "Secure VPN connection for data collection",
+        "secure": "Encrypted traffic ensures data safety",
+        "anonymous": "Personal information is anonymized"
+      }
+    },
+    "desktop": {
+      "title": "Desktop Tracking",
+      "description": "For desktop users, we provide a browser extension that collects your navigation data to analyze what algorithms understand from your browsing habits.",
+      "features": {
+        "extension": "Easy-to-install browser extension",
+        "tracking": "Collects navigation and interaction data",
+        "prediction": "Helps predict algorithmic interpretations"
+      }
+    },
+    "purpose": {
+      "title": "What We Do With Your Data",
+      "description": "Your browsing data helps us understand how hyper-personalization algorithms work. We analyze patterns to predict what these algorithms infer about users based on their online behavior.",
+      "privacy": "Your privacy is our priority. All data is anonymized and used solely for research purposes. We never sell or share personal information with third parties."
+    }
+  },
+  "aboutUs": {
+    "hero": {
+      "title": "About Us",
+      "subtitle": "A team of passionate students working on cutting-edge research in data science and algorithmic analysis."
+    },
+    "project": {
+      "title": "Final Year Project",
+      "description": "Datalyz is a final year project (4th and 5th year) at Epitech. Our goal is to conduct meaningful research on hyper-personalization algorithms and potentially publish a research paper if our findings prove significant."
+    },
+    "research": {
+      "title": "Research Objective",
+      "description": "We aim to uncover how hyper-personalization algorithms interpret user behavior. By analyzing browsing patterns, we hope to contribute valuable insights to the scientific community."
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "subtitle": "Four dedicated students with complementary skills working together to advance research in algorithmic personalization.",
+      "members": {
+        "come": {
+          "role": "Big Data",
+          "description": "Specialized in large-scale data processing and analysis"
+        },
+        "mathieu": {
+          "role": "Big Data",
+          "description": "Expert in data infrastructure and pipeline development"
+        },
+        "cyprien": {
+          "role": "Algorithms & AI",
+          "description": "Focused on machine learning and algorithmic analysis"
+        },
+        "tom": {
+          "role": "Low-Level Optimization",
+          "description": "Specialized in process optimization and performance tuning"
+        }
+      }
+    }
+  },
   "contact": {
     "title": "Contact Us",
     "description": "Have a question or want to work together? We'd love to hear from you!",
@@ -136,7 +229,10 @@
       "terms": "Terms of Service",
       "visualization": "Visualization",
       "machineLearning": "Machine Learning",
-      "bigData": "Big Data"
+      "bigData": "Big Data",
+      "ourWork": "Our Work",
+      "getInvolved": "Get Involved",
+      "aboutUs": "About Us"
     },
     "settings": "Settings",
     "contactInfo": {
@@ -144,7 +240,7 @@
       "phone": "Phone: +33 1 23 45 67 89",
       "address": "Address: Paris, France"
     },
-    "darkMode": "Mode sombre",
+    "darkMode": "Dark Mode",
     "on": "On",
     "off": "Off",
     "language": "Language",
@@ -163,7 +259,7 @@
       "dashboard": "Dashboard",
       "our_work": "Our Work",
       "get_involved": "Get Involved",
-      "about_us": "About us"
+      "about_us": "About Us"
     }
   },
   "statistics": {

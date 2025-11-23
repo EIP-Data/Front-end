@@ -64,6 +64,30 @@ const routes = [
         meta: {
             title: 'Login'
         }
+    },
+    {
+        path: '/our_work',
+        name: 'OurWork',
+        component: () => import('../views/OurWorkView.vue'),
+        meta: {
+            title: 'Our Work'
+        }
+    },
+    {
+        path: '/get_involved',
+        name: 'GetInvolved',
+        component: () => import('../views/GetInvolvedView.vue'),
+        meta: {
+            title: 'Get Involved'
+        }
+    },
+    {
+        path: '/about_us',
+        name: 'AboutUs',
+        component: () => import('../views/AboutUsView.vue'),
+        meta: {
+            title: 'About Us'
+        }
     }
 ]
 

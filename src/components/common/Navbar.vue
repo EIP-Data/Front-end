@@ -100,9 +100,9 @@ onMounted(() => {
     >
       <div class="p-6">
         <router-link to="/" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.home") }}</router-link>
-        <router-link to="/services" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.services") }}</router-link>
-        <router-link to="/about" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.about") }}</router-link>
-        <router-link to="/statistics" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.statistics") }}</router-link>
+        <router-link to="/our_work" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.our_work") }}</router-link>
+        <router-link to="/get_involved" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.get_involved") }}</router-link>
+        <router-link to="/about_us" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.about_us") }}</router-link>
         <router-link to="/contact" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.contact") }}</router-link>
 
         <template v-if="!isLoggedIn">

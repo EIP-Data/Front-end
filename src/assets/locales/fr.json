@@ -18,9 +18,9 @@
     "title": "Créer un compte",
     "subtitle": "Commencez votre voyage avec nous",
     "username": "Nom d'utilisateur",
-    "usernamePlaceholder": "Votre nom d'utilistateur",
-    "emailPlaceholder": "your{'@'}email.com",
-    "passwordPlaceholder": "Enter your password",
+    "usernamePlaceholder": "Votre nom d'utilisateur",
+    "emailPlaceholder": "votre{'@'}email.com",
+    "passwordPlaceholder": "Entrez votre mot de passe",
     "email": "Adresse e-mail",
     "password": "Mot de passe",
     "confirmPassword": "Confirmer le mot de passe",
@@ -37,21 +37,21 @@
   "home": {
     "heroBanner": {
       "title": "Bienvenue sur Datalyz",
-      "paragraph": "Transformez des données brutes en informations exploitables grâce à des outils avancés de collecte, d’analyse et de visualisation.",
+      "paragraph": "Transformez des données brutes en informations exploitables grâce à des outils avancés de collecte, d'analyse et de visualisation.",
       "getStarted": "Commencer",
       "learnMore": "En savoir plus"
     },
     "coreFeatures": {
       "title": "Nos Fonctionnalités Clés",
-      "description": "Découvrez les outils qui font de Datalyz la solution ultime pour l’analyse de données.",
+      "description": "Découvrez les outils qui font de Datalyz la solution ultime pour l'analyse de données.",
       "features": {
         "dataCollection": {
           "title": "Collecte de Données",
-          "description": "Automatisez l’extraction de données grâce à nos outils avancés pour recueillir efficacement des données utilisateur."
+          "description": "Automatisez l'extraction de données grâce à nos outils avancés pour recueillir efficacement des données utilisateur."
         },
         "dataAnalysis": {
           "title": "Analyse de Données",
-          "description": "Explorez le fonctionnement des algorithmes d’hyper-personnalisation avec une précision scientifique."
+          "description": "Explorez le fonctionnement des algorithmes d'hyper-personnalisation avec une précision scientifique."
         },
         "dataVisualization": {
           "title": "Visualisation de Données",
@@ -61,19 +61,19 @@
     },
     "researchGoal": {
       "title": "Notre Objectif de Recherche",
-      "description": "Favoriser l’innovation par l’exploration scientifique.",
+      "description": "Favoriser l'innovation par l'exploration scientifique.",
       "contentList": {
-        "content1": "Chez Datalyz, notre objectif ultime est de contribuer à la communauté scientifique en publiant un article de recherche sur l’hyper-personnalisation. Nous cherchons à dévoiler les mécanismes derrière la personnalisation algorithmique et à fournir des insights exploitables sur l’influence de ces systèmes sur le comportement des utilisateurs.",
-        "content2": "En combinant une collecte de données avancée, une analyse rigoureuse et une visualisation intuitive, nous nous efforçons de repousser les limites de la compréhension et de l’optimisation des systèmes hyper-personnalisés."
+        "content1": "Chez Datalyz, notre objectif ultime est de contribuer à la communauté scientifique en publiant un article de recherche sur l'hyper-personnalisation. Nous cherchons à dévoiler les mécanismes derrière la personnalisation algorithmique et à fournir des insights exploitables sur l'influence de ces systèmes sur le comportement des utilisateurs.",
+        "content2": "En combinant une collecte de données avancée, une analyse rigoureuse et une visualisation intuitive, nous nous efforçons de repousser les limites de la compréhension et de l'optimisation des systèmes hyper-personnalisés."
       }
     },
     "ctaBanner": {
       "title": "Prêt à Transformer Vos Données ?",
-      "description": "Rejoignez Datalyz dès aujourd’hui et exploitez pleinement le potentiel de vos données.",
+      "description": "Rejoignez Datalyz dès aujourd'hui et exploitez pleinement le potentiel de vos données.",
       "getStarted": "Commencer"
     },
     "aboutUs": {
-      "title": "A propos de nous",
+      "title": "À propos de nous",
       "description": "Rencontrez l'équipe de Datalyz et leurs spécialités."
     },
     "process": {
@@ -103,9 +103,102 @@
       ]
     }
   },
+  "ourWork": {
+    "hero": {
+      "title": "Notre Travail",
+      "subtitle": "Développement d'outils innovants pour aider les chercheurs à comprendre les algorithmes d'hyper-personnalisation et leur impact sur le comportement des utilisateurs."
+    },
+    "goal": {
+      "title": "Notre Mission",
+      "description": "Notre projet vise à créer un ensemble d'outils complet pour permettre aux chercheurs d'analyser et de comprendre le fonctionnement des algorithmes d'hyper-personnalisation. En collectant et analysant les données de navigation, nous cherchons à prédire et expliquer ce que ces algorithmes comprennent des utilisateurs à partir de leur activité en ligne.",
+      "features": {
+        "understand": {
+          "title": "Comprendre",
+          "description": "Décoder comment les algorithmes interprètent votre empreinte numérique"
+        },
+        "analyze": {
+          "title": "Analyser",
+          "description": "Traiter les données de navigation pour révéler les patterns algorithmiques"
+        },
+        "publish": {
+          "title": "Publier",
+          "description": "Contribuer à la recherche scientifique sur la personnalisation"
+        }
+      }
+    }
+  },
+  "getInvolved": {
+    "hero": {
+      "title": "Nous Rejoindre",
+      "subtitle": "Participez à notre recherche en contribuant vos données de navigation. Votre participation nous aide à comprendre comment les algorithmes façonnent les expériences en ligne."
+    },
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "subtitle": "Nous proposons deux méthodes pour collecter les données de navigation selon votre type d'appareil."
+    },
+    "mobile": {
+      "title": "Suivi Mobile",
+      "description": "Pour les appareils mobiles, nous utilisons une solution VPN qui capture votre activité de navigation tout en garantissant votre confidentialité et votre sécurité.",
+      "features": {
+        "vpn": "Connexion VPN sécurisée pour la collecte de données",
+        "secure": "Trafic chiffré pour garantir la sécurité des données",
+        "anonymous": "Les informations personnelles sont anonymisées"
+      }
+    },
+    "desktop": {
+      "title": "Suivi Bureau",
+      "description": "Pour les utilisateurs de bureau, nous fournissons une extension de navigateur qui collecte vos données de navigation pour analyser ce que les algorithmes comprennent de vos habitudes de navigation.",
+      "features": {
+        "extension": "Extension de navigateur facile à installer",
+        "tracking": "Collecte les données de navigation et d'interaction",
+        "prediction": "Aide à prédire les interprétations algorithmiques"
+      }
+    },
+    "purpose": {
+      "title": "Ce que nous faisons de vos données",
+      "description": "Vos données de navigation nous aident à comprendre le fonctionnement des algorithmes d'hyper-personnalisation. Nous analysons les patterns pour prédire ce que ces algorithmes déduisent des utilisateurs en fonction de leur comportement en ligne.",
+      "privacy": "Votre vie privée est notre priorité. Toutes les données sont anonymisées et utilisées uniquement à des fins de recherche. Nous ne vendons ni ne partageons jamais d'informations personnelles avec des tiers."
+    }
+  },
+  "aboutUs": {
+    "hero": {
+      "title": "À Propos de Nous",
+      "subtitle": "Une équipe d'étudiants passionnés travaillant sur une recherche de pointe en science des données et analyse algorithmique."
+    },
+    "project": {
+      "title": "Projet de Fin d'Études",
+      "description": "Datalyz est un projet de fin d'études (4ème et 5ème année) à Epitech. Notre objectif est de mener une recherche significative sur les algorithmes d'hyper-personnalisation et potentiellement publier un article de recherche si nos conclusions s'avèrent pertinentes."
+    },
+    "research": {
+      "title": "Objectif de Recherche",
+      "description": "Nous cherchons à découvrir comment les algorithmes d'hyper-personnalisation interprètent le comportement des utilisateurs. En analysant les patterns de navigation, nous espérons apporter des insights précieux à la communauté scientifique."
+    },
+    "team": {
+      "title": "Notre Équipe",
+      "subtitle": "Quatre étudiants dévoués aux compétences complémentaires travaillant ensemble pour faire avancer la recherche sur la personnalisation algorithmique.",
+      "members": {
+        "come": {
+          "role": "Big Data",
+          "description": "Spécialisé dans le traitement et l'analyse de données à grande échelle"
+        },
+        "mathieu": {
+          "role": "Big Data",
+          "description": "Expert en infrastructure de données et développement de pipelines"
+        },
+        "cyprien": {
+          "role": "Algorithmes & IA",
+          "description": "Concentré sur le machine learning et l'analyse algorithmique"
+        },
+        "tom": {
+          "role": "Optimisation Bas Niveau",
+          "description": "Spécialisé dans l'optimisation des processus et le tuning de performance"
+        }
+      }
+    }
+  },
   "contact": {
     "title": "Contactez-nous",
-    "description": "Une question ou une collaboration en vue ? Nous serions ravis d’échanger avec vous !",
+    "description": "Une question ou une collaboration en vue ? Nous serions ravis d'échanger avec vous !",
     "form": {
       "name": "Nom",
       "email": "E-mail",
@@ -136,7 +229,10 @@
       "terms": "Conditions d'utilisation",
       "visualization": "Visualisation",
       "machineLearning": "Machine Learning",
-      "bigData": "Big Data"
+      "bigData": "Big Data",
+      "ourWork": "Notre Travail",
+      "getInvolved": "Nous Rejoindre",
+      "aboutUs": "À Propos"
     },
     "settings": "Paramètres",
     "contactInfo": {
@@ -161,9 +257,9 @@
       "signIn": "Connexion",
       "signUp": "Inscription",
       "dashboard": "Tableau de bord",
-      "our_work": "Notre travail",
-      "get_involved": "Nous rejoindre",
-      "about_us": "A propos"
+      "our_work": "Notre Travail",
+      "get_involved": "Nous Rejoindre",
+      "about_us": "À Propos"
     }
   },
   "statistics": {
