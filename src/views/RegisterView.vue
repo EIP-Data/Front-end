@@ -45,11 +45,11 @@ const handleSubmit = async () => {
   };
 
   await register(credentials)
-      .then((response) => {
+      .then((response: { email: string; jwt: string; username: string }) => {
         console.log("Response: ", response);
         errorMessage.value = '';
       })
-      .catch((error) => {
+      .catch((error: Error) => {
         errorMessage.value = t('register.error');
         console.error(error);
       });

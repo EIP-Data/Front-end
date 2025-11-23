@@ -30,8 +30,9 @@ app.use(router);
 pinia.use(piniaPluginPersistedstate);
 app.use(pinia);
 app.use(i18n);
-app.use(AOS.init());
 app.use(VueApexCharts);
+
+AOS.init();
 
 app.mount('#app');
 configureAxios(router);

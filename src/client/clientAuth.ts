@@ -24,47 +24,50 @@ type LoginResponse = {
 }
 
 async function login(credentials: LoginCredentials): Promise<LoginResponse> {
-    return await axios
+    return axios
         .post('/login', credentials)
         .then((response: AxiosResponse) => {
             if (response.status !== 200) {
                 console.error('Login failed', response)
-                return;
+                throw new Error('Login failed');
             }
             console.log('Login successful', response)
-            let data = response.data as LoginResponse;
+            const data = response.data as LoginResponse;
             const userStore = useUserStore();
             userStore.setEmail(credentials.email);
             storeToken(data.jwt);
             return response.data as LoginResponse;
         })
         .catch(
-            (error: any) => {
+            (error: Error) => {
                 console.error('Login failed', error)
+                throw error;
             }
         )
 }
 
 async function register(credentials: RegisterCredentials): Promise<RegisterResponse> {
-    return await axios
+    return axios
         .post('/register', credentials)
         .then((response: AxiosResponse) => {
             if (response.status !== 200) {
-                console.error('Login failed', response)
-                return;
+                console.error('Register failed', response)
+                throw new Error('Register failed');
             }
             console.log('Register successful', response);
-            let data = response.data as RegisterResponse;
+            const data = response.data as RegisterResponse;
             const userStore = useUserStore();
             userStore.setInformation(data.username, data.email);
             storeToken(data.jwt);
             return data;
         })
         .catch(
-            (error: any) => {
+            (error: Error) => {
                 console.error('Register failed', error)
+                throw error;
             }
         )
 }
 
-export {RegisterCredentials, LoginCredentials, login, register}
+export type {RegisterCredentials, LoginCredentials}
+export {login, register}

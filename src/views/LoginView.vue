@@ -20,11 +20,11 @@ const handleSubmit = async () => {
   };
 
   await login(credentials)
-      .then((response) => {
+      .then((response: { jwt: string }) => {
         console.log("Response: ", response);
         errorMessage.value = '';
       })
-      .catch((error) => {
+      .catch((error: Error) => {
         errorMessage.value = t('login.error');
         console.error(error);
       });

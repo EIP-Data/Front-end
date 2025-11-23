@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useI18n } from "vue-i18n";
 import HeroBanner from "@/components/home/HeroBanner.vue";
 import LayoutShowcase from "@/components/common/LayoutShowcase.vue";
 import DatalyzBanner from "@/components/common/DatalyzBanner.vue";
@@ -7,8 +6,6 @@ import Purpose from "@/components/home/Purpose.vue";
 import Research from "@/components/home/Research.vue";
 import FilterYourData from "@/components/home/FilterYourData.vue";
 import Testimonial from "@/components/home/Testimonial.vue";
-
-const { t } = useI18n();
 </script>
 
 <template>
