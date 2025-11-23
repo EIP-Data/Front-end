@@ -335,5 +335,16 @@
     "b": "Catégorie B",
     "c": "Catégorie C",
     "d": "Catégorie D"
+  },
+  "sidebar": {
+    "dashboard": "Tableau de bord",
+    "myData": "Mes données",
+    "preferences": "Préférences",
+    "settings": "Paramètres",
+    "darkMode": "Mode sombre",
+    "logout": "Déconnexion"
+  },
+  "dashboard": {
+    "welcome": "Bienvenue sur votre tableau de bord"
   }
 }

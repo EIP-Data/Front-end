@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { register, type RegisterCredentials } from "@/client/clientAuth.ts";
+import { useUserStore } from '@/stores/userStore';
 import LayoutShowcase from "@/components/common/LayoutShowcase.vue";
 import heroImage from '@/assets/images/home/hero_image.png';
 
 const { t } = useI18n();
+const router = useRouter();
+const userStore = useUserStore();
 
 const name = ref('');
 const email = ref('');
@@ -41,8 +45,10 @@ const handleSubmit = async () => {
 
   await register(credentials)
       .then((response: { email: string; jwt: string; username: string }) => {
-        console.log("Response: ", response);
         errorMessage.value = '';
+        userStore.setInformation(response.username, response.email);
+        userStore.isAuthenticated = true;
+        router.push('/user-dashboard');
       })
       .catch((error: Error) => {
         errorMessage.value = t('register.error');
@@ -50,14 +56,11 @@ const handleSubmit = async () => {
       });
 };
 
-const passwordStrength = computed(() => {
-  return testPasswordStrength();
-});
 </script>
 
 <template>
   <LayoutShowcase>
-    <div class="min-h-screen bg-slate-50 flex items-center justify-center">
+    <div class="min-h-screen bg-slate-900 flex items-center justify-center">
       <div class="w-full max-w-6xl px-6 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <!-- Left illustration -->
@@ -71,13 +74,13 @@ const passwordStrength = computed(() => {
 
           <!-- Right form -->
           <div>
-            <h1 class="text-5xl md:text-6xl font-semibold text-slate-800 leading-tight mb-10">
+            <h1 class="text-5xl md:text-6xl font-semibold text-slate-100 leading-tight mb-10">
               {{ t('register.niceToMeet') }}<br>
               <span class="text-amber-400 font-bold">{{ t('register.you') }}</span>
             </h1>
 
             <div v-if="errorMessage"
-                 class="mb-5 p-4 text-sm text-red-700 bg-red-100 border border-red-300">
+                 class="mb-5 p-4 text-sm text-red-400 bg-red-900/50 border border-red-700">
               {{ errorMessage }}
             </div>
 
@@ -88,7 +91,7 @@ const passwordStrength = computed(() => {
                   type="text"
                   required
                   :placeholder="t('register.name')"
-                  class="w-full rounded-none border border-amber-300 bg-white px-6 py-3 text-slate-800 placeholder:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  class="w-full rounded-none border border-slate-600 bg-slate-800 px-6 py-3 text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
                 />
               </div>
 
@@ -98,7 +101,7 @@ const passwordStrength = computed(() => {
                   type="email"
                   required
                   :placeholder="t('register.email')"
-                  class="w-full rounded-none border border-amber-300 bg-white px-6 py-3 text-slate-800 placeholder:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  class="w-full rounded-none border border-slate-600 bg-slate-800 px-6 py-3 text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
                 />
               </div>
 
@@ -108,12 +111,12 @@ const passwordStrength = computed(() => {
                   :type="showPassword ? 'text' : 'password'"
                   required
                   :placeholder="t('register.password')"
-                  class="w-full rounded-none border border-amber-300 bg-white px-6 py-3 text-slate-800 placeholder:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  class="w-full rounded-none border border-slate-600 bg-slate-800 px-6 py-3 text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
                 />
                 <button
                   type="button"
                   @click="showPassword = !showPassword"
-                  class="absolute right-4 top-1/2 -translate-y-1/2 text-amber-400 hover:text-amber-500"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-amber-400"
                 >
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path v-if="showPassword" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -132,12 +135,12 @@ const passwordStrength = computed(() => {
                   :type="showConfirmPassword ? 'text' : 'password'"
                   required
                   :placeholder="t('register.confirmPassword')"
-                  class="w-full rounded-none border border-amber-300 bg-white px-6 py-3 text-slate-800 placeholder:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                  class="w-full rounded-none border border-slate-600 bg-slate-800 px-6 py-3 text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
                 />
                 <button
                   type="button"
                   @click="showConfirmPassword = !showConfirmPassword"
-                  class="absolute right-4 top-1/2 -translate-y-1/2 text-amber-400 hover:text-amber-500"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-amber-400"
                 >
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path v-if="showConfirmPassword" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -152,13 +155,13 @@ const passwordStrength = computed(() => {
 
               <button
                 type="submit"
-                class="mt-4 w-full rounded-none bg-amber-400 px-6 py-3 text-white text-lg font-semibold hover:bg-amber-500 transition-colors"
+                class="mt-4 w-full rounded-none bg-amber-400 px-6 py-3 text-slate-900 text-lg font-semibold hover:bg-amber-500 transition-colors"
               >
                 {{ t('register.submit') }}
               </button>
             </form>
 
-            <p class="mt-6 text-center text-sm text-slate-600">
+            <p class="mt-6 text-center text-sm text-slate-400">
               {{ t('register.existingAccount') }}
               <router-link to="/login" class="text-amber-400 hover:text-amber-500 font-medium">
                 {{ t('register.loginInstead') }}

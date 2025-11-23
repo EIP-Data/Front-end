@@ -1,5 +1,4 @@
 import axios, {AxiosError} from 'axios'
-import type {AxiosResponse} from 'axios'
 import type {Router} from 'vue-router'
 
 export function configureAxios(router: Router): void {
@@ -9,10 +8,10 @@ export function configureAxios(router: Router): void {
     axios.interceptors.response.use(
         (response) => response,
         (error: AxiosError) => {
-            if (!error?.response) return
-            const response: AxiosResponse = error.response
-
-            if (response.status && response.status === 401) router.push('/').catch(console.warn)
+            if (error?.response?.status === 401) {
+                router.push('/').catch(console.warn)
+            }
+            return Promise.reject(error)
         }
     )
 }

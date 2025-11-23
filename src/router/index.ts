@@ -88,6 +88,14 @@ const routes = [
         meta: {
             title: 'About Us'
         }
+    },
+    {
+        path: '/user-dashboard',
+        name: 'UserDashboard',
+        component: () => import('../views/UserDashboardView.vue'),
+        meta: {
+            title: 'Dashboard'
+        }
     }
 ]
 

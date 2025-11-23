@@ -335,5 +335,16 @@
     "b": "Category B",
     "c": "Category C",
     "d": "Category D"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "myData": "My Data",
+    "preferences": "Preferences",
+    "settings": "Settings",
+    "darkMode": "Dark Mode",
+    "logout": "Logout"
+  },
+  "dashboard": {
+    "welcome": "Welcome to your Dashboard"
   }
 }
