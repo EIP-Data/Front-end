@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 </script>
 
 <template>
-  <section class="bg-gray-50 py-24 px-6 md:px-16">
+  <section class="bg-gray-50 dark:bg-gray-900 py-24 px-6 md:px-16">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
 
       <!-- Image -->
@@ -17,21 +19,14 @@
 
       <!-- Texte -->
       <div class="md:w-2/3 text-center md:text-left">
-        <p class="text-gray-600 leading-relaxed mb-8">
-          Maecenas dignissim justo eget nulla rutrum molestie. Maecenas lobortis sem dui, vel rutrum
-          risus tincidunt ullamcorper. Proin eu enim metus. Vivamus sed libero ornare, tristique quam
-          in, gravida enim. Nullam ut molestie arcu, at hendrerit elit. Morbi laoreet elit at ligula
-          molestie, nec molestie mi blandit. Suspendisse cursus tellus sed augue ultrices, quis
-          tristique nulla sodales. Suspendisse eget lorem eu turpis vestibulum pretium. Suspendisse
-          potenti. Quisque malesuada enim sapien, vitae placerat ante feugiat eget. Quisque vulputate
-          odio neque, eget efficitur libero condimentum id. Curabitur id nibh id sem dignissim finibus
-          ac sit amet magna.
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+          {{ t('home.testimonial.quote') }}
         </p>
 
         <div class="space-y-1 mb-10">
-          <h3 class="text-amber-500 font-semibold text-lg">John Doe</h3>
-          <p class="text-gray-400">
-            British Dragon Boat Racing Association
+          <h3 class="text-amber-500 font-semibold text-lg">{{ t('home.testimonial.author') }}</h3>
+          <p class="text-gray-400 dark:text-gray-500">
+            {{ t('home.testimonial.organization') }}
           </p>
         </div>
 
@@ -39,7 +34,7 @@
             href="#"
             class="inline-flex items-center gap-2 text-amber-500 font-semibold hover:text-amber-600 transition-all"
         >
-          Meet all contributors
+          {{ t('home.testimonial.meetContributors') }}
           <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -58,5 +53,4 @@
 
 
 <style scoped>
-
 </style>

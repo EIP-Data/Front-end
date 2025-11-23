@@ -1,19 +1,21 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 </script>
 
 <template>
-  <section class="bg-gray-50 py-24 px-6 md:px-16">
+  <section class="bg-gray-50 dark:bg-gray-900 py-24 px-6 md:px-16">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
       <!-- Texte -->
       <div class="md:w-1/2 text-center md:text-left">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 leading-tight">
-          Advance research in
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-gray-100 leading-tight">
+          {{ t('home.research.titleStart') }}
           <br />
-          <span class="text-amber-500">the world of data</span>
+          <span class="text-amber-500">{{ t('home.research.titleHighlight') }}</span>
         </h2>
-        <p class="mt-4 text-lg text-gray-600">
-          We reached here with our hard work and dedication
+        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
+          {{ t('home.research.subtitle') }}
         </p>
       </div>
 
@@ -22,37 +24,33 @@
         <!-- Stat 1 -->
         <div class="flex flex-col items-center md:items-start">
           <div class="flex items-center space-x-3 mb-1">
-            <!--<img src="/src/assets/images/icons/members.png" alt="Members icon" class="w-7 h-7">-->
-            <h3 class="text-2xl font-extrabold text-gray-800">2,245,341</h3>
+            <h3 class="text-2xl font-extrabold text-gray-800 dark:text-gray-100">2,245,341</h3>
           </div>
-          <p class="text-gray-500 text-base">Members</p>
+          <p class="text-gray-500 dark:text-gray-400 text-base">{{ t('home.research.stats.members') }}</p>
         </div>
 
         <!-- Stat 2 -->
         <div class="flex flex-col items-center md:items-start">
           <div class="flex items-center space-x-3 mb-1">
-            <!--<img src="/src/assets/images/icons/github.png" alt="GitHub stars icon" class="w-7 h-7">-->
-            <h3 class="text-2xl font-extrabold text-gray-800">46,328</h3>
+            <h3 class="text-2xl font-extrabold text-gray-800 dark:text-gray-100">46,328</h3>
           </div>
-          <p class="text-gray-500 text-base">Stars on GitHub</p>
+          <p class="text-gray-500 dark:text-gray-400 text-base">{{ t('home.research.stats.githubStars') }}</p>
         </div>
 
         <!-- Stat 3 -->
         <div class="flex flex-col items-center md:items-start">
           <div class="flex items-center space-x-3 mb-1">
-            <!--<img src="/src/assets/images/icons/clicks.png" alt="Clicks icon" class="w-7 h-7">-->
-            <h3 class="text-2xl font-extrabold text-gray-800">101,828,867</h3>
+            <h3 class="text-2xl font-extrabold text-gray-800 dark:text-gray-100">101,828,867</h3>
           </div>
-          <p class="text-gray-500 text-base">Recorded clicks</p>
+          <p class="text-gray-500 dark:text-gray-400 text-base">{{ t('home.research.stats.recordedClicks') }}</p>
         </div>
 
         <!-- Stat 4 -->
         <div class="flex flex-col items-center md:items-start">
           <div class="flex items-center space-x-3 mb-1">
-            <!--<img src="/src/assets/images/icons/data.png" alt="Data collected icon" class="w-7 h-7">-->
-            <h3 class="text-2xl font-extrabold text-gray-800">3,419,926,436</h3>
+            <h3 class="text-2xl font-extrabold text-gray-800 dark:text-gray-100">3,419,926,436</h3>
           </div>
-          <p class="text-gray-500 text-base">Data collected</p>
+          <p class="text-gray-500 dark:text-gray-400 text-base">{{ t('home.research.stats.dataCollected') }}</p>
         </div>
       </div>
     </div>
@@ -60,5 +58,4 @@
 </template>
 
 <style scoped>
-
 </style>

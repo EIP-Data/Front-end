@@ -2,6 +2,8 @@
   "login" : {
     "title": "Sign In",
     "subtitle": "Sign in to continue to your account",
+    "welcome": "Welcome",
+    "back": "Back",
     "email": "Email Address",
     "emailPlaceholder": "your{'@'}email.com",
     "password": "Password",
@@ -17,6 +19,9 @@
   "register": {
     "title": "Create Account",
     "subtitle": "Start your journey with us",
+    "niceToMeet": "Nice to meet",
+    "you": "You",
+    "name": "Name",
     "username": "Username",
     "usernamePlaceholder": "Your username",
     "emailPlaceholder": "your{'@'}email.com",
@@ -40,6 +45,53 @@
       "paragraph": "Transforming raw data into actionable insights with cutting-edge tools for collection, analysis, and visualization.",
       "getStarted": "Get Started",
       "learnMore": "Learn More"
+    },
+    "hero": {
+      "titleStart": "Revolutionise your data journey:",
+      "titleHighlight": "Collect, Analyse and Visualise",
+      "subtitle": "Who collects your data online? Find out!",
+      "register": "Register"
+    },
+    "purpose": {
+      "title": "Manage all the data you collect",
+      "subtitle": "Who is Datalyz suitable for?",
+      "cards": {
+        "users": {
+          "title": "Users",
+          "description": "Our data management software enables complete automation, from data collection to analysis and visualisation."
+        },
+        "associations": {
+          "title": "Associations",
+          "description": "You can choose whether or not to share which data with whom."
+        },
+        "community": {
+          "title": "Community",
+          "description": "Datalyz is open source to advance the field of research."
+        }
+      }
+    },
+    "research": {
+      "titleStart": "Advance research in",
+      "titleHighlight": "the world of data",
+      "subtitle": "We reached here with our hard work and dedication",
+      "stats": {
+        "members": "Members",
+        "githubStars": "Stars on GitHub",
+        "recordedClicks": "Recorded clicks",
+        "dataCollected": "Data collected"
+      }
+    },
+    "filterData": {
+      "titleStart": "How to filter your data",
+      "titleHighlight": "like we did",
+      "description": "Our platform provides powerful tools to help you filter, organize, and analyze your data effectively. With intuitive controls and advanced algorithms, you can extract meaningful insights from complex datasets while maintaining full control over your information.",
+      "learnMore": "Learn More"
+    },
+    "testimonial": {
+      "quote": "Datalyz has completely transformed how we understand our data collection practices. The insights we've gained have been invaluable for our research, and the platform's ease of use made adoption seamless across our entire organization.",
+      "author": "John Doe",
+      "organization": "British Dragon Boat Racing Association",
+      "meetContributors": "Meet all contributors"
     },
     "coreFeatures": {
       "title": "Our Core Features",
@@ -218,28 +270,19 @@
   "footer": {
     "description": "We transform your data into actionable insights.",
     "quickLinks": "Quick Links",
-    "categories": "Categories",
+    "legal": "Legal",
     "contact": "Contact",
     "links": {
       "home": "Home",
-      "services": "Services",
-      "about": "About",
-      "statistics": "Statistics",
-      "contact": "Contact",
-      "terms": "Terms of Service",
-      "visualization": "Visualization",
-      "machineLearning": "Machine Learning",
-      "bigData": "Big Data",
       "ourWork": "Our Work",
       "getInvolved": "Get Involved",
-      "aboutUs": "About Us"
+      "aboutUs": "About Us",
+      "contact": "Contact",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookies Policy"
     },
     "settings": "Settings",
-    "contactInfo": {
-      "email": "Email: contact@datalyz.com",
-      "phone": "Phone: +33 1 23 45 67 89",
-      "address": "Address: Paris, France"
-    },
     "darkMode": "Dark Mode",
     "on": "On",
     "off": "Off",

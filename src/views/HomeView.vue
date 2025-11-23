@@ -25,7 +25,7 @@ const { t } = useI18n();
         </router-link>
         <router-link
             to="/"
-            class="bg-white text-[#F9AB3B] px-8 py-3 rounded-lg border border-[#F9AB3B] hover:bg-gray-100 transition duration-300"
+            class="bg-white dark:bg-gray-700 text-[#F9AB3B] px-8 py-3 rounded-lg border border-[#F9AB3B] hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-300"
         >
           {{ $t('home.heroBanner.learnMore') }}
         </router-link>

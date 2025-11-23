@@ -2,6 +2,8 @@
   "login" : {
     "title": "Se connecter",
     "subtitle": "Connectez-vous à votre compte",
+    "welcome": "Bon retour",
+    "back": "Parmi nous",
     "email": "Adresse e-mail",
     "emailPlaceholder": "votre{'@'}email.com",
     "password": "Mot de passe",
@@ -17,6 +19,9 @@
   "register" : {
     "title": "Créer un compte",
     "subtitle": "Commencez votre voyage avec nous",
+    "niceToMeet": "Enchanté de te",
+    "you": "Rencontrer",
+    "name": "Nom",
     "username": "Nom d'utilisateur",
     "usernamePlaceholder": "Votre nom d'utilisateur",
     "emailPlaceholder": "votre{'@'}email.com",
@@ -40,6 +45,53 @@
       "paragraph": "Transformez des données brutes en informations exploitables grâce à des outils avancés de collecte, d'analyse et de visualisation.",
       "getStarted": "Commencer",
       "learnMore": "En savoir plus"
+    },
+    "hero": {
+      "titleStart": "Révolutionnez votre parcours data :",
+      "titleHighlight": "Collectez, Analysez et Visualisez",
+      "subtitle": "Qui collecte vos données en ligne ? Découvrez-le !",
+      "register": "S'inscrire"
+    },
+    "purpose": {
+      "title": "Gérez toutes les données que vous collectez",
+      "subtitle": "À qui s'adresse Datalyz ?",
+      "cards": {
+        "users": {
+          "title": "Utilisateurs",
+          "description": "Notre logiciel de gestion des données permet une automatisation complète, de la collecte à l'analyse et à la visualisation."
+        },
+        "associations": {
+          "title": "Associations",
+          "description": "Vous pouvez choisir quelles données partager et avec qui."
+        },
+        "community": {
+          "title": "Communauté",
+          "description": "Datalyz est open source pour faire avancer le domaine de la recherche."
+        }
+      }
+    },
+    "research": {
+      "titleStart": "Faites avancer la recherche dans",
+      "titleHighlight": "le monde de la data",
+      "subtitle": "Nous sommes arrivés ici grâce à notre travail et notre dévouement",
+      "stats": {
+        "members": "Membres",
+        "githubStars": "Étoiles sur GitHub",
+        "recordedClicks": "Clics enregistrés",
+        "dataCollected": "Données collectées"
+      }
+    },
+    "filterData": {
+      "titleStart": "Comment filtrer vos données",
+      "titleHighlight": "comme nous l'avons fait",
+      "description": "Notre plateforme fournit des outils puissants pour vous aider à filtrer, organiser et analyser vos données efficacement. Avec des contrôles intuitifs et des algorithmes avancés, vous pouvez extraire des insights significatifs de jeux de données complexes tout en gardant le contrôle total de vos informations.",
+      "learnMore": "En savoir plus"
+    },
+    "testimonial": {
+      "quote": "Datalyz a complètement transformé notre compréhension de nos pratiques de collecte de données. Les insights que nous avons obtenus ont été inestimables pour notre recherche, et la facilité d'utilisation de la plateforme a rendu l'adoption transparente dans toute notre organisation.",
+      "author": "John Doe",
+      "organization": "British Dragon Boat Racing Association",
+      "meetContributors": "Rencontrer tous les contributeurs"
     },
     "coreFeatures": {
       "title": "Nos Fonctionnalités Clés",
@@ -218,28 +270,19 @@
   "footer": {
     "description": "Nous transformons vos données en insights exploitables.",
     "quickLinks": "Liens rapides",
-    "categories": "Catégories",
+    "legal": "Mentions légales",
     "contact": "Contact",
     "links": {
       "home": "Accueil",
-      "services": "Services",
-      "about": "À propos",
-      "statistics": "Statistiques",
-      "contact": "Contact",
-      "terms": "Conditions d'utilisation",
-      "visualization": "Visualisation",
-      "machineLearning": "Machine Learning",
-      "bigData": "Big Data",
       "ourWork": "Notre Travail",
       "getInvolved": "Nous Rejoindre",
-      "aboutUs": "À Propos"
+      "aboutUs": "À Propos",
+      "contact": "Contact",
+      "terms": "Conditions d'utilisation",
+      "privacy": "Politique de confidentialité",
+      "cookies": "Politique des cookies"
     },
     "settings": "Paramètres",
-    "contactInfo": {
-      "email": "Email : contact@datalyz.com",
-      "phone": "Téléphone : +33 1 23 45 67 89",
-      "address": "Adresse : Paris, France"
-    },
     "darkMode": "Mode sombre",
     "on": "Activé",
     "off": "Désactivé",
