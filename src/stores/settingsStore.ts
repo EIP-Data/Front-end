@@ -10,7 +10,7 @@ export const useSettingsStore = defineStore('settings', () => {
         isDarkMode.value ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark');
     }
 
-    const toggleDarkMode = (state) => {
+    const toggleDarkMode = (state: boolean) => {
         isDarkMode.value = state;
         setDarkMode();
         localStorage.setItem('darkMode', isDarkMode.value.toString());
