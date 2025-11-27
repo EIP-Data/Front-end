@@ -35,7 +35,7 @@ onMounted(async () => {
 
         // Redirect after 2 seconds
         setTimeout(() => {
-          if (userStore.getIsAuthenticated.value) {
+          if (userStore.getIsAuthenticated) {
             router.push('/user-dashboard');
           } else {
             router.push('/login');
@@ -96,7 +96,7 @@ onMounted(async () => {
                 {{ t('verifyEmail.success') }}
               </h2>
               <p class="text-sm text-green-600 dark:text-green-400">
-                {{ userStore.getIsAuthenticated.value ? t('verifyEmail.successMessageLoggedIn') : t('verifyEmail.successMessageNotLoggedIn') }}
+                {{ userStore.getIsAuthenticated ? t('verifyEmail.successMessageLoggedIn') : t('verifyEmail.successMessageNotLoggedIn') }}
               </p>
             </div>
           </div>
