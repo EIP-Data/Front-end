@@ -9,7 +9,7 @@ export function configureAxios(router: Router): void {
         (response) => response,
         (error: AxiosError) => {
             if (error?.response?.status === 401) {
-                router.push('/').catch(console.warn)
+                router.push('/login').catch(console.warn)
             }
             return Promise.reject(error)
         }
