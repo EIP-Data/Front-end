@@ -66,6 +66,14 @@ const routes = [
         }
     },
     {
+        path: '/verify-email',
+        name: 'VerifyEmail',
+        component: () => import('../views/VerifyEmailView.vue'),
+        meta: {
+            title: 'Verify Email'
+        }
+    },
+    {
         path: '/our_work',
         name: 'OurWork',
         component: () => import('../views/OurWorkView.vue'),
