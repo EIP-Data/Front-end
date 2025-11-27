@@ -389,5 +389,50 @@
   },
   "dashboard": {
     "welcome": "Welcome to your Dashboard"
+  },
+  "onboarding": {
+    "title": "Privacy Preferences",
+    "subtitle": "Help us personalize your experience",
+    "step": "Step",
+    "of": "of",
+    "skip": "Skip",
+    "next": "Next",
+    "finish": "Finish & Continue",
+    "consents": {
+      "data": {
+        "title": "Share My Data with Datalyz",
+        "description": "By sharing your general data with us, you help us understand your preferences and improve our analysis. This includes basic profile information and settings.",
+        "benefit": "This allows us to build a baseline understanding of user behavior patterns."
+      },
+      "navigation": {
+        "title": "Share My Navigation with Datalyz",
+        "description": "Navigation data includes the pages you visit and the paths you take through our platform. This helps us optimize user flows and improve the overall experience.",
+        "benefit": "We can identify which features are most valuable and improve navigation structure."
+      },
+      "history": {
+        "title": "Share My History with Datalyz",
+        "description": "Your browsing history on our platform helps us understand long-term usage patterns and preferences. This data is crucial for understanding how algorithms evolve their understanding over time.",
+        "benefit": "Essential for studying how hyper-personalization algorithms build user profiles."
+      },
+      "clicks": {
+        "title": "Share My Clicks with Datalyz",
+        "description": "Click tracking allows us to see which elements you interact with. This micro-level data is vital for understanding precise user behavior and intent.",
+        "benefit": "Reveals what catches user attention and drives engagement decisions."
+      },
+      "scrolls": {
+        "title": "Share My Scrolls with Datalyz",
+        "description": "Scroll behavior indicates how you consume content - what you skip and what you read carefully. This is a strong signal of interest and engagement.",
+        "benefit": "Helps understand content consumption patterns and user engagement depth."
+      },
+      "fullExperience": {
+        "title": "Share My Entire Web Experience with Datalyz",
+        "description": "This comprehensive data collection includes all interactions, timing, mouse movements, and behavioral signals. It provides the complete picture needed for advanced algorithmic analysis.",
+        "benefit": "Enables us to fully replicate and study hyper-personalization algorithms in action."
+      }
+    },
+    "consent": {
+      "agree": "I consent to share this data",
+      "disagree": "I prefer not to share this data"
+    }
   }
 }
