@@ -40,6 +40,10 @@ type ResetPasswordResponse = {
     message: string
 }
 
+type VerifyEmailResponse = {
+    message: string
+}
+
 async function login(credentials: LoginCredentials): Promise<LoginResponse> {
     return axios
         .post('/login', credentials)
@@ -86,6 +90,25 @@ async function register(credentials: RegisterCredentials): Promise<RegisterRespo
         )
 }
 
+async function verifyEmail(token: string): Promise<VerifyEmailResponse> {
+    return axios
+        .get('/verify-email', { params: { token } })
+        .then((response: AxiosResponse) => {
+            if (response.status !== 200) {
+                console.error('Email verification failed', response)
+                throw new Error('Email verification failed');
+            }
+            console.log('Email verification successful', response);
+            return response.data as VerifyEmailResponse;
+        })
+        .catch(
+            (error: Error) => {
+                console.error('Email verification failed', error)
+                throw error;
+            }
+        )
+}
+
 async function forgotPassword(request: ForgotPasswordRequest): Promise<ForgotPasswordResponse> {
     return axios
         .post('/password-reset/request', request)
@@ -125,4 +148,4 @@ async function resetPassword(request: ResetPasswordRequest): Promise<ResetPasswo
 }
 
 export type {RegisterCredentials, LoginCredentials, ForgotPasswordRequest, ResetPasswordRequest}
-export {login, register, forgotPassword, resetPassword}
+export {login, register, forgotPassword, resetPassword, verifyEmail}

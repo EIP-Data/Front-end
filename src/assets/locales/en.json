@@ -70,6 +70,18 @@
     "passwordMismatch": "Passwords do not match",
     "weakPassword": "Password is too weak - must be at least 8 characters, 1 uppercase, 1 lowercase, 1 number"
   },
+  "verifyEmail": {
+    "title": "Verify Your",
+    "titleHighlight": "Email",
+    "verifying": "Verifying your email...",
+    "success": "Email verified successfully!",
+    "successMessageLoggedIn": "Redirecting you to your dashboard...",
+    "successMessageNotLoggedIn": "Redirecting you to login...",
+    "error": "Verification Failed",
+    "errorMessage": "The verification link is invalid or has expired. Please try again.",
+    "loginButton": "Go to Login",
+    "registerButton": "Create an Account"
+  },
   "home": {
     "heroBanner": {
       "title": "Welcome to Datalyz",

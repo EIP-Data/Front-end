@@ -70,6 +70,18 @@
     "passwordMismatch": "Les mots de passe ne correspondent pas",
     "weakPassword": "Le mot de passe est trop faible - doit comporter au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre"
   },
+  "verifyEmail": {
+    "title": "Vérifiez votre",
+    "titleHighlight": "Email",
+    "verifying": "Vérification de votre email en cours...",
+    "success": "Email vérifié avec succès !",
+    "successMessageLoggedIn": "Redirection vers votre tableau de bord...",
+    "successMessageNotLoggedIn": "Redirection vers la connexion...",
+    "error": "Échec de la vérification",
+    "errorMessage": "Le lien de vérification est invalide ou a expiré. Veuillez réessayer.",
+    "loginButton": "Se connecter",
+    "registerButton": "Créer un compte"
+  },
   "home": {
     "heroBanner": {
       "title": "Bienvenue sur Datalyz",
