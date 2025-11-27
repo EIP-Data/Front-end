@@ -23,6 +23,23 @@ type LoginResponse = {
     jwt: string
 }
 
+type ForgotPasswordRequest = {
+    email: string
+}
+
+type ForgotPasswordResponse = {
+    message: string
+}
+
+type ResetPasswordRequest = {
+    token: string
+    new_password: string
+}
+
+type ResetPasswordResponse = {
+    message: string
+}
+
 async function login(credentials: LoginCredentials): Promise<LoginResponse> {
     return axios
         .post('/login', credentials)
@@ -69,5 +86,43 @@ async function register(credentials: RegisterCredentials): Promise<RegisterRespo
         )
 }
 
-export type {RegisterCredentials, LoginCredentials}
-export {login, register}
+async function forgotPassword(request: ForgotPasswordRequest): Promise<ForgotPasswordResponse> {
+    return axios
+        .post('/password-reset/request', request)
+        .then((response: AxiosResponse) => {
+            if (response.status !== 200) {
+                console.error('Forgot password request failed', response)
+                throw new Error('Forgot password request failed');
+            }
+            console.log('Forgot password request successful', response);
+            return response.data as ForgotPasswordResponse;
+        })
+        .catch(
+            (error: Error) => {
+                console.error('Forgot password request failed', error)
+                throw error;
+            }
+        )
+}
+
+async function resetPassword(request: ResetPasswordRequest): Promise<ResetPasswordResponse> {
+    return axios
+        .post('/password-reset/confirm', request)
+        .then((response: AxiosResponse) => {
+            if (response.status !== 200) {
+                console.error('Reset password failed', response)
+                throw new Error('Reset password failed');
+            }
+            console.log('Reset password successful', response);
+            return response.data as ResetPasswordResponse;
+        })
+        .catch(
+            (error: Error) => {
+                console.error('Reset password failed', error)
+                throw error;
+            }
+        )
+}
+
+export type {RegisterCredentials, LoginCredentials, ForgotPasswordRequest, ResetPasswordRequest}
+export {login, register, forgotPassword, resetPassword}

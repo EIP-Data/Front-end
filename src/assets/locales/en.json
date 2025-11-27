@@ -43,6 +43,33 @@
     "submit": "Create Account",
     "weakPassword": "Password is too weak - must be at least 8 characters, 1 uppercase, 1 lowercase, 1 number"
   },
+  "forgotPassword": {
+    "title": "Reset Your",
+    "titleHighlight": "Password",
+    "subtitle": "Enter your email address and we'll send you a link to reset your password",
+    "email": "Email Address",
+    "emailPlaceholder": "your{'@'}email.com",
+    "submit": "Send Reset Link",
+    "success": "Check your email for password reset instructions",
+    "error": "Failed to send reset email. Please try again.",
+    "backToLogin": "Back to Login",
+    "rememberPassword": "Remember your password?"
+  },
+  "resetPassword": {
+    "title": "Create New",
+    "titleHighlight": "Password",
+    "subtitle": "Enter your new password below",
+    "password": "New Password",
+    "passwordPlaceholder": "Enter your new password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "••••••••",
+    "submit": "Reset Password",
+    "success": "Password reset successfully! Redirecting to login...",
+    "error": "Failed to reset password. The link may have expired.",
+    "invalidToken": "Reset link is invalid or has expired",
+    "passwordMismatch": "Passwords do not match",
+    "weakPassword": "Password is too weak - must be at least 8 characters, 1 uppercase, 1 lowercase, 1 number"
+  },
   "home": {
     "heroBanner": {
       "title": "Welcome to Datalyz",

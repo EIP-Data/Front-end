@@ -66,6 +66,22 @@ const routes = [
         }
     },
     {
+        path: '/forgot-password',
+        name: 'ForgotPassword',
+        component: () => import('../views/ForgotPasswordView.vue'),
+        meta: {
+            title: 'Forgot Password'
+        }
+    },
+    {
+        path: '/reset-password',
+        name: 'ResetPassword',
+        component: () => import('../views/ResetPasswordView.vue'),
+        meta: {
+            title: 'Reset Password'
+        }
+    },
+    {
         path: '/our_work',
         name: 'OurWork',
         component: () => import('../views/OurWorkView.vue'),

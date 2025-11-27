@@ -43,6 +43,33 @@
     "submit": "Créer un compte",
     "weakPassword": "Le mot de passe est trop faible - doit comporter au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre"
   },
+  "forgotPassword": {
+    "title": "Réinitialisez votre",
+    "titleHighlight": "Mot de passe",
+    "subtitle": "Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe",
+    "email": "Adresse e-mail",
+    "emailPlaceholder": "votre{'@'}email.com",
+    "submit": "Envoyer le lien",
+    "success": "Consultez votre boîte e-mail pour les instructions de réinitialisation",
+    "error": "Échec de l'envoi de l'e-mail de réinitialisation. Veuillez réessayer.",
+    "backToLogin": "Retour à la connexion",
+    "rememberPassword": "Vous vous souvenez de votre mot de passe ?"
+  },
+  "resetPassword": {
+    "title": "Créer un nouveau",
+    "titleHighlight": "Mot de passe",
+    "subtitle": "Entrez votre nouveau mot de passe ci-dessous",
+    "password": "Nouveau mot de passe",
+    "passwordPlaceholder": "Entrez votre nouveau mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "confirmPasswordPlaceholder": "••••••••",
+    "submit": "Réinitialiser le mot de passe",
+    "success": "Mot de passe réinitialisé avec succès ! Redirection vers la connexion...",
+    "error": "Échec de la réinitialisation du mot de passe. Le lien a peut-être expiré.",
+    "invalidToken": "Le lien de réinitialisation est invalide ou a expiré",
+    "passwordMismatch": "Les mots de passe ne correspondent pas",
+    "weakPassword": "Le mot de passe est trop faible - doit comporter au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre"
+  },
   "home": {
     "heroBanner": {
       "title": "Bienvenue sur Datalyz",

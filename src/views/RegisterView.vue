@@ -57,7 +57,7 @@ const handleSubmit = async () => {
         router.push('/user-dashboard');
       })
       .catch((error: Error) => {
-        errorMessage.value = t('register.error');
+        errorMessage.value = error.message;
         console.error(error);
       });
 };
