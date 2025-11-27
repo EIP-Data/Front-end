@@ -23,48 +23,129 @@ type LoginResponse = {
     jwt: string
 }
 
+type ForgotPasswordRequest = {
+    email: string
+}
+
+type ForgotPasswordResponse = {
+    message: string
+}
+
+type ResetPasswordRequest = {
+    token: string
+    new_password: string
+}
+
+type ResetPasswordResponse = {
+    message: string
+}
+
+type VerifyEmailResponse = {
+    message: string
+}
+
 async function login(credentials: LoginCredentials): Promise<LoginResponse> {
-    return await axios
+    return axios
         .post('/login', credentials)
         .then((response: AxiosResponse) => {
             if (response.status !== 200) {
                 console.error('Login failed', response)
-                return;
+                throw new Error('Login failed');
             }
             console.log('Login successful', response)
-            let data = response.data as LoginResponse;
+            const data = response.data as LoginResponse;
             const userStore = useUserStore();
             userStore.setEmail(credentials.email);
             storeToken(data.jwt);
             return response.data as LoginResponse;
         })
         .catch(
-            (error: any) => {
+            (error: Error) => {
                 console.error('Login failed', error)
+                throw error;
             }
         )
 }
 
 async function register(credentials: RegisterCredentials): Promise<RegisterResponse> {
-    return await axios
+    return axios
         .post('/register', credentials)
         .then((response: AxiosResponse) => {
             if (response.status !== 200) {
-                console.error('Login failed', response)
-                return;
+                console.error('Register failed', response)
+                throw new Error('Register failed');
             }
             console.log('Register successful', response);
-            let data = response.data as RegisterResponse;
+            const data = response.data as RegisterResponse;
             const userStore = useUserStore();
             userStore.setInformation(data.username, data.email);
             storeToken(data.jwt);
             return data;
         })
         .catch(
-            (error: any) => {
+            (error: Error) => {
                 console.error('Register failed', error)
+                throw error;
             }
         )
 }
 
-export {RegisterCredentials, LoginCredentials, login, register}
+async function verifyEmail(token: string): Promise<VerifyEmailResponse> {
+    return axios
+        .get('/verify-email', { params: { token } })
+        .then((response: AxiosResponse) => {
+            if (response.status !== 200) {
+                console.error('Email verification failed', response)
+                throw new Error('Email verification failed');
+            }
+            console.log('Email verification successful', response);
+            return response.data as VerifyEmailResponse;
+        })
+        .catch(
+            (error: Error) => {
+                console.error('Email verification failed', error)
+                throw error;
+            }
+        )
+}
+
+async function forgotPassword(request: ForgotPasswordRequest): Promise<ForgotPasswordResponse> {
+    return axios
+        .post('/password-reset/request', request)
+        .then((response: AxiosResponse) => {
+            if (response.status !== 200) {
+                console.error('Forgot password request failed', response)
+                throw new Error('Forgot password request failed');
+            }
+            console.log('Forgot password request successful', response);
+            return response.data as ForgotPasswordResponse;
+        })
+        .catch(
+            (error: Error) => {
+                console.error('Forgot password request failed', error)
+                throw error;
+            }
+        )
+}
+
+async function resetPassword(request: ResetPasswordRequest): Promise<ResetPasswordResponse> {
+    return axios
+        .post('/password-reset/confirm', request)
+        .then((response: AxiosResponse) => {
+            if (response.status !== 200) {
+                console.error('Reset password failed', response)
+                throw new Error('Reset password failed');
+            }
+            console.log('Reset password successful', response);
+            return response.data as ResetPasswordResponse;
+        })
+        .catch(
+            (error: Error) => {
+                console.error('Reset password failed', error)
+                throw error;
+            }
+        )
+}
+
+export type {RegisterCredentials, LoginCredentials, ForgotPasswordRequest, ResetPasswordRequest}
+export {login, register, forgotPassword, resetPassword, verifyEmail}

@@ -1,35 +1,13 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { getToken } from '@/client/clientCommon.ts';
-import { protectedPing } from "@/client/clientPing.ts";
 
 const { t } = useI18n();
 
 const isMenuOpen = ref(false);
-const isLoggedIn = ref(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
-
-const checkLoginStatus = async () => {
-  const token = getToken();
-  if (!token) {
-    isLoggedIn.value = false;
-    return;
-  }
-
-  try {
-    await protectedPing();
-    isLoggedIn.value = true;
-  } catch (error) {
-    isLoggedIn.value = false;
-  }
-};
-
-onMounted(() => {
-  checkLoginStatus();
-});
 </script>
 
 <template>
@@ -61,30 +39,20 @@ onMounted(() => {
 
       <div class="hidden md:flex flex-1 justify-center space-x-6">
         <router-link to="/" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.home") }}</router-link>
-        <router-link to="/services" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.services") }}</router-link>
-        <router-link to="/about" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.about") }}</router-link>
-        <router-link to="/statistics" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.statistics") }}</router-link>
+        <router-link to="/our_work" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.our_work") }}</router-link>
+        <router-link to="/get_involved" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.get_involved") }}</router-link>
+        <router-link to="/about_us" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.about_us") }}</router-link>
         <router-link to="/contact" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.contact") }}</router-link>
       </div>
 
       <div class="hidden md:flex items-center space-x-6">
-        <template v-if="!isLoggedIn">
-          <router-link to="/login" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.signIn") }}</router-link>
-          <router-link
-              to="/register"
-              class="bg-[#F9AB3B] text-white px-4 py-2 rounded-lg hover:bg-[#e6952e] transition duration-300"
-          >
-            {{ t("navbar.links.signUp") }}
-          </router-link>
-        </template>
-        <template v-else>
-          <router-link
-              to="#"
-              class="bg-[#F9AB3B] text-white px-4 py-2 rounded-lg hover:bg-[#e6952e] transition duration-300"
-          >
-            {{ t("navbar.links.dashboard") }}
-          </router-link>
-        </template>
+        <router-link to="/login" class="text-[#F9AB3B] hover:text-[#e6952e] transition duration-300">{{ t("navbar.links.signIn") }}</router-link>
+        <router-link
+            to="/register"
+            class="bg-[#F9AB3B] text-white px-4 py-2 rounded-lg hover:bg-[#e6952e] transition duration-300"
+        >
+          {{ t("navbar.links.signUp") }}
+        </router-link>
       </div>
     </div>
 
@@ -100,28 +68,18 @@ onMounted(() => {
     >
       <div class="p-6">
         <router-link to="/" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.home") }}</router-link>
-        <router-link to="/services" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.services") }}</router-link>
-        <router-link to="/about" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.about") }}</router-link>
-        <router-link to="/statistics" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.statistics") }}</router-link>
+        <router-link to="/our_work" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.our_work") }}</router-link>
+        <router-link to="/get_involved" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.get_involved") }}</router-link>
+        <router-link to="/about_us" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.about_us") }}</router-link>
         <router-link to="/contact" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.contact") }}</router-link>
 
-        <template v-if="!isLoggedIn">
-          <router-link to="/login" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.signIn") }}</router-link>
-          <router-link
-              to="/register"
-              class="block bg-[#F9AB3B] text-white px-4 py-2 rounded-lg hover:bg-[#e6952e] transition duration-300"
-          >
-            {{ t("navbar.links.signUp") }}
-          </router-link>
-        </template>
-        <template v-else>
-          <router-link
-              to="/app"
-              class="block bg-[#F9AB3B] text-white px-4 py-2 rounded-lg hover:bg-[#e6952e] transition duration-300"
-          >
-            {{ t("navbar.links.dashboard") }}
-          </router-link>
-        </template>
+        <router-link to="/login" class="block text-[#F9AB3B] hover:text-[#e6952e] mb-4 transition duration-300">{{ t("navbar.links.signIn") }}</router-link>
+        <router-link
+            to="/register"
+            class="block bg-[#F9AB3B] text-white px-4 py-2 rounded-lg hover:bg-[#e6952e] transition duration-300"
+        >
+          {{ t("navbar.links.signUp") }}
+        </router-link>
       </div>
     </div>
   </nav>

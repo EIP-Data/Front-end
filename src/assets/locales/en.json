@@ -2,6 +2,8 @@
   "login" : {
     "title": "Sign In",
     "subtitle": "Sign in to continue to your account",
+    "welcome": "Welcome",
+    "back": "Back",
     "email": "Email Address",
     "emailPlaceholder": "your{'@'}email.com",
     "password": "Password",
@@ -17,6 +19,9 @@
   "register": {
     "title": "Create Account",
     "subtitle": "Start your journey with us",
+    "niceToMeet": "Nice to meet",
+    "you": "You",
+    "name": "Name",
     "username": "Username",
     "usernamePlaceholder": "Your username",
     "emailPlaceholder": "your{'@'}email.com",
@@ -27,6 +32,10 @@
     "confirmPasswordPlaceholder": "••••••••",
     "agreeToTerms": "I agree to the",
     "termsOfService": "Terms of Service",
+    "acceptTerms": "I accept the",
+    "and": "and the",
+    "privacyPolicy": "Privacy Policy",
+    "acceptTermsRequired": "You must accept the Terms of Service and Privacy Policy",
     "passwordMismatch": "Passwords do not match",
     "termsRequired": "You must agree to the terms",
     "existingAccount": "Already have an account?",
@@ -34,12 +43,98 @@
     "submit": "Create Account",
     "weakPassword": "Password is too weak - must be at least 8 characters, 1 uppercase, 1 lowercase, 1 number"
   },
+  "forgotPassword": {
+    "title": "Reset Your",
+    "titleHighlight": "Password",
+    "subtitle": "Enter your email address and we'll send you a link to reset your password",
+    "email": "Email Address",
+    "emailPlaceholder": "your{'@'}email.com",
+    "submit": "Send Reset Link",
+    "success": "Check your email for password reset instructions",
+    "error": "Failed to send reset email. Please try again.",
+    "backToLogin": "Back to Login",
+    "rememberPassword": "Remember your password?"
+  },
+  "resetPassword": {
+    "title": "Create New",
+    "titleHighlight": "Password",
+    "subtitle": "Enter your new password below",
+    "password": "New Password",
+    "passwordPlaceholder": "Enter your new password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "••••••••",
+    "submit": "Reset Password",
+    "success": "Password reset successfully! Redirecting to login...",
+    "error": "Failed to reset password. The link may have expired.",
+    "invalidToken": "Reset link is invalid or has expired",
+    "passwordMismatch": "Passwords do not match",
+    "weakPassword": "Password is too weak - must be at least 8 characters, 1 uppercase, 1 lowercase, 1 number"
+  },
+  "verifyEmail": {
+    "title": "Verify Your",
+    "titleHighlight": "Email",
+    "verifying": "Verifying your email...",
+    "success": "Email verified successfully!",
+    "successMessageLoggedIn": "Redirecting you to your dashboard...",
+    "successMessageNotLoggedIn": "Redirecting you to login...",
+    "error": "Verification Failed",
+    "errorMessage": "The verification link is invalid or has expired. Please try again.",
+    "loginButton": "Go to Login",
+    "registerButton": "Create an Account"
+  },
   "home": {
     "heroBanner": {
       "title": "Welcome to Datalyz",
       "paragraph": "Transforming raw data into actionable insights with cutting-edge tools for collection, analysis, and visualization.",
       "getStarted": "Get Started",
       "learnMore": "Learn More"
+    },
+    "hero": {
+      "titleStart": "Revolutionise your data journey:",
+      "titleHighlight": "Collect, Analyse and Visualise",
+      "subtitle": "Who collects your data online? Find out!",
+      "register": "Register"
+    },
+    "purpose": {
+      "title": "Manage all the data you collect",
+      "subtitle": "Who is Datalyz suitable for?",
+      "cards": {
+        "users": {
+          "title": "Users",
+          "description": "Our data management software enables complete automation, from data collection to analysis and visualisation."
+        },
+        "associations": {
+          "title": "Associations",
+          "description": "You can choose whether or not to share which data with whom."
+        },
+        "community": {
+          "title": "Community",
+          "description": "Datalyz is open source to advance the field of research."
+        }
+      }
+    },
+    "research": {
+      "titleStart": "Advance research in",
+      "titleHighlight": "the world of data",
+      "subtitle": "We reached here with our hard work and dedication",
+      "stats": {
+        "members": "Members",
+        "githubStars": "Stars on GitHub",
+        "recordedClicks": "Recorded clicks",
+        "dataCollected": "Data collected"
+      }
+    },
+    "filterData": {
+      "titleStart": "How to filter your data",
+      "titleHighlight": "like we did",
+      "description": "Our platform provides powerful tools to help you filter, organize, and analyze your data effectively. With intuitive controls and advanced algorithms, you can extract meaningful insights from complex datasets while maintaining full control over your information.",
+      "learnMore": "Learn More"
+    },
+    "testimonial": {
+      "quote": "Datalyz has completely transformed how we understand our data collection practices. The insights we've gained have been invaluable for our research, and the platform's ease of use made adoption seamless across our entire organization.",
+      "author": "John Doe",
+      "organization": "British Dragon Boat Racing Association",
+      "meetContributors": "Meet all contributors"
     },
     "coreFeatures": {
       "title": "Our Core Features",
@@ -103,6 +198,99 @@
       ]
     }
   },
+  "ourWork": {
+    "hero": {
+      "title": "Our Work",
+      "subtitle": "Developing innovative tools to help researchers understand hyper-personalization algorithms and their impact on user behavior."
+    },
+    "goal": {
+      "title": "Our Mission",
+      "description": "Our project aims to create a comprehensive toolkit for researchers to analyze and understand how hyper-personalization algorithms work. By collecting and analyzing browsing data, we seek to predict and explain what these algorithms understand about users based on their online activity.",
+      "features": {
+        "understand": {
+          "title": "Understand",
+          "description": "Decode how algorithms interpret your digital footprint"
+        },
+        "analyze": {
+          "title": "Analyze",
+          "description": "Process browsing data to reveal algorithmic patterns"
+        },
+        "publish": {
+          "title": "Publish",
+          "description": "Contribute to scientific research on personalization"
+        }
+      }
+    }
+  },
+  "getInvolved": {
+    "hero": {
+      "title": "Get Involved",
+      "subtitle": "Join our research by contributing your browsing data. Your participation helps us understand how algorithms shape online experiences."
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "We offer two methods to collect browsing data depending on your device type."
+    },
+    "mobile": {
+      "title": "Mobile Tracking",
+      "description": "For mobile devices, we use a VPN solution that captures your browsing activity while ensuring your privacy and security.",
+      "features": {
+        "vpn": "Secure VPN connection for data collection",
+        "secure": "Encrypted traffic ensures data safety",
+        "anonymous": "Personal information is anonymized"
+      }
+    },
+    "desktop": {
+      "title": "Desktop Tracking",
+      "description": "For desktop users, we provide a browser extension that collects your navigation data to analyze what algorithms understand from your browsing habits.",
+      "features": {
+        "extension": "Easy-to-install browser extension",
+        "tracking": "Collects navigation and interaction data",
+        "prediction": "Helps predict algorithmic interpretations"
+      }
+    },
+    "purpose": {
+      "title": "What We Do With Your Data",
+      "description": "Your browsing data helps us understand how hyper-personalization algorithms work. We analyze patterns to predict what these algorithms infer about users based on their online behavior.",
+      "privacy": "Your privacy is our priority. All data is anonymized and used solely for research purposes. We never sell or share personal information with third parties."
+    }
+  },
+  "aboutUs": {
+    "hero": {
+      "title": "About Us",
+      "subtitle": "A team of passionate students working on cutting-edge research in data science and algorithmic analysis."
+    },
+    "project": {
+      "title": "Final Year Project",
+      "description": "Datalyz is a final year project (4th and 5th year) at Epitech. Our goal is to conduct meaningful research on hyper-personalization algorithms and potentially publish a research paper if our findings prove significant."
+    },
+    "research": {
+      "title": "Research Objective",
+      "description": "We aim to uncover how hyper-personalization algorithms interpret user behavior. By analyzing browsing patterns, we hope to contribute valuable insights to the scientific community."
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "subtitle": "Four dedicated students with complementary skills working together to advance research in algorithmic personalization.",
+      "members": {
+        "come": {
+          "role": "Big Data",
+          "description": "Specialized in large-scale data processing and analysis"
+        },
+        "mathieu": {
+          "role": "Big Data",
+          "description": "Expert in data infrastructure and pipeline development"
+        },
+        "cyprien": {
+          "role": "Algorithms & AI",
+          "description": "Focused on machine learning and algorithmic analysis"
+        },
+        "tom": {
+          "role": "Low-Level Optimization",
+          "description": "Specialized in process optimization and performance tuning"
+        }
+      }
+    }
+  },
   "contact": {
     "title": "Contact Us",
     "description": "Have a question or want to work together? We'd love to hear from you!",
@@ -125,26 +313,20 @@
   "footer": {
     "description": "We transform your data into actionable insights.",
     "quickLinks": "Quick Links",
-    "categories": "Categories",
+    "legal": "Legal",
     "contact": "Contact",
     "links": {
       "home": "Home",
-      "services": "Services",
-      "about": "About",
-      "statistics": "Statistics",
+      "ourWork": "Our Work",
+      "getInvolved": "Get Involved",
+      "aboutUs": "About Us",
       "contact": "Contact",
       "terms": "Terms of Service",
-      "visualization": "Visualization",
-      "machineLearning": "Machine Learning",
-      "bigData": "Big Data"
+      "privacy": "Privacy Policy",
+      "cookies": "Cookies Policy"
     },
     "settings": "Settings",
-    "contactInfo": {
-      "email": "Email: contact@datalyz.com",
-      "phone": "Phone: +33 1 23 45 67 89",
-      "address": "Address: Paris, France"
-    },
-    "darkMode": "Mode sombre",
+    "darkMode": "Dark Mode",
     "on": "On",
     "off": "Off",
     "language": "Language",
@@ -158,9 +340,12 @@
       "about": "About",
       "statistics": "Statistics",
       "contact": "Contact",
-      "signIn": "Sign In",
-      "signUp": "Sign Up",
-      "dashboard": "Dashboard"
+      "signIn": "Login",
+      "signUp": "Register",
+      "dashboard": "Dashboard",
+      "our_work": "Our Work",
+      "get_involved": "Get Involved",
+      "about_us": "About Us"
     }
   },
   "statistics": {
@@ -168,7 +353,7 @@
     "description": "Explore Datalyz's data and trends.",
     "activeUsers": "Active Users",
     "dataCollected": "Data Collected",
-    "satisfactionRate": "Satisfaction Rate",
+    "satisfactionRate": "Analyze done",
     "thisMonth": "this month",
     "dataCollectedByMonth": "Data Collected by Month",
     "userTrends": "User Trends",
@@ -193,5 +378,16 @@
     "b": "Category B",
     "c": "Category C",
     "d": "Category D"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "myData": "My Data",
+    "preferences": "Preferences",
+    "settings": "Settings",
+    "darkMode": "Dark Mode",
+    "logout": "Logout"
+  },
+  "dashboard": {
+    "welcome": "Welcome to your Dashboard"
   }
 }
