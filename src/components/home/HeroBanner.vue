@@ -33,7 +33,7 @@ const { t } = useI18n();
     <!-- Image -->
     <div class="md:w-1/2 flex justify-center">
       <img
-          src="/src/assets/images/home/hero_image.png"
+          src="../../assets/images/home/hero_image.png"
           alt="Data Visualisation"
           class="w-4/5 max-w-lg drop-shadow-md"
       />

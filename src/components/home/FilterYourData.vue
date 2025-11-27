@@ -11,7 +11,7 @@ const { t } = useI18n();
       <!-- Image -->
       <div class="md:w-1/2 flex justify-center">
         <img
-            src="/src/assets/images/home/filter_data.png"
+            src="../../assets/images/home/filter_data.png"
             alt="Filtering data illustration"
             class="w-4/5 max-w-md"
         />

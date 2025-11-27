@@ -20,7 +20,7 @@ const { t } = useI18n();
           class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-10 flex flex-col items-center space-y-4"
       >
         <img
-            src="/src/assets/images/home/icon_users.png"
+            src="../../assets/images/home/Icon_users.png"
             alt="Users icon"
             class="w-12 h-12"
         />
@@ -34,7 +34,7 @@ const { t } = useI18n();
           class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-10 flex flex-col items-center space-y-4"
       >
         <img
-            src="/src/assets/images/home/icon_associations.png"
+            src="../../assets/images/home/icon_associations.png"
             alt="Associations icon"
             class="w-12 h-12"
         />
@@ -48,7 +48,7 @@ const { t } = useI18n();
           class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-10 flex flex-col items-center space-y-4"
       >
         <img
-            src="/src/assets/images/home/icon_community.png"
+            src="../../assets/images/home/icon_community.png"
             alt="Community icon"
             class="w-12 h-12"
         />

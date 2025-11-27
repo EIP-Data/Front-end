@@ -11,7 +11,7 @@ const { t } = useI18n();
       <!-- Image -->
       <div class="md:w-1/3 flex justify-center">
         <img
-            src="/src/assets/images/home/vindiou.png"
+            src="../../assets/images/home/vindiou.png"
             alt="Contributor illustration"
             class="w-3/4 max-w-sm"
         />
