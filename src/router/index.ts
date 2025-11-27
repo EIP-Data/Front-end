@@ -120,6 +120,14 @@ const routes = [
         meta: {
             title: 'Dashboard'
         }
+    },
+    {
+        path: '/onboarding',
+        name: 'Onboarding',
+        component: () => import('../views/OnboardingView.vue'),
+        meta: {
+            title: 'Privacy Preferences'
+        }
     }
 ]
 
