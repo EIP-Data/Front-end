@@ -382,13 +382,58 @@
   "sidebar": {
     "dashboard": "Tableau de bord",
     "myData": "Mes données",
+    "dataAnalysis": "Analyse de données",
+    "dataVisualization": "Visualisation de données",
     "preferences": "Préférences",
     "settings": "Paramètres",
+    "privacy": "Confidentialité",
     "darkMode": "Mode sombre",
-    "logout": "Déconnexion"
+    "toggleDarkMode": "Basculer le mode sombre",
+    "logout": "Déconnexion",
+    "close": "Fermer le menu",
+    "categories": {
+      "overview": "Vue d'ensemble",
+      "dataManagement": "Gestion des données",
+      "userSettings": "Paramètres utilisateur"
+    }
+  },
+  "topbar": {
+    "title": "Tableau de bord",
+    "toggleMenu": "Basculer le menu",
+    "userMenu": "Menu utilisateur",
+    "user": "Utilisateur",
+    "settings": "Paramètres"
   },
   "dashboard": {
-    "welcome": "Bienvenue sur votre tableau de bord"
+    "welcome": "Bienvenue sur votre tableau de bord",
+    "stats": {
+      "totalUsers": "Utilisateurs Totaux",
+      "registeredUsers": "Utilisateurs enregistrés",
+      "dataCollected": "Données Collectées",
+      "totalRecords": "Enregistrements totaux",
+      "activeToday": "Actifs Aujourd'hui",
+      "activeUsers": "Utilisateurs actifs",
+      "analysisCompleted": "Analyses Terminées",
+      "thisMonth": "Ce mois-ci"
+    },
+    "charts": {
+      "dataEvolution": "Évolution de la Collecte de Données",
+      "dataCollected": "Données Collectées",
+      "dataAnalyzed": "Données Analysées",
+      "userActivity": "Activité des Utilisateurs",
+      "activeUsers": "Utilisateurs Actifs",
+      "newUsers": "Nouveaux Utilisateurs",
+      "week1": "Semaine 1",
+      "week2": "Semaine 2",
+      "week3": "Semaine 3",
+      "week4": "Semaine 4",
+      "dataDistribution": "Distribution des Données",
+      "navigation": "Navigation",
+      "clicks": "Clics",
+      "scrolls": "Défilements",
+      "other": "Autre",
+      "total": "Total"
+    }
   },
   "onboarding": {
     "title": "Préférences de Confidentialité",
