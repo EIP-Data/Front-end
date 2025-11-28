@@ -434,5 +434,46 @@
       "other": "Autre",
       "total": "Total"
     }
+  },
+  "preferences": {
+    "title": "Préférences Utilisateur",
+    "subtitle": "Personnalisez les paramètres de votre compte et vos préférences de notification",
+    "loading": "Chargement de vos préférences...",
+    "saveButton": "Enregistrer les Préférences",
+    "saving": "Enregistrement...",
+    "saveSuccess": "Vos préférences ont été enregistrées avec succès !",
+    "saveError": "Une erreur s'est produite lors de l'enregistrement de vos préférences. Veuillez réessayer.",
+    "emailNotifications": {
+      "title": "Notifications par Email",
+      "description": "Choisissez la fréquence à laquelle vous souhaitez recevoir des notifications par email",
+      "all": "Toutes les notifications",
+      "allDescription": "Recevoir tous les emails y compris les mises à jour, conseils et contenus promotionnels",
+      "important": "Importantes uniquement",
+      "importantDescription": "Recevoir uniquement les notifications critiques et les alertes de sécurité",
+      "none": "Aucune notification",
+      "noneDescription": "Ne recevoir aucune notification par email"
+    },
+    "dataSharing": {
+      "title": "Partage de Données",
+      "description": "Contrôlez comment vos données sont partagées avec la communauté",
+      "public": "Public",
+      "publicDescription": "Vos données et analyses sont visibles par tous les utilisateurs",
+      "private": "Privé",
+      "privateDescription": "Vos données ne sont visibles que par vous",
+      "anonymous": "Anonyme",
+      "anonymousDescription": "Partager vos données de manière anonyme à des fins de recherche"
+    },
+    "reportFrequency": {
+      "title": "Fréquence des Rapports",
+      "description": "Choisissez la fréquence à laquelle vous souhaitez recevoir les rapports d'analyse",
+      "daily": "Quotidien",
+      "dailyDescription": "Recevoir un rapport chaque jour avec vos dernières statistiques",
+      "weekly": "Hebdomadaire",
+      "weeklyDescription": "Recevoir un rapport récapitulatif chaque semaine",
+      "monthly": "Mensuel",
+      "monthlyDescription": "Recevoir un rapport mensuel complet",
+      "never": "Jamais",
+      "neverDescription": "Ne pas m'envoyer de rapports automatisés"
+    }
   }
 }
