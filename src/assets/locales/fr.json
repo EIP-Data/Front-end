@@ -389,5 +389,50 @@
   },
   "dashboard": {
     "welcome": "Bienvenue sur votre tableau de bord"
+  },
+  "onboarding": {
+    "title": "Préférences de Confidentialité",
+    "subtitle": "Aidez-nous à personnaliser votre expérience",
+    "step": "Étape",
+    "of": "sur",
+    "skip": "Passer",
+    "next": "Suivant",
+    "finish": "Terminer & Continuer",
+    "consents": {
+      "data": {
+        "title": "Partager mes données avec Datalyz",
+        "description": "En partageant vos données générales avec nous, vous nous aidez à comprendre vos préférences et à améliorer notre analyse. Cela inclut les informations de profil de base et les paramètres.",
+        "benefit": "Cela nous permet de construire une compréhension de base des comportements utilisateurs."
+      },
+      "navigation": {
+        "title": "Partager ma navigation avec Datalyz",
+        "description": "Les données de navigation incluent les pages que vous visitez et les chemins que vous empruntez sur notre plateforme. Cela nous aide à optimiser les parcours utilisateurs et améliorer l'expérience globale.",
+        "benefit": "Nous pouvons identifier quelles fonctionnalités sont les plus utiles et améliorer la structure de navigation."
+      },
+      "history": {
+        "title": "Partager mon historique avec Datalyz",
+        "description": "Votre historique de navigation sur notre plateforme nous aide à comprendre les patterns d'utilisation et préférences à long terme. Ces données sont cruciales pour comprendre comment les algorithmes évoluent dans leur compréhension.",
+        "benefit": "Essentiel pour étudier comment les algorithmes d'hyper-personnalisation construisent les profils utilisateurs."
+      },
+      "clicks": {
+        "title": "Partager mes clics avec Datalyz",
+        "description": "Le suivi des clics nous permet de voir avec quels éléments vous interagissez. Ces données micro sont vitales pour comprendre le comportement et l'intention précis de l'utilisateur.",
+        "benefit": "Révèle ce qui attire l'attention des utilisateurs et motive leurs décisions d'engagement."
+      },
+      "scrolls": {
+        "title": "Partager mes défilements avec Datalyz",
+        "description": "Le comportement de défilement indique comment vous consommez le contenu - ce que vous sautez et ce que vous lisez attentivement. C'est un signal fort d'intérêt et d'engagement.",
+        "benefit": "Aide à comprendre les patterns de consommation de contenu et la profondeur d'engagement."
+      },
+      "fullExperience": {
+        "title": "Partager mon expérience web complète avec Datalyz",
+        "description": "Cette collecte de données complète inclut toutes les interactions, le timing, les mouvements de souris et les signaux comportementaux. Elle fournit l'image complète nécessaire pour une analyse algorithmique avancée.",
+        "benefit": "Nous permet de répliquer et étudier pleinement les algorithmes d'hyper-personnalisation en action."
+      }
+    },
+    "consent": {
+      "agree": "J'accepte de partager ces données",
+      "disagree": "Je préfère ne pas partager ces données"
+    }
   }
 }
