@@ -382,12 +382,98 @@
   "sidebar": {
     "dashboard": "Dashboard",
     "myData": "My Data",
+    "dataAnalysis": "Data Analysis",
+    "dataVisualization": "Data Visualization",
     "preferences": "Preferences",
     "settings": "Settings",
+    "privacy": "Privacy",
     "darkMode": "Dark Mode",
-    "logout": "Logout"
+    "toggleDarkMode": "Toggle dark mode",
+    "logout": "Logout",
+    "close": "Close menu",
+    "categories": {
+      "overview": "Overview",
+      "dataManagement": "Data Management",
+      "userSettings": "User Settings"
+    }
+  },
+  "topbar": {
+    "title": "Dashboard",
+    "toggleMenu": "Toggle menu",
+    "userMenu": "User menu",
+    "user": "User",
+    "settings": "Settings"
   },
   "dashboard": {
-    "welcome": "Welcome to your Dashboard"
+    "welcome": "Welcome to your Dashboard",
+    "stats": {
+      "totalUsers": "Total Users",
+      "registeredUsers": "Registered users",
+      "dataCollected": "Data Collected",
+      "totalRecords": "Total records",
+      "activeToday": "Active Today",
+      "activeUsers": "Active users",
+      "analysisCompleted": "Analysis Completed",
+      "thisMonth": "This month"
+    },
+    "charts": {
+      "dataEvolution": "Data Collection Evolution",
+      "dataCollected": "Data Collected",
+      "dataAnalyzed": "Data Analyzed",
+      "userActivity": "User Activity",
+      "activeUsers": "Active Users",
+      "newUsers": "New Users",
+      "week1": "Week 1",
+      "week2": "Week 2",
+      "week3": "Week 3",
+      "week4": "Week 4",
+      "dataDistribution": "Data Distribution",
+      "navigation": "Navigation",
+      "clicks": "Clicks",
+      "scrolls": "Scrolls",
+      "other": "Other",
+      "total": "Total"
+    }
+  },
+  "preferences": {
+    "title": "User Preferences",
+    "subtitle": "Customize your account settings and notification preferences",
+    "loading": "Loading your preferences...",
+    "saveButton": "Save Preferences",
+    "saving": "Saving...",
+    "saveSuccess": "Your preferences have been saved successfully!",
+    "saveError": "An error occurred while saving your preferences. Please try again.",
+    "emailNotifications": {
+      "title": "Email Notifications",
+      "description": "Choose how often you want to receive email notifications",
+      "all": "All notifications",
+      "allDescription": "Receive all emails including updates, tips, and promotional content",
+      "important": "Important only",
+      "importantDescription": "Receive only critical notifications and security alerts",
+      "none": "No notifications",
+      "noneDescription": "Do not receive any email notifications"
+    },
+    "dataSharing": {
+      "title": "Data Sharing",
+      "description": "Control how your data is shared with the community",
+      "public": "Public",
+      "publicDescription": "Your data and insights are visible to all users",
+      "private": "Private",
+      "privateDescription": "Your data is only visible to you",
+      "anonymous": "Anonymous",
+      "anonymousDescription": "Share your data anonymously for research purposes"
+    },
+    "reportFrequency": {
+      "title": "Report Frequency",
+      "description": "Choose how often you want to receive analytics reports",
+      "daily": "Daily",
+      "dailyDescription": "Receive a report every day with your latest statistics",
+      "weekly": "Weekly",
+      "weeklyDescription": "Receive a summary report every week",
+      "monthly": "Monthly",
+      "monthlyDescription": "Receive a comprehensive monthly report",
+      "never": "Never",
+      "neverDescription": "Do not send me automated reports"
+    }
   }
 }

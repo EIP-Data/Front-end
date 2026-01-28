@@ -120,6 +120,14 @@ const routes = [
         meta: {
             title: 'Dashboard'
         }
+    },
+    {
+        path: '/user-preferences',
+        name: 'UserPreferences',
+        component: () => import('../views/UserPreferencesView.vue'),
+        meta: {
+            title: 'Preferences'
+        }
     }
 ]
 
