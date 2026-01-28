@@ -64,18 +64,74 @@ const routes = [
         meta: {
             title: 'Login'
         }
+    },
+    {
+        path: '/forgot-password',
+        name: 'ForgotPassword',
+        component: () => import('../views/ForgotPasswordView.vue'),
+        meta: {
+            title: 'Forgot Password'
+        }
+    },
+    {
+        path: '/reset-password',
+        name: 'ResetPassword',
+        component: () => import('../views/ResetPasswordView.vue'),
+        meta: {
+            title: 'Reset Password'
+        }
+    },
+    {
+        path: '/verify-email',
+        name: 'VerifyEmail',
+        component: () => import('../views/VerifyEmailView.vue'),
+        meta: {
+            title: 'Verify Email'
+        }
+    },
+    {
+        path: '/our_work',
+        name: 'OurWork',
+        component: () => import('../views/OurWorkView.vue'),
+        meta: {
+            title: 'Our Work'
+        }
+    },
+    {
+        path: '/get_involved',
+        name: 'GetInvolved',
+        component: () => import('../views/GetInvolvedView.vue'),
+        meta: {
+            title: 'Get Involved'
+        }
+    },
+    {
+        path: '/about_us',
+        name: 'AboutUs',
+        component: () => import('../views/AboutUsView.vue'),
+        meta: {
+            title: 'About Us'
+        }
+    },
+    {
+        path: '/user-dashboard',
+        name: 'UserDashboard',
+        component: () => import('../views/UserDashboardView.vue'),
+        meta: {
+            title: 'Dashboard'
+        }
     }
 ]
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes,
-    scrollBehavior(to, from, savedPosition) {
+    scrollBehavior(_to, _from, savedPosition) {
         return savedPosition || {left: 0, top: 0}
     }
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
     document.title = `Datalyz | ${to.meta.title}`
     next()
 })
