@@ -382,6 +382,10 @@
   "sidebar": {
     "dashboard": "Dashboard",
     "myData": "My Data",
+    "research": "Research",
+    "dataManagement": "Data Management",
+    "scientistManagement": "Scientist Management",
+    "adminPanel": "Admin Panel",
     "preferences": "Preferences",
     "settings": "Settings",
     "darkMode": "Dark Mode",
@@ -389,5 +393,51 @@
   },
   "dashboard": {
     "welcome": "Welcome to your Dashboard"
+  },
+  "permissions": {
+    "roles": {
+      "Administrator": "Administrator",
+      "Scientist": "Scientist",
+      "User": "User"
+    },
+    "messages": {
+      "accessDenied": "Access denied. You don't have permission to view this page.",
+      "requiresAuth": "Please log in to access this page.",
+      "roleChanged": "Role changed successfully",
+      "devModeOnly": "Role selector (development mode only)"
+    }
+  },
+  "scientistManagement": {
+    "title": "Scientist Management",
+    "subtitle": "Manage scientists and their access to research tools",
+    "addButton": "Add Scientist",
+    "noScientists": "No scientists registered yet",
+    "table": {
+      "username": "Username",
+      "email": "Email",
+      "registrationDate": "Registration Date",
+      "actions": "Actions"
+    },
+    "modal": {
+      "title": "Add New Scientist",
+      "usernameLabel": "Username",
+      "usernamePlaceholder": "john.doe",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "scientist@example.com",
+      "cancelButton": "Cancel",
+      "submitButton": "Add Scientist"
+    },
+    "deleteModal": {
+      "title": "Confirm Deletion",
+      "message": "Are you sure you want to delete {username}?",
+      "cancelButton": "Cancel",
+      "confirmButton": "Delete"
+    },
+    "errors": {
+      "usernameRequired": "Username is required",
+      "usernameInvalid": "Username must be at least 3 characters and contain only letters, numbers, dots, underscores, or hyphens",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Please enter a valid email address"
+    }
   }
 }

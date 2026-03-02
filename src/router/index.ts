@@ -1,6 +1,18 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHistory, type RouteRecordRaw} from 'vue-router'
+import type { UserRole } from '@/types/permissions'
+import { usePermissionsStore } from '@/stores/permissionsStore'
+import { useUserStore } from '@/stores/userStore'
 
-const routes = [
+// Extension du type RouteRecordRaw pour inclure les rôles
+declare module 'vue-router' {
+  interface RouteMeta {
+    title?: string
+    roles?: UserRole[]
+    requiresAuth?: boolean
+  }
+}
+
+const routes: RouteRecordRaw[] = [
     {
         path: '/',
         name: 'Home',
@@ -118,7 +130,19 @@ const routes = [
         name: 'UserDashboard',
         component: () => import('../views/UserDashboardView.vue'),
         meta: {
-            title: 'Dashboard'
+            title: 'Dashboard',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist', 'User']
+        }
+    },
+    {
+        path: '/scientist-management',
+        name: 'ScientistManagement',
+        component: () => import('../views/ScientistManagementView.vue'),
+        meta: {
+            title: 'Scientist Management',
+            requiresAuth: true,
+            roles: ['Administrator']
         }
     }
 ]
@@ -132,7 +156,41 @@ const router = createRouter({
 })
 
 router.beforeEach((to, _from, next) => {
+    // Mise à jour du titre
     document.title = `Datalyz | ${to.meta.title}`
+
+    // Vérification des permissions
+    const permissionsStore = usePermissionsStore()
+    const userStore = useUserStore()
+    const requiresAuth = to.meta.requiresAuth
+    const allowedRoles = to.meta.roles
+
+    // TEMPORAIRE: Définir un rôle par défaut 'User' si l'utilisateur est authentifié sans rôle
+    // Cette logique sera retirée quand le backend renverra le rôle lors du login
+    if (userStore.isAuthenticated && !permissionsStore.currentRole) {
+        permissionsStore.setRole('User')
+    }
+
+    // Si la route nécessite une authentification
+    if (requiresAuth) {
+        const currentRole = permissionsStore.currentRole
+
+        // Pas de rôle défini → rediriger vers login
+        if (!currentRole) {
+            next({ name: 'Login' })
+            return
+        }
+
+        // Si la route a des rôles spécifiques, vérifier l'accès
+        if (allowedRoles && allowedRoles.length > 0) {
+            if (!allowedRoles.includes(currentRole)) {
+                // Rôle non autorisé → rediriger vers dashboard
+                next({ name: 'UserDashboard' })
+                return
+            }
+        }
+    }
+
     next()
 })
 
