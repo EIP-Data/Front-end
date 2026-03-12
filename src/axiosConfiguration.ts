@@ -2,7 +2,7 @@ import axios, {AxiosError} from 'axios'
 import type {Router} from 'vue-router'
 
 export function configureAxios(router: Router): void {
-    axios.defaults.baseURL = import.meta.env.VITE_API_ENDPOINT
+    axios.defaults.baseURL = import.meta.env.VITE_API_URL
     axios.defaults.headers.common['Content-Type'] = 'application/json'
 
     axios.interceptors.response.use(
