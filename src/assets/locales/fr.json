@@ -382,11 +382,15 @@
   "sidebar": {
     "dashboard": "Tableau de bord",
     "myData": "Mes données",
+    "research": "Recherche",
+    "dataManagement": "Gestion des données",
+    "scientistManagement": "Gestion des scientifiques",
+    "adminPanel": "Panneau d'administration",
     "dataAnalysis": "Analyse de données",
     "dataVisualization": "Visualisation de données",
+    "privacy": "Confidentialité",
     "preferences": "Préférences",
     "settings": "Paramètres",
-    "privacy": "Confidentialité",
     "darkMode": "Mode sombre",
     "toggleDarkMode": "Basculer le mode sombre",
     "logout": "Déconnexion",
@@ -478,6 +482,52 @@
     "consent": {
       "agree": "J'accepte de partager ces données",
       "disagree": "Je préfère ne pas partager ces données"
+    }
+  },
+  "permissions": {
+    "roles": {
+      "Administrator": "Administrateur",
+      "Scientist": "Scientifique",
+      "User": "Utilisateur"
+    },
+    "messages": {
+      "accessDenied": "Accès refusé. Vous n'avez pas la permission de voir cette page.",
+      "requiresAuth": "Veuillez vous connecter pour accéder à cette page.",
+      "roleChanged": "Rôle changé avec succès",
+      "devModeOnly": "Sélecteur de rôle (mode développement uniquement)"
+    }
+  },
+  "scientistManagement": {
+    "title": "Gestion des scientifiques",
+    "subtitle": "Gérer les scientifiques et leur accès aux outils de recherche",
+    "addButton": "Ajouter un scientifique",
+    "noScientists": "Aucun scientifique enregistré pour le moment",
+    "table": {
+      "username": "Nom d'utilisateur",
+      "email": "Adresse e-mail",
+      "registrationDate": "Date d'inscription",
+      "actions": "Actions"
+    },
+    "modal": {
+      "title": "Ajouter un nouveau scientifique",
+      "usernameLabel": "Nom d'utilisateur",
+      "usernamePlaceholder": "john.doe",
+      "emailLabel": "Adresse e-mail",
+      "emailPlaceholder": "scientifique@exemple.com",
+      "cancelButton": "Annuler",
+      "submitButton": "Ajouter le scientifique"
+    },
+    "deleteModal": {
+      "title": "Confirmer la suppression",
+      "message": "Êtes-vous sûr de vouloir supprimer {username} ?",
+      "cancelButton": "Annuler",
+      "confirmButton": "Supprimer"
+    },
+    "errors": {
+      "usernameRequired": "Le nom d'utilisateur est requis",
+      "usernameInvalid": "Le nom d'utilisateur doit contenir au moins 3 caractères et uniquement des lettres, chiffres, points, underscores ou tirets",
+      "emailRequired": "L'adresse e-mail est requise",
+      "emailInvalid": "Veuillez entrer une adresse e-mail valide"
     }
   }
 }
