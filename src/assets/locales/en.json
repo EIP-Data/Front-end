@@ -382,13 +382,58 @@
   "sidebar": {
     "dashboard": "Dashboard",
     "myData": "My Data",
+    "dataAnalysis": "Data Analysis",
+    "dataVisualization": "Data Visualization",
     "preferences": "Preferences",
     "settings": "Settings",
+    "privacy": "Privacy",
     "darkMode": "Dark Mode",
-    "logout": "Logout"
+    "toggleDarkMode": "Toggle dark mode",
+    "logout": "Logout",
+    "close": "Close menu",
+    "categories": {
+      "overview": "Overview",
+      "dataManagement": "Data Management",
+      "userSettings": "User Settings"
+    }
+  },
+  "topbar": {
+    "title": "Dashboard",
+    "toggleMenu": "Toggle menu",
+    "userMenu": "User menu",
+    "user": "User",
+    "settings": "Settings"
   },
   "dashboard": {
-    "welcome": "Welcome to your Dashboard"
+    "welcome": "Welcome to your Dashboard",
+    "stats": {
+      "totalUsers": "Total Users",
+      "registeredUsers": "Registered users",
+      "dataCollected": "Data Collected",
+      "totalRecords": "Total records",
+      "activeToday": "Active Today",
+      "activeUsers": "Active users",
+      "analysisCompleted": "Analysis Completed",
+      "thisMonth": "This month"
+    },
+    "charts": {
+      "dataEvolution": "Data Collection Evolution",
+      "dataCollected": "Data Collected",
+      "dataAnalyzed": "Data Analyzed",
+      "userActivity": "User Activity",
+      "activeUsers": "Active Users",
+      "newUsers": "New Users",
+      "week1": "Week 1",
+      "week2": "Week 2",
+      "week3": "Week 3",
+      "week4": "Week 4",
+      "dataDistribution": "Data Distribution",
+      "navigation": "Navigation",
+      "clicks": "Clicks",
+      "scrolls": "Scrolls",
+      "other": "Other",
+      "total": "Total"
+    }
   },
   "onboarding": {
     "title": "Privacy Preferences",
