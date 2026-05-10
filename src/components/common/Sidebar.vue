@@ -7,9 +7,7 @@ import { useThemeStore } from '@/stores/themeStore';
 import { usePermissionsStore } from '@/stores/permissionsStore';
 import { deleteToken } from '@/client/clientCommon';
 import logo from '@/assets/images/common/logo.webp';
-import { ref } from 'vue';
 import type { UserRole } from '@/types/permissions';
-
 const { t } = useI18n();
 const router = useRouter();
 const userStore = useUserStore();
@@ -121,21 +119,21 @@ const navigateTo = (route: string) => {
 
 <template>
   <div
-      v-if="isOpen"
-      @click="emit('close')"
-      class="fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity"
+    v-if="isOpen"
+    @click="emit('close')"
+    class="fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity"
   ></div>
 
   <aside
-      :class="[
+    :class="[
       'fixed inset-y-0 left-0 z-50 w-80 h-screen bg-[#f7f7f7] dark:bg-gray-800 shadow-2xl flex flex-col py-10 px-6 transition-all duration-300',
       isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
     ]"
   >
     <button
-        @click="emit('close')"
-        class="lg:hidden absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-amber-500 transition-colors"
-        :aria-label="t('sidebar.close')"
+      @click="emit('close')"
+      class="lg:hidden absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-amber-500 transition-colors"
+      :aria-label="t('sidebar.close')"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
