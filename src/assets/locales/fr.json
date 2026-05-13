@@ -12,6 +12,10 @@
     "forgotPassword": "Mot de passe oublié ?",
     "submit": "Se connecter",
     "error": "Identifiants incorrects. Veuillez réessayer.",
+    "emailNotVerified": "Votre adresse email n'est pas vérifiée.",
+    "resendEmail": "Renvoyer l'email de vérification",
+    "resendEmailSuccess": "Email envoyé ! Vérifiez votre boîte mail.",
+    "resendEmailError": "Échec de l'envoi. Veuillez réessayer.",
     "logoAlt": "Logo de l'application",
     "register": "Vous n'avez pas de compte ?",
     "registerInstead": "Créez-en un maintenant"
@@ -41,7 +45,11 @@
     "existingAccount": "Vous avez déjà un compte ?",
     "loginInstead": "Connectez-vous plutôt",
     "submit": "Créer un compte",
-    "weakPassword": "Le mot de passe est trop faible - doit comporter au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre"
+    "submitting": "Création en cours...",
+    "weakPassword": "Le mot de passe est trop faible - doit comporter au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre",
+    "successTitle": "Compte créé !",
+    "successMessage": "Un email de vérification a été envoyé à {email}. Vérifiez votre boîte mail et cliquez sur le lien pour activer votre compte.",
+    "goToLogin": "Aller à la connexion"
   },
   "forgotPassword": {
     "title": "Réinitialisez votre",
@@ -393,6 +401,7 @@
     "privacy": "Confidentialité",
     "preferences": "Préférences",
     "settings": "Paramètres",
+    "vpnInstallation": "Installation VPN",
     "privacy": "Confidentialité",
     "darkMode": "Mode sombre",
     "toggleDarkMode": "Basculer le mode sombre",
@@ -401,6 +410,7 @@
     "categories": {
       "overview": "Vue d'ensemble",
       "dataManagement": "Gestion des données",
+      "administration": "Administration",
       "userSettings": "Paramètres utilisateur"
     }
   },
@@ -531,7 +541,7 @@
       "usernameInvalid": "Le nom d'utilisateur doit contenir au moins 3 caractères et uniquement des lettres, chiffres, points, underscores ou tirets",
       "emailRequired": "L'adresse e-mail est requise",
       "emailInvalid": "Veuillez entrer une adresse e-mail valide"
-    }
+    },
     "welcome": "Bienvenue sur votre tableau de bord",
     "stats": {
       "totalUsers": "Utilisateurs Totaux",
@@ -606,5 +616,253 @@
       "agree": "J'accepte de partager ces données",
       "disagree": "Je préfère ne pas partager ces données"
     }
+  },
+  "userPreferences": {
+    "save": "Sauvegarder les préférences",
+    "saved": "Préférences sauvegardées"
+  },
+  "userSettings": {
+    "title": "Paramètres du compte",
+    "subtitle": "Gérez vos informations de compte et vos préférences",
+    "account": {
+      "title": "Informations du compte",
+      "email": "Adresse e-mail",
+      "password": "Mot de passe",
+      "changePassword": "Changer le mot de passe",
+      "sendingReset": "Envoi en cours...",
+      "resetEmailSent": "Email envoyé ! Vérifiez votre boîte mail.",
+      "resetEmailError": "Échec de l'envoi. Veuillez réessayer."
+    },
+    "danger": {
+      "title": "Zone dangereuse",
+      "subtitle": "Actions irréversibles affectant définitivement votre compte",
+      "deleteAccount": "Supprimer le compte",
+      "deleteAccountDesc": "Supprime définitivement votre compte et toutes les données associées",
+      "deleteButton": "Supprimer mon compte"
+    },
+    "deleteModal": {
+      "title": "Supprimer votre compte",
+      "warning": "Cette action est irréversible. Toutes vos données seront définitivement supprimées et ne pourront pas être récupérées.",
+      "confirm": "Saisissez votre adresse e-mail pour confirmer : {email}",
+      "cancel": "Annuler",
+      "confirm_button": "Supprimer définitivement",
+      "deleting": "Suppression..."
+    }
+  },
+  "userDataView": {
+    "subtitle": "Consultez et gérez vos données personnelles collectées par Datalyz",
+    "stats": {
+      "totalEntries": "Entrées totales",
+      "lastActivity": "Dernière activité",
+      "exports": "Exports"
+    },
+    "table": {
+      "title": "Mes données",
+      "export": "Exporter",
+      "empty": "Aucune donnée collectée pour l'instant"
+    }
+  },
+  "researchView": {
+    "subtitle": "Gérez vos projets de recherche et vos jeux de données",
+    "stats": {
+      "activeProjects": "Projets actifs",
+      "datasets": "Jeux de données",
+      "reports": "Rapports"
+    },
+    "projects": {
+      "title": "Projets",
+      "new": "Nouveau projet",
+      "empty": "Aucun projet de recherche pour l'instant"
+    }
+  },
+  "dataManagementView": {
+    "subtitle": "Gérez les jeux de données, pipelines et flux de données",
+    "stats": {
+      "datasets": "Jeux de données",
+      "pipelines": "Pipelines",
+      "errors": "Erreurs"
+    },
+    "table": {
+      "title": "Jeux de données",
+      "import": "Importer",
+      "new": "Nouveau jeu de données",
+      "empty": "Aucun jeu de données pour l'instant"
+    }
+  },
+  "adminPanelView": {
+    "subtitle": "Administration de la plateforme et vue d'ensemble du système",
+    "actions": {
+      "scientists": "Scientifiques",
+      "scientistsDesc": "Gérer les comptes scientifiques",
+      "users": "Utilisateurs",
+      "usersDesc": "Gérer les comptes utilisateurs",
+      "analytics": "Analytique",
+      "analyticsDesc": "Voir les analytics de la plateforme",
+      "system": "Système",
+      "systemDesc": "Configuration du système"
+    },
+    "stats": {
+      "totalUsers": "Utilisateurs total",
+      "scientists": "Scientifiques",
+      "regularUsers": "Utilisateurs"
+    },
+    "users": {
+      "title": "Tous les utilisateurs",
+      "refresh": "Rafraîchir",
+      "retry": "Réessayer",
+      "loadError": "Impossible de charger les utilisateurs",
+      "promote": "Promouvoir",
+      "demote": "Rétrograder",
+      "delete": "Supprimer",
+      "columns": {
+        "user": "Utilisateur",
+        "email": "Email",
+        "role": "Rôle",
+        "actions": "Actions"
+      }
+    },
+    "overview": {
+      "users": "Vue d'ensemble des utilisateurs",
+      "activity": "Activité récente",
+      "empty": "Aucun utilisateur trouvé"
+    },
+    "deleteModal": {
+      "title": "Supprimer l'utilisateur",
+      "message": "Êtes-vous sûr de vouloir supprimer définitivement {username} ? Cette action est irréversible.",
+      "cancel": "Annuler",
+      "confirm": "Supprimer"
+    }
+  },
+  "termsOfServices": {
+    "lastUpdated": "Dernière mise à jour : janvier 2025",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptation des conditions",
+        "content": "En créant un compte et en utilisant Datalyz, vous acceptez l'intégralité des présentes Conditions Générales d'Utilisation. Si vous n'acceptez pas ces conditions, vous ne devez pas utiliser notre plateforme. Ces conditions s'appliquent à tous les utilisateurs, quel que soit leur rôle (Utilisateur, Scientifique, Administrateur)."
+      },
+      "description": {
+        "title": "2. Description du projet",
+        "content": "Datalyz est un projet de recherche académique à but non lucratif, réalisé par une équipe étudiante dans le cadre d'un Projet Innovant (EIP). Son objectif est d'étudier les mécanismes des algorithmes d'hyper-personnalisation sur internet. Aucune activité commerciale n'est exercée via cette plateforme. Le projet ne perçoit aucun revenu et ne poursuit aucun objectif commercial. La plateforme permet la collecte de données comportementales — sous réserve de votre consentement explicite et granulaire — afin d'aider les chercheurs à comprendre comment les systèmes de recommandation construisent des profils utilisateurs."
+      },
+      "accounts": {
+        "title": "3. Comptes utilisateurs",
+        "content": "Vous êtes responsable de la confidentialité de vos identifiants et de l'ensemble des activités réalisées sous votre compte. Vous vous engagez à fournir des informations exactes, à ne pas partager vos accès avec des tiers, et à nous notifier immédiatement de toute utilisation non autorisée."
+      },
+      "data": {
+        "title": "4. Collecte de données & RGPD",
+        "intro": "Conformément au Règlement (UE) 2016/679 (RGPD), toute collecte de données sur Datalyz repose sur votre consentement libre, spécifique, éclairé et univoque. Lors de l'inscription, vous êtes invité à consentir individuellement à chaque type de collecte :",
+        "types": {
+          "data": "Données générales de profil et préférences",
+          "navigation": "Parcours de navigation au sein de la plateforme",
+          "history": "Historique de navigation sur la plateforme",
+          "clicks": "Interactions par clic",
+          "scrolls": "Comportement de défilement",
+          "fullExperience": "Expérience comportementale complète"
+        },
+        "granular": "Chaque consentement est indépendant — vous pouvez en accepter certains et en refuser d'autres. Cette approche granulaire reflète notre engagement à respecter votre autonomie.",
+        "modify": "Vous pouvez modifier vos consentements à tout moment depuis la page Préférences. Le retrait du consentement ne remet pas en cause la licéité du traitement effectué avant ce retrait.",
+        "noSale": "Vos données ne sont jamais vendues, cédées ou partagées avec des tiers. Elles sont utilisées exclusivement à des fins de recherche académique."
+      },
+      "hosting": {
+        "title": "5. Hébergement des données",
+        "content": "L'ensemble des données collectées via Datalyz est hébergé exclusivement sur des serveurs situés en France, au sein de l'Union Européenne. Cet hébergement est conforme aux exigences du RGPD concernant le transfert et le stockage des données personnelles."
+      },
+      "rights": {
+        "title": "6. Vos droits",
+        "intro": "Conformément au RGPD, vous disposez des droits suivants concernant vos données personnelles :",
+        "list": {
+          "access": "Droit d'accès : obtenir une copie de toutes les données que nous détenons sur vous",
+          "rectification": "Droit de rectification : corriger des données inexactes ou incomplètes",
+          "erasure": "Droit à l'effacement : demander la suppression définitive de vos données",
+          "portability": "Droit à la portabilité : recevoir vos données dans un format structuré et lisible",
+          "opposition": "Droit d'opposition : vous opposer au traitement de vos données à tout moment",
+          "restriction": "Droit à la limitation : demander la restriction du traitement dans certains cas"
+        },
+        "exercise": "Pour exercer ces droits, supprimez votre compte depuis la page paramètres ou contactez-nous via la page de contact. Nous répondrons dans un délai de 30 jours."
+      },
+      "use": {
+        "title": "7. Utilisation acceptable",
+        "intro": "Vous vous engagez à ne pas utiliser la plateforme pour :",
+        "list": {
+          "scraping": "Tenter d'extraire des données par des moyens automatisés (scraping, bots)",
+          "impersonation": "Usurper l'identité d'une autre personne ou créer des comptes fictifs",
+          "interference": "Perturber ou endommager l'infrastructure de la plateforme",
+          "illegal": "Effectuer toute activité illégale ou contraire aux réglementations en vigueur"
+        }
+      },
+      "ip": {
+        "title": "8. Propriété intellectuelle",
+        "content": "La plateforme, son design, son code et son contenu sont la propriété de l'équipe du projet Datalyz. Les données de recherche collectées — une fois anonymisées — pourront être utilisées dans des publications académiques. Aucune utilisation de ces éléments n'est autorisée sans accord écrit préalable de l'équipe."
+      },
+      "termination": {
+        "title": "9. Résiliation",
+        "content": "Vous pouvez supprimer votre compte à tout moment depuis la page paramètres du compte. Lors de la suppression, l'ensemble de vos données personnelles sera effacé de manière permanente et irréversible dans un délai de 30 jours. Nous nous réservons le droit de suspendre tout compte contrevenant à ces conditions."
+      },
+      "changes": {
+        "title": "10. Modifications des CGU",
+        "content": "En tant que projet de recherche évolutif, ces conditions peuvent être mises à jour. Toute modification significative sera communiquée aux utilisateurs inscrits par e-mail au moins 15 jours avant son entrée en vigueur. La poursuite de l'utilisation de la plateforme après cette notification vaut acceptation des nouvelles conditions."
+      },
+      "contact": {
+        "title": "11. Contact",
+        "content": "Pour toute question relative à ces conditions, ou pour exercer vos droits, contactez-nous via la"
+      }
+    }
+  },
+  "privacyPolicy": {
+    "subtitle": "Comment nous collectons, utilisons et protégeons vos données personnelles",
+    "sections": {
+      "collect": { "title": "Données collectées", "content": "Nous collectons les données que vous fournissez volontairement (inscription, préférences) ainsi que des données comportementales sur la plateforme, sous réserve de votre consentement lors de l'onboarding. Vous pouvez modifier vos consentements à tout moment depuis vos préférences." },
+      "use": { "title": "Utilisation de vos données", "content": "Vos données sont utilisées exclusivement à des fins de recherche académique sur les algorithmes d'hyper-personnalisation. Elles ne sont jamais vendues à des tiers et sont traitées conformément au RGPD." },
+      "rights": { "title": "Vos droits", "content": "Vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Vous pouvez exercer ces droits à tout moment depuis les paramètres de votre compte ou en nous contactant." },
+      "retention": { "title": "Conservation des données", "content": "Vos données sont conservées pendant la durée de votre compte. Lors de la suppression de votre compte, toutes les données associées sont définitivement supprimées dans un délai de 30 jours." },
+      "contact": { "title": "Contact", "content": "Pour toute question concernant vos données personnelles, contactez-nous via la" }
+    }
+  },
+  "cookiesPolicy": {
+    "subtitle": "Informations sur les cookies utilisés sur la plateforme Datalyz",
+    "table": {
+      "name": "Nom", "purpose": "Finalité", "duration": "Durée",
+      "rows": {
+        "token": "Session d'authentification", "tokenDuration": "Session ou 30 jours",
+        "locale": "Préférence de langue", "localeDuration": "1 an",
+        "theme": "Préférence mode sombre/clair", "themeDuration": "1 an"
+      }
+    },
+    "sections": {
+      "what": { "title": "Que sont les cookies ?", "content": "Les cookies sont de petits fichiers texte stockés sur votre appareil lors de votre visite sur notre plateforme. Ils nous permettent de mémoriser vos préférences et d'assurer le bon fonctionnement du service." },
+      "list": { "title": "Cookies utilisés" },
+      "manage": { "title": "Gérer les cookies", "content": "Vous pouvez configurer votre navigateur pour refuser tous les cookies ou être averti lorsqu'un cookie est envoyé. Cependant, la désactivation de certains cookies peut affecter les fonctionnalités de la plateforme." },
+      "contact": { "title": "Contact", "content": "Pour toute question relative à notre politique de cookies, contactez-nous via la" }
+    }
+  },
+  "vpnInstallation": {
+    "title": "Installation VPN",
+    "subtitle": "Connectez-vous de manière sécurisée au réseau de recherche Datalyz",
+    "whyVpn": "Le VPN vous permet d'accéder à la plateforme Datalyz de façon sécurisée et garantit que votre collecte de données transite par nos serveurs français, conformément au RGPD.",
+    "steps": {
+      "launch": {
+        "title": "Lancer Datalyz sur votre mobile",
+        "description": "Ouvrez l'application Datalyz sur votre téléphone et connectez-vous avec votre compte."
+      },
+      "choose": {
+        "title": "Choisir votre type de mobile",
+        "description": "Sélectionnez le système d'exploitation de votre appareil : Windows, Apple (iOS/macOS) ou Android."
+      },
+      "download": {
+        "title": "Télécharger la certification",
+        "description": "Cliquez sur le bouton correspondant à votre appareil. Un lien sécurisé sera généré et le fichier de configuration se téléchargera automatiquement."
+      }
+    },
+    "download": {
+      "title": "Télécharger ma certification"
+    },
+    "downloadError": "Impossible de générer le lien de téléchargement. Veuillez réessayer.",
+    "proxy": {
+      "title": "Télécharger le proxy",
+      "button": "Télécharger le proxy"
+    },
+    "proxyDownloadError": "Impossible de générer le lien de téléchargement du proxy. Veuillez réessayer.",
+    "support": "Un problème ? Contactez-nous via la",
+    "supportLink": "page de contact"
   }
 }

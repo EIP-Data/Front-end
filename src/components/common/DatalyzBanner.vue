@@ -1,5 +1,6 @@
 <script setup lang="ts">
-
+import { useBrandStore } from '@/stores/brandStore';
+const brandStore = useBrandStore();
 </script>
 
 <template>
@@ -8,7 +9,7 @@
       <div class="hidden md:block flex-shrink-0 mr-8">
         <img
             src="@/assets/images/common/logo.webp"
-            alt="Datalyz Mascot"
+            :alt="brandStore.appName + ' Mascot'"
             class="w-32 h-32 object-contain"
         />
       </div>
@@ -18,7 +19,7 @@
       <div class="hidden md:block flex-shrink-0 ml-8">
         <img
             src="@/assets/images/common/logo.webp"
-            alt="Datalyz Mascot"
+            :alt="brandStore.appName + ' Mascot'"
             class="w-32 h-32 transform -scale-x-100 object-contain"
         />
       </div>

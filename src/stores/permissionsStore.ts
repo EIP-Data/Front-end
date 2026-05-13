@@ -2,10 +2,6 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { UserRole, ProtectedRoute, PermissionsConfig } from '@/types/permissions';
 
-/**
- * Configuration des permissions par rôle
- * Chaque rôle a un ensemble distinct de routes et fonctionnalités
- */
 const PERMISSIONS_CONFIG: PermissionsConfig = {
   Administrator: {
     routes: [
@@ -13,6 +9,7 @@ const PERMISSIONS_CONFIG: PermissionsConfig = {
       'UserData',
       'UserPreferences',
       'UserSettings',
+      'VpnInstallation',
       'AdminPanel',
       'Research',
       'DataManagement',
@@ -24,30 +21,24 @@ const PERMISSIONS_CONFIG: PermissionsConfig = {
     canViewAnalytics: true,
   },
   Scientist: {
-    routes: ['UserDashboard', 'Research', 'DataManagement', 'Statistics', 'UserPreferences', 'UserSettings'],
+    routes: ['UserDashboard', 'Research', 'DataManagement', 'Statistics', 'UserPreferences', 'UserSettings', 'VpnInstallation'],
     canManageUsers: false,
     canExportData: true,
     canViewAnalytics: true,
   },
   User: {
-    routes: ['UserDashboard', 'UserData', 'UserPreferences', 'UserSettings'],
+    routes: ['UserDashboard', 'UserData', 'UserPreferences', 'UserSettings', 'VpnInstallation'],
     canManageUsers: false,
     canExportData: false,
     canViewAnalytics: false,
   },
 };
 
-/**
- * Store de gestion des permissions utilisateur
- * Persiste le rôle dans localStorage via pinia-plugin-persistedstate
- */
 export const usePermissionsStore = defineStore(
   'permissions',
   () => {
-    // État
     const currentRole = ref<UserRole | null>(null);
 
-    // Computed
     const isAuthenticated = computed(() => currentRole.value !== null);
 
     const currentPermissions = computed(() => {
@@ -59,7 +50,6 @@ export const usePermissionsStore = defineStore(
       return currentPermissions.value?.routes ?? [];
     });
 
-    // Actions
     const setRole = (role: UserRole | null) => {
       currentRole.value = role;
     };
@@ -83,15 +73,10 @@ export const usePermissionsStore = defineStore(
     };
 
     return {
-      // État
       currentRole,
-
-      // Computed
       isAuthenticated,
       currentPermissions,
       availableRoutes,
-
-      // Actions
       setRole,
       clearRole,
       canAccessRoute,
@@ -100,6 +85,6 @@ export const usePermissionsStore = defineStore(
     };
   },
   {
-    persist: true, // Persist le store dans localStorage
+    persist: true,
   }
 );

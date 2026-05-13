@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useThemeStore } from '@/stores/themeStore';
+import { useSettingsStore } from '@/stores/settingsStore';
 
 const { t } = useI18n();
-const themeStore = useThemeStore();
+const settingsStore = useSettingsStore();
 
 const chartOptions = computed(() => ({
   chart: {
@@ -31,14 +31,14 @@ const chartOptions = computed(() => ({
     ],
     labels: {
       style: {
-        colors: themeStore.isDarkMode ? '#9CA3AF' : '#6B7280'
+        colors: settingsStore.isDarkMode ? '#9CA3AF' : '#6B7280'
       }
     }
   },
   yaxis: {
     labels: {
       style: {
-        colors: themeStore.isDarkMode ? '#9CA3AF' : '#6B7280'
+        colors: settingsStore.isDarkMode ? '#9CA3AF' : '#6B7280'
       },
       formatter: (value: number) => `${(value / 1000).toFixed(1)}k`
     }
@@ -56,14 +56,14 @@ const chartOptions = computed(() => ({
   legend: {
     position: 'top',
     labels: {
-      colors: themeStore.isDarkMode ? '#9CA3AF' : '#6B7280'
+      colors: settingsStore.isDarkMode ? '#9CA3AF' : '#6B7280'
     }
   },
   tooltip: {
-    theme: themeStore.isDarkMode ? 'dark' : 'light'
+    theme: settingsStore.isDarkMode ? 'dark' : 'light'
   },
   grid: {
-    borderColor: themeStore.isDarkMode ? '#374151' : '#E5E7EB'
+    borderColor: settingsStore.isDarkMode ? '#374151' : '#E5E7EB'
   }
 }));
 

@@ -20,7 +20,6 @@ export const useUserStore = defineStore('user', () => {
         role.value = null;
         isAuthenticated.value = false;
 
-        // Synchroniser avec permissionsStore
         const permissionsStore = usePermissionsStore();
         permissionsStore.clearRole();
     }
@@ -37,7 +36,6 @@ export const useUserStore = defineStore('user', () => {
         email.value = email_address;
         isAuthenticated.value = true;
 
-        // Si un rôle est fourni (futur: depuis le backend), le définir
         if (userRole) {
             role.value = userRole;
             const permissionsStore = usePermissionsStore();
@@ -51,7 +49,6 @@ export const useUserStore = defineStore('user', () => {
         role.value = null;
         isAuthenticated.value = false;
 
-        // Synchroniser avec permissionsStore
         const permissionsStore = usePermissionsStore();
         permissionsStore.clearRole();
     }

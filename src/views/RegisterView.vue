@@ -3,13 +3,11 @@ import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { register, type RegisterCredentials } from "@/client/clientAuth.ts";
-import { useUserStore } from '@/stores/userStore';
 import LayoutShowcase from "@/components/common/LayoutShowcase.vue";
 import heroImage from '@/assets/images/home/hero_image.png';
 
 const { t } = useI18n();
 const router = useRouter();
-const userStore = useUserStore();
 
 const name = ref('');
 const email = ref('');
@@ -19,6 +17,8 @@ const showPassword = ref(false);
 const showConfirmPassword = ref(false);
 const acceptTerms = ref(false);
 const errorMessage = ref('');
+const registered = ref(false);
+const loading = ref(false);
 
 function testPasswordStrength() {
   if (password.value.length === 0) return 0;
@@ -49,16 +49,18 @@ const handleSubmit = async () => {
     password: password.value,
   };
 
+  loading.value = true;
   await register(credentials)
-      .then((response: { email: string; jwt: string; username: string }) => {
+      .then(() => {
         errorMessage.value = '';
-        userStore.setInformation(response.username, response.email);
-        userStore.isAuthenticated = true;
-        router.push('/onboarding');
+        registered.value = true;
       })
       .catch((error: Error) => {
         errorMessage.value = error.message;
         console.error(error);
+      })
+      .finally(() => {
+        loading.value = false;
       });
 };
 
@@ -69,7 +71,6 @@ const handleSubmit = async () => {
     <div class="min-h-screen bg-gray-100 dark:bg-slate-900 flex items-center justify-center">
       <div class="w-full max-w-6xl px-6 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <!-- Left illustration -->
           <div class="hidden md:flex justify-center">
             <img
               :src="heroImage"
@@ -78,13 +79,27 @@ const handleSubmit = async () => {
             />
           </div>
 
-          <!-- Right form -->
           <div>
-            <h1 class="text-5xl md:text-6xl font-semibold text-slate-900 dark:text-slate-100 leading-tight mb-10">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 dark:text-slate-100 leading-tight mb-6 md:mb-10">
               {{ t('register.niceToMeet') }}<br>
               <span class="text-amber-500 dark:text-amber-400 font-bold">{{ t('register.you') }}</span>
             </h1>
 
+            <div v-if="registered" class="space-y-5">
+              <div class="p-5 bg-green-50 dark:bg-green-900/30 border border-green-300 dark:border-green-600">
+                <p class="font-semibold text-green-800 dark:text-green-300 mb-1">{{ t('register.successTitle') }}</p>
+                <p class="text-sm text-green-700 dark:text-green-400">{{ t('register.successMessage', { email: email }) }}</p>
+              </div>
+              <button
+                type="button"
+                @click="router.push('/login')"
+                class="w-full rounded-none bg-amber-400 px-6 py-3 text-slate-900 text-lg font-semibold hover:bg-amber-500 transition-colors"
+              >
+                {{ t('register.goToLogin') }}
+              </button>
+            </div>
+
+            <template v-if="!registered">
             <div v-if="errorMessage"
                  class="mb-5 p-4 text-sm text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700">
               {{ errorMessage }}
@@ -168,11 +183,11 @@ const handleSubmit = async () => {
                 />
                 <label for="acceptTerms" class="text-sm text-slate-600 dark:text-slate-400 cursor-pointer">
                   {{ t('register.acceptTerms') }}
-                  <router-link to="/terms" class="text-amber-500 dark:text-amber-400 hover:text-amber-600 dark:hover:text-amber-500 font-medium">
+                  <router-link to="/terms-of-services" class="text-amber-500 dark:text-amber-400 hover:text-amber-600 dark:hover:text-amber-500 font-medium">
                     {{ t('register.termsOfService') }}
                   </router-link>
                   {{ t('register.and') }}
-                  <router-link to="/privacy" class="text-amber-500 dark:text-amber-400 hover:text-amber-600 dark:hover:text-amber-500 font-medium">
+                  <router-link to="/privacy-policy" class="text-amber-500 dark:text-amber-400 hover:text-amber-600 dark:hover:text-amber-500 font-medium">
                     {{ t('register.privacyPolicy') }}
                   </router-link>
                 </label>
@@ -180,9 +195,14 @@ const handleSubmit = async () => {
 
               <button
                 type="submit"
-                class="mt-4 w-full rounded-none bg-amber-400 px-6 py-3 text-slate-900 text-lg font-semibold hover:bg-amber-500 transition-colors"
+                :disabled="loading"
+                class="mt-4 w-full rounded-none bg-amber-400 px-6 py-3 text-slate-900 text-lg font-semibold hover:bg-amber-500 transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                {{ t('register.submit') }}
+                <svg v-if="loading" class="animate-spin h-5 w-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                </svg>
+                {{ loading ? t('register.submitting') : t('register.submit') }}
               </button>
             </form>
 
@@ -192,6 +212,7 @@ const handleSubmit = async () => {
                 {{ t('register.loginInstead') }}
               </router-link>
             </p>
+            </template>
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 import {createRouter, createWebHistory, type RouteRecordRaw} from 'vue-router'
 import type { UserRole } from '@/types/permissions'
 import { usePermissionsStore } from '@/stores/permissionsStore'
-import { useUserStore } from '@/stores/userStore'
 
-// Extension du type RouteRecordRaw pour inclure les rôles
+const APP_NAME = import.meta.env.VITE_APP_NAME || 'Datalyz'
+
 declare module 'vue-router' {
   interface RouteMeta {
     title?: string
@@ -146,11 +146,101 @@ const routes: RouteRecordRaw[] = [
         }
     },
     {
+        path: '/privacy-policy',
+        name: 'PrivacyPolicy',
+        component: () => import('../views/PrivacyPolicyView.vue'),
+        meta: { title: 'Privacy Policy' }
+    },
+    {
+        path: '/cookies',
+        name: 'Cookies',
+        component: () => import('../views/CookiesView.vue'),
+        meta: { title: 'Cookie Policy' }
+    },
+    {
+        path: '/user-data',
+        name: 'UserData',
+        component: () => import('../views/UserDataView.vue'),
+        meta: {
+            title: 'My Data',
+            requiresAuth: true,
+            roles: ['Administrator', 'User']
+        }
+    },
+    {
+        path: '/research',
+        name: 'Research',
+        component: () => import('../views/ResearchView.vue'),
+        meta: {
+            title: 'Research',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist']
+        }
+    },
+    {
+        path: '/data-management',
+        name: 'DataManagement',
+        component: () => import('../views/DataManagementView.vue'),
+        meta: {
+            title: 'Data Management',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist']
+        }
+    },
+    {
+        path: '/admin-panel',
+        name: 'AdminPanel',
+        component: () => import('../views/AdminPanelView.vue'),
+        meta: {
+            title: 'Admin Panel',
+            requiresAuth: true,
+            roles: ['Administrator']
+        }
+    },
+    {
+        path: '/user-preferences',
+        name: 'UserPreferences',
+        component: () => import('../views/UserPreferencesView.vue'),
+        meta: {
+            title: 'Preferences',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist', 'User']
+        }
+    },
+    {
+        path: '/user-settings',
+        name: 'UserSettings',
+        component: () => import('../views/UserSettingsView.vue'),
+        meta: {
+            title: 'Settings',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist', 'User']
+        }
+    },
+    {
+        path: '/vpn-installation',
+        name: 'VpnInstallation',
+        component: () => import('../views/VpnInstallationView.vue'),
+        meta: {
+            title: 'VPN Installation',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist', 'User']
+        }
+    },
+    {
         path: '/onboarding',
         name: 'Onboarding',
         component: () => import('../views/OnboardingView.vue'),
         meta: {
             title: 'Privacy Preferences'
+        }
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import('../views/NotFoundView.vue'),
+        meta: {
+            title: 'Page Not Found'
         }
     }
 ]
@@ -164,35 +254,22 @@ const router = createRouter({
 })
 
 router.beforeEach((to, _from, next) => {
-    // Mise à jour du titre
-    document.title = `Datalyz | ${to.meta.title}`
+    document.title = `${APP_NAME} | ${to.meta.title}`
 
-    // Vérification des permissions
     const permissionsStore = usePermissionsStore()
-    const userStore = useUserStore()
     const requiresAuth = to.meta.requiresAuth
     const allowedRoles = to.meta.roles
 
-    // TEMPORAIRE: Définir un rôle par défaut 'User' si l'utilisateur est authentifié sans rôle
-    // Cette logique sera retirée quand le backend renverra le rôle lors du login
-    if (userStore.isAuthenticated && !permissionsStore.currentRole) {
-        permissionsStore.setRole('User')
-    }
-
-    // Si la route nécessite une authentification
     if (requiresAuth) {
         const currentRole = permissionsStore.currentRole
 
-        // Pas de rôle défini → rediriger vers login
         if (!currentRole) {
             next({ name: 'Login' })
             return
         }
 
-        // Si la route a des rôles spécifiques, vérifier l'accès
         if (allowedRoles && allowedRoles.length > 0) {
             if (!allowedRoles.includes(currentRole)) {
-                // Rôle non autorisé → rediriger vers dashboard
                 next({ name: 'UserDashboard' })
                 return
             }

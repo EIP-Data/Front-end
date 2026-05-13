@@ -5,9 +5,9 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <section class="bg-white dark:bg-gray-800 py-24 px-6 md:px-16 text-center">
-    <div class="max-w-3xl mx-auto mb-16">
-      <h2 class="text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+  <section class="bg-white dark:bg-gray-800 py-12 md:py-24 px-4 sm:px-6 md:px-16 text-center">
+    <div class="max-w-3xl mx-auto mb-10 md:mb-16">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-2">
         {{ t('home.purpose.title') }}
       </h2>
       <p class="text-gray-500 dark:text-gray-400 text-lg">
@@ -15,9 +15,9 @@ const { t } = useI18n();
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-10 max-w-6xl mx-auto">
       <div
-          class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-10 flex flex-col items-center space-y-4"
+          class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 md:p-10 flex flex-col items-center space-y-4"
       >
         <img
             src="../../assets/images/home/Icon_users.png"
@@ -31,7 +31,7 @@ const { t } = useI18n();
       </div>
 
       <div
-          class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-10 flex flex-col items-center space-y-4"
+          class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 md:p-10 flex flex-col items-center space-y-4"
       >
         <img
             src="../../assets/images/home/icon_associations.png"
@@ -45,7 +45,7 @@ const { t } = useI18n();
       </div>
 
       <div
-          class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-10 flex flex-col items-center space-y-4"
+          class="bg-white dark:bg-gray-700 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-6 md:p-10 flex flex-col items-center space-y-4"
       >
         <img
             src="../../assets/images/home/icon_community.png"

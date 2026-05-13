@@ -6,6 +6,8 @@ services:
       args:
         - VITE_API_URL=${VITE_API_URL}
         - VITE_APP_TITLE=${VITE_APP_TITLE:-MyApp}
+        -
+        -
     container_name: frontend
     ports:
       - "80:80"

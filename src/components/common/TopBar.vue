@@ -2,12 +2,18 @@
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '@/stores/userStore';
-import { ref } from 'vue';
+import { useSettingsStore } from '@/stores/settingsStore';
+import { usePermissionsStore } from '@/stores/permissionsStore';
+import { ref, computed } from 'vue';
 import userIcon from '@/assets/images/common/user-icon.png';
 
 const { t } = useI18n();
 const router = useRouter();
 const userStore = useUserStore();
+const settingsStore = useSettingsStore();
+const permissionsStore = usePermissionsStore();
+
+const currentRole = computed(() => permissionsStore.currentRole);
 
 const emit = defineEmits<{
   toggleSidebar: []
@@ -30,7 +36,7 @@ const navigateToSettings = () => {
     <div class="flex items-center justify-between px-6 py-4">
       <button
         @click="emit('toggleSidebar')"
-        class="lg:hidden text-gray-700 dark:text-gray-300 hover:text-amber-500 transition-colors"
+        class="lg:hidden text-gray-700 dark:text-gray-300 hover:text-brand transition-colors"
         :aria-label="t('topbar.toggleMenu')"
       >
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -44,6 +50,22 @@ const navigateToSettings = () => {
         </h2>
       </div>
 
+      <div class="flex items-center gap-2">
+        <button
+          @click="settingsStore.toggleDarkMode()"
+          class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          :aria-label="t('sidebar.toggleDarkMode')"
+        >
+          <svg v-if="settingsStore.isDarkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+          <svg v-else class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+          </svg>
+        </button>
+
       <div class="relative">
         <button
           @click="toggleUserMenu"
@@ -55,7 +77,7 @@ const navigateToSettings = () => {
               {{ userStore.email }}
             </span>
             <span class="text-xs text-gray-500 dark:text-gray-400">
-              {{ t('topbar.user') }}
+              {{ currentRole ? t(`permissions.roles.${currentRole}`) : t('topbar.user') }}
             </span>
           </div>
           <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
@@ -87,6 +109,7 @@ const navigateToSettings = () => {
             </button>
           </div>
         </Transition>
+      </div>
       </div>
     </div>
   </header>

@@ -12,6 +12,7 @@ import App from './App.vue'
 import router from './router'
 import AOS from 'aos'
 import VueApexCharts from "vue3-apexcharts";
+import { useBrandStore } from '@/stores/brandStore'
 
 
 const app = createApp(App)
@@ -26,9 +27,9 @@ const i18n = createI18n({
 });
 
 
-app.use(router);
 pinia.use(piniaPluginPersistedstate);
 app.use(pinia);
+app.use(router);
 app.use(i18n);
 app.use(VueApexCharts);
 
@@ -36,3 +37,6 @@ AOS.init();
 
 app.mount('#app');
 configureAxios(router);
+
+const brandStore = useBrandStore()
+brandStore.applyBrandColor()

@@ -2,6 +2,10 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import TeamMember from './TeamMember.vue';
+import imgCome from '@/assets/images/team/come_terlecki.jpeg';
+import imgMathieu from '@/assets/images/team/mathieu_coulet.jpeg';
+import imgCyprien from '@/assets/images/team/cyprien_diedrichs.jpeg';
+import imgTom from '@/assets/images/team/tom_blancheton.jpeg';
 
 const { t } = useI18n();
 
@@ -10,25 +14,25 @@ const team = computed(() => [
     name: 'Côme Terlecki',
     role: t('aboutUs.team.members.come.role'),
     description: t('aboutUs.team.members.come.description'),
-    image: '/src/assets/images/team/come_terlecki.jpeg'
+    image: imgCome
   },
   {
     name: 'Mathieu Coulet',
     role: t('aboutUs.team.members.mathieu.role'),
     description: t('aboutUs.team.members.mathieu.description'),
-    image: '/src/assets/images/team/mathieu_coulet.jpeg'
+    image: imgMathieu
   },
   {
     name: 'Cyprien Diedrichs',
     role: t('aboutUs.team.members.cyprien.role'),
     description: t('aboutUs.team.members.cyprien.description'),
-    image: '/src/assets/images/team/cyprien_diedrichs.jpeg'
+    image: imgCyprien
   },
   {
     name: 'Tom Blancheton',
     role: t('aboutUs.team.members.tom.role'),
     description: t('aboutUs.team.members.tom.description'),
-    image: '/src/assets/images/team/tom_blancheton.jpeg'
+    image: imgTom
   }
 ]);
 </script>

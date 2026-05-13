@@ -2,36 +2,70 @@
 import { useI18n } from 'vue-i18n';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { login, type LoginCredentials } from "@/client/clientAuth.ts";
+import { login, resendVerificationEmail, type LoginCredentials } from "@/client/clientAuth.ts";
 import { useUserStore } from '@/stores/userStore';
+import { useConsentsStore } from '@/stores/consentsStore';
 import LayoutShowcase from "@/components/common/LayoutShowcase.vue";
 import heroImage from '@/assets/images/home/hero_image.png';
 
 const { t } = useI18n();
 const router = useRouter();
 const userStore = useUserStore();
+const consentsStore = useConsentsStore();
 
 const email = ref('');
 const password = ref('');
 const showPassword = ref(false);
+const rememberMe = ref(false);
 const errorMessage = ref('');
+const emailNotVerified = ref(false);
+const resendLoading = ref(false);
+const resendSuccess = ref(false);
+const resendError = ref(false);
 
 const handleSubmit = async () => {
+  emailNotVerified.value = false;
+  resendSuccess.value = false;
+  resendError.value = false;
+
   let credentials: LoginCredentials = {
     email: email.value,
     password: password.value,
+    remember: rememberMe.value,
   };
 
   await login(credentials)
       .then(() => {
         errorMessage.value = '';
         userStore.login(email.value);
-        router.push('/user-dashboard');
+        router.push(consentsStore.hasCompletedOnboarding ? '/user-dashboard' : '/onboarding');
       })
-      .catch((error: Error) => {
-        errorMessage.value = t('login.error');
+      .catch((error: any) => {
+        if (error?.response?.status === 403) {
+          errorMessage.value = '';
+          emailNotVerified.value = true;
+        } else {
+          errorMessage.value = t('login.error');
+        }
         console.error(error);
       });
+};
+
+const handleResendEmail = async () => {
+  resendLoading.value = true;
+  resendSuccess.value = false;
+  resendError.value = false;
+
+  await resendVerificationEmail(email.value)
+    .then(() => {
+      resendSuccess.value = true;
+    })
+    .catch(() => {
+      resendError.value = true;
+    })
+    .finally(() => {
+      resendLoading.value = false;
+    });
 };
 </script>
 
@@ -40,7 +74,6 @@ const handleSubmit = async () => {
     <div class="min-h-screen bg-gray-100 dark:bg-slate-900 flex items-center justify-center">
     <div class="w-full max-w-6xl px-6 py-12">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <!-- Left illustration -->
         <div class="hidden md:flex justify-center">
           <img
             :src="heroImage"
@@ -49,9 +82,8 @@ const handleSubmit = async () => {
           />
         </div>
 
-        <!-- Right form -->
         <div>
-          <h1 class="text-5xl md:text-6xl font-semibold text-slate-900 dark:text-slate-100 leading-tight mb-10">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 dark:text-slate-100 leading-tight mb-6 md:mb-10">
             {{ t('login.welcome') }}<br>
             <span class="text-amber-500 dark:text-amber-400 font-bold">{{ t('login.back') }}</span>
           </h1>
@@ -59,6 +91,22 @@ const handleSubmit = async () => {
           <div v-if="errorMessage"
                class="mb-5 p-4 text-sm text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700">
             {{ errorMessage }}
+          </div>
+
+          <div v-if="emailNotVerified"
+               class="mb-5 p-4 text-sm bg-amber-50 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-600">
+            <p class="text-amber-800 dark:text-amber-300 font-medium mb-3">{{ t('login.emailNotVerified') }}</p>
+            <div v-if="resendSuccess" class="text-green-700 dark:text-green-400">{{ t('login.resendEmailSuccess') }}</div>
+            <div v-else-if="resendError" class="text-red-600 dark:text-red-400 mb-2">{{ t('login.resendEmailError') }}</div>
+            <button
+              v-if="!resendSuccess"
+              type="button"
+              :disabled="resendLoading"
+              @click="handleResendEmail"
+              class="mt-1 text-amber-600 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-200 underline text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {{ resendLoading ? '...' : t('login.resendEmail') }}
+            </button>
           </div>
 
           <form @submit.prevent="handleSubmit" class="space-y-5">
@@ -96,7 +144,16 @@ const handleSubmit = async () => {
               </button>
             </div>
 
-            <div class="flex justify-end">
+            <div class="flex items-center justify-between">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input
+                  id="rememberMe"
+                  v-model="rememberMe"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-amber-500 focus:ring-amber-400 focus:ring-2 cursor-pointer"
+                />
+                <span class="text-sm text-slate-600 dark:text-slate-400">{{ t('login.rememberMe') }}</span>
+              </label>
               <router-link
                 to="/forgot-password"
                 class="text-sm text-amber-500 dark:text-amber-400 hover:text-amber-600 dark:hover:text-amber-500 transition-colors"

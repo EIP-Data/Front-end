@@ -4,48 +4,23 @@ import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import OnboardingModals from '@/components/common/OnboardingModals.vue';
 import type { ConsentPayload } from '@/components/common/OnboardingModals.vue';
-// import axios from 'axios'; // À décommenter quand l'endpoint API sera prêt
+import { useConsentsStore } from '@/stores/consentsStore';
 
 const { t } = useI18n();
 const router = useRouter();
+const consentsStore = useConsentsStore();
 
 const showModal = ref(false);
 
 onMounted(() => {
-  // Afficher la modale dès le montage du composant
   showModal.value = true;
 });
 
 const handleComplete = async (payload: ConsentPayload) => {
-  console.log('Consent payload:', payload);
-
-  // Préparer le payload pour le serveur
-  const consentData = {
-    shareData: payload.data,
-    shareNavigation: payload.navigation,
-    shareHistory: payload.history,
-    shareClicks: payload.clicks,
-    shareScrolls: payload.scrolls,
-    shareFullExperience: payload.fullExperience,
-  };
-
-  try {
-    // Envoyer les consentements au serveur
-    // Décommente et adapte cette ligne quand l'endpoint sera prêt
-    // await axios.post('/api/user/consents', consentData);
-
-    console.log('Consents to send to server:', consentData);
-
-    // Rediriger vers le dashboard
-    router.push('/user-dashboard');
-  } catch (error) {
-    console.error('Failed to save consents:', error);
-    // En cas d'erreur, on redirige quand même vers le dashboard
-    router.push('/user-dashboard');
-  }
+  consentsStore.setConsents(payload);
+  router.push('/user-dashboard');
 };
 
-// Si l'utilisateur ferme la modale sans terminer, on le redirige quand même
 const handleModalClose = () => {
   router.push('/user-dashboard');
 };
@@ -63,7 +38,6 @@ const handleModalClose = () => {
         </p>
       </div>
 
-      <!-- Illustration ou animation optionnelle -->
       <div class="flex justify-center mb-8">
         <div class="w-24 h-24 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg animate-pulse">
           <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

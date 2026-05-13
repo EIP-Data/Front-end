@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useThemeStore } from '@/stores/themeStore';
+import { useSettingsStore } from '@/stores/settingsStore';
 
 const { t } = useI18n();
-const themeStore = useThemeStore();
+const settingsStore = useSettingsStore();
 
 const chartOptions = computed(() => ({
   chart: {
@@ -22,7 +22,7 @@ const chartOptions = computed(() => ({
   legend: {
     position: 'bottom',
     labels: {
-      colors: themeStore.isDarkMode ? '#9CA3AF' : '#6B7280'
+      colors: settingsStore.isDarkMode ? '#9CA3AF' : '#6B7280'
     }
   },
   plotOptions: {
@@ -35,12 +35,12 @@ const chartOptions = computed(() => ({
             show: true,
             label: t('dashboard.charts.total'),
             fontSize: '16px',
-            color: themeStore.isDarkMode ? '#9CA3AF' : '#6B7280',
+            color: settingsStore.isDarkMode ? '#9CA3AF' : '#6B7280',
             formatter: () => '100%'
           },
           value: {
             fontSize: '24px',
-            color: themeStore.isDarkMode ? '#FFFFFF' : '#1F2937',
+            color: settingsStore.isDarkMode ? '#FFFFFF' : '#1F2937',
             formatter: (val: string) => `${val}%`
           }
         }
@@ -52,7 +52,7 @@ const chartOptions = computed(() => ({
     formatter: (val: number) => `${val.toFixed(1)}%`
   },
   tooltip: {
-    theme: themeStore.isDarkMode ? 'dark' : 'light',
+    theme: settingsStore.isDarkMode ? 'dark' : 'light',
     y: {
       formatter: (val: number) => `${val}%`
     }

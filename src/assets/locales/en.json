@@ -12,6 +12,10 @@
     "forgotPassword": "Forgot password?",
     "submit": "Sign In",
     "error": "Invalid credentials. Please try again.",
+    "emailNotVerified": "Your email address is not verified.",
+    "resendEmail": "Resend verification email",
+    "resendEmailSuccess": "Verification email sent! Please check your inbox.",
+    "resendEmailError": "Failed to send email. Please try again.",
     "logoAlt": "Application Logo",
     "register": "Don't have an account?",
     "registerInstead": "Create one now"
@@ -41,7 +45,11 @@
     "existingAccount": "Already have an account?",
     "loginInstead": "Log in instead",
     "submit": "Create Account",
-    "weakPassword": "Password is too weak - must be at least 8 characters, 1 uppercase, 1 lowercase, 1 number"
+    "submitting": "Creating account...",
+    "weakPassword": "Password is too weak - must be at least 8 characters, 1 uppercase, 1 lowercase, 1 number",
+    "successTitle": "Account created!",
+    "successMessage": "A verification email has been sent to {email}. Please check your inbox and click the link to activate your account.",
+    "goToLogin": "Go to Login"
   },
   "forgotPassword": {
     "title": "Reset Your",
@@ -390,6 +398,7 @@
     "dataVisualization": "Data Visualization",
     "preferences": "Preferences",
     "settings": "Settings",
+    "vpnInstallation": "VPN Installation",
     "privacy": "Privacy",
     "darkMode": "Dark Mode",
     "logout": "Logout",
@@ -398,6 +407,7 @@
     "categories": {
       "overview": "Overview",
       "dataManagement": "Data Management",
+      "administration": "Administration",
       "userSettings": "User Settings"
     }
   },
@@ -529,5 +539,253 @@
       "emailRequired": "Email address is required",
       "emailInvalid": "Please enter a valid email address"
     }
+  },
+  "userPreferences": {
+    "save": "Save preferences",
+    "saved": "Preferences saved"
+  },
+  "userSettings": {
+    "title": "Account Settings",
+    "subtitle": "Manage your account information and preferences",
+    "account": {
+      "title": "Account Information",
+      "email": "Email address",
+      "password": "Password",
+      "changePassword": "Change password",
+      "sendingReset": "Sending...",
+      "resetEmailSent": "Email sent! Check your inbox.",
+      "resetEmailError": "Failed to send. Please try again."
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "subtitle": "Irreversible actions that affect your account permanently",
+      "deleteAccount": "Delete account",
+      "deleteAccountDesc": "Permanently delete your account and all associated data",
+      "deleteButton": "Delete my account"
+    },
+    "deleteModal": {
+      "title": "Delete your account",
+      "warning": "This action is irreversible. All your data will be permanently deleted and cannot be recovered.",
+      "confirm": "Type your email address to confirm: {email}",
+      "cancel": "Cancel",
+      "confirm_button": "Delete permanently",
+      "deleting": "Deleting..."
+    }
+  },
+  "userDataView": {
+    "subtitle": "View and manage your personal data collected by Datalyz",
+    "stats": {
+      "totalEntries": "Total entries",
+      "lastActivity": "Last activity",
+      "exports": "Exports"
+    },
+    "table": {
+      "title": "My Data",
+      "export": "Export",
+      "empty": "No data collected yet"
+    }
+  },
+  "researchView": {
+    "subtitle": "Manage your research projects and datasets",
+    "stats": {
+      "activeProjects": "Active projects",
+      "datasets": "Datasets",
+      "reports": "Reports"
+    },
+    "projects": {
+      "title": "Projects",
+      "new": "New project",
+      "empty": "No research projects yet"
+    }
+  },
+  "dataManagementView": {
+    "subtitle": "Manage datasets, pipelines and data flows",
+    "stats": {
+      "datasets": "Datasets",
+      "pipelines": "Pipelines",
+      "errors": "Errors"
+    },
+    "table": {
+      "title": "Datasets",
+      "import": "Import",
+      "new": "New dataset",
+      "empty": "No datasets yet"
+    }
+  },
+  "adminPanelView": {
+    "subtitle": "Platform administration and system overview",
+    "actions": {
+      "scientists": "Scientists",
+      "scientistsDesc": "Manage scientist accounts",
+      "users": "Users",
+      "usersDesc": "Manage user accounts",
+      "analytics": "Analytics",
+      "analyticsDesc": "View platform analytics",
+      "system": "System",
+      "systemDesc": "System configuration"
+    },
+    "stats": {
+      "totalUsers": "Total users",
+      "scientists": "Scientists",
+      "regularUsers": "Regular users"
+    },
+    "users": {
+      "title": "All users",
+      "refresh": "Refresh",
+      "retry": "Try again",
+      "loadError": "Failed to load users",
+      "promote": "Promote",
+      "demote": "Demote",
+      "delete": "Delete",
+      "columns": {
+        "user": "User",
+        "email": "Email",
+        "role": "Role",
+        "actions": "Actions"
+      }
+    },
+    "overview": {
+      "users": "User overview",
+      "activity": "Recent activity",
+      "empty": "No users found"
+    },
+    "deleteModal": {
+      "title": "Delete user",
+      "message": "Are you sure you want to permanently delete {username}? This action cannot be undone.",
+      "cancel": "Cancel",
+      "confirm": "Delete"
+    }
+  },
+  "termsOfServices": {
+    "lastUpdated": "Last updated: January 2026",
+    "sections": {
+      "acceptance": {
+        "title": "1. Acceptance of Terms",
+        "content": "By creating an account and using Datalyz, you agree to these Terms of Service in full. If you disagree with any part of these terms, you must not use our platform. These terms apply to all users, regardless of their role (User, Scientist, Administrator)."
+      },
+      "description": {
+        "title": "2. Description of the Project",
+        "content": "Datalyz is a non-profit academic research project carried out by a student team as part of an Innovative Project (EIP). Its purpose is to study the mechanisms of hyper-personalization algorithms on the internet. No commercial activity is conducted through this platform. The project receives no revenue and does not pursue any commercial objective. The platform enables the collection of behavioral data — subject to your explicit and granular consent — to help researchers understand how recommendation systems build user profiles."
+      },
+      "accounts": {
+        "title": "3. User Accounts",
+        "content": "You are responsible for the confidentiality of your credentials and all activities carried out under your account. You agree to provide accurate information, not to share your access with third parties, and to notify us immediately of any unauthorized use."
+      },
+      "data": {
+        "title": "4. Data Collection & GDPR",
+        "intro": "In compliance with Regulation (EU) 2016/679 (GDPR), all data collection on Datalyz is based on your free, specific, informed, and unambiguous consent. Upon registration, you are asked to individually consent to each type of data collection:",
+        "types": {
+          "data": "General profile data and preferences",
+          "navigation": "Navigation paths within the platform",
+          "history": "Browsing history on the platform",
+          "clicks": "Click interactions",
+          "scrolls": "Scroll behavior",
+          "fullExperience": "Complete behavioral experience"
+        },
+        "granular": "Each consent is independent — you may accept some and decline others. This granular approach reflects our commitment to respecting your autonomy.",
+        "modify": "You may modify your consent at any time from your Preferences page. Withdrawal of consent does not affect the lawfulness of processing carried out prior to withdrawal.",
+        "noSale": "Your data is never sold, transferred, or shared with third parties. It is used exclusively for academic research."
+      },
+      "hosting": {
+        "title": "5. Data Hosting",
+        "content": "All data collected through Datalyz is hosted exclusively on servers located in France, within the European Union. This hosting complies with GDPR requirements regarding the transfer and storage of personal data."
+      },
+      "rights": {
+        "title": "6. Your Rights",
+        "intro": "Under the GDPR, you have the following rights regarding your personal data:",
+        "list": {
+          "access": "Right of access: obtain a copy of all data we hold about you",
+          "rectification": "Right of rectification: correct inaccurate or incomplete data",
+          "erasure": "Right to erasure: request permanent deletion of your data",
+          "portability": "Right to portability: receive your data in a structured, machine-readable format",
+          "opposition": "Right to object: object to the processing of your data at any time",
+          "restriction": "Right to restriction: request that processing be limited in certain cases"
+        },
+        "exercise": "To exercise these rights, delete your account from the settings page or contact us via the contact page. We will respond within 30 days."
+      },
+      "use": {
+        "title": "7. Acceptable Use",
+        "intro": "You agree not to use the platform to:",
+        "list": {
+          "scraping": "Attempt to extract data by automated means (scraping, bots)",
+          "impersonation": "Impersonate another person or create fictitious accounts",
+          "interference": "Interfere with or damage the platform's infrastructure",
+          "illegal": "Engage in any illegal activity or violate applicable regulations"
+        }
+      },
+      "ip": {
+        "title": "8. Intellectual Property",
+        "content": "The platform, its design, code, and content are the property of the Datalyz project team. The research data collected — once anonymized — may be used for academic publications. No use of these elements is permitted without the prior written consent of the team."
+      },
+      "termination": {
+        "title": "9. Termination",
+        "content": "You may delete your account at any time from the account settings page. Upon deletion, all your personal data will be permanently and irreversibly erased within 30 days. We reserve the right to suspend any account that violates these terms."
+      },
+      "changes": {
+        "title": "10. Changes to Terms",
+        "content": "As an evolving research project, these terms may be updated. Any significant changes will be communicated to registered users by email at least 15 days before taking effect. Continued use of the platform following this notice constitutes acceptance of the new terms."
+      },
+      "contact": {
+        "title": "11. Contact",
+        "content": "For any questions regarding these terms, or to exercise your rights, please contact us via the"
+      }
+    }
+  },
+  "privacyPolicy": {
+    "subtitle": "How we collect, use and protect your personal data",
+    "sections": {
+      "collect": { "title": "Data We Collect", "content": "We collect data that you voluntarily provide (registration, preferences) as well as behavioral data on the platform, subject to your consent during onboarding. You can modify your consent at any time from your preferences." },
+      "use": { "title": "How We Use Your Data", "content": "Your data is used exclusively for academic research on hyper-personalization algorithms. It is never sold to third parties and is processed in accordance with the GDPR." },
+      "rights": { "title": "Your Rights", "content": "You have the right to access, rectify, and delete your personal data. You can exercise these rights at any time from your account settings or by contacting us." },
+      "retention": { "title": "Data Retention", "content": "Your data is retained for the duration of your account. When you delete your account, all associated data is permanently deleted within 30 days." },
+      "contact": { "title": "Contact", "content": "For any questions regarding your personal data, you can contact us via the" }
+    }
+  },
+  "cookiesPolicy": {
+    "subtitle": "Information about the cookies used on the Datalyz platform",
+    "table": {
+      "name": "Name", "purpose": "Purpose", "duration": "Duration",
+      "rows": {
+        "token": "Authentication session", "tokenDuration": "Session or 30 days",
+        "locale": "Language preference", "localeDuration": "1 year",
+        "theme": "Dark/light mode preference", "themeDuration": "1 year"
+      }
+    },
+    "sections": {
+      "what": { "title": "What Are Cookies?", "content": "Cookies are small text files stored on your device when you visit our platform. They allow us to remember your preferences and ensure the proper functioning of the service." },
+      "list": { "title": "Cookies We Use" },
+      "manage": { "title": "Managing Cookies", "content": "You can configure your browser to refuse all cookies or to be notified when a cookie is sent. However, disabling certain cookies may affect the functionality of the platform." },
+      "contact": { "title": "Contact", "content": "For any questions about our cookie policy, contact us via the" }
+    }
+  },
+  "vpnInstallation": {
+    "title": "VPN Installation",
+    "subtitle": "Connect securely to the Datalyz research network",
+    "whyVpn": "The VPN allows you to access the Datalyz platform securely and ensures that your data collection is routed through our French servers, in compliance with GDPR.",
+    "steps": {
+      "launch": {
+        "title": "Launch Datalyz on your phone",
+        "description": "Open the Datalyz application on your mobile device and log in with your account."
+      },
+      "choose": {
+        "title": "Choose your device type",
+        "description": "Select the operating system of your device: Windows, Apple (iOS/macOS) or Android."
+      },
+      "download": {
+        "title": "Download the certificate",
+        "description": "Click the button corresponding to your device. A secure link will be generated and the configuration file will download automatically."
+      }
+    },
+    "download": {
+      "title": "Download my certificate"
+    },
+    "downloadError": "Failed to generate the download link. Please try again.",
+    "proxy": {
+      "title": "Download the proxy",
+      "button": "Download the proxy"
+    },
+    "proxyDownloadError": "Failed to generate the proxy download link. Please try again.",
+    "support": "Having trouble? Contact us via the",
+    "supportLink": "contact page"
   }
 }

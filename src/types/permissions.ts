@@ -1,15 +1,16 @@
-/**
- * Types pour le système de gestion des permissions
- */
-
-/**
- * Rôles utilisateurs disponibles dans l'application
- */
 export type UserRole = 'Administrator' | 'Scientist' | 'User';
 
-/**
- * Noms des routes protégées
- */
+export type BackendRole = 'admin' | 'scientist' | 'user';
+
+export function mapBackendRole(backendRole: BackendRole): UserRole {
+  const mapping: Record<BackendRole, UserRole> = {
+    admin: 'Administrator',
+    scientist: 'Scientist',
+    user: 'User',
+  };
+  return mapping[backendRole] ?? 'User';
+}
+
 export type ProtectedRoute =
   | 'UserDashboard'
   | 'UserData'
@@ -19,11 +20,9 @@ export type ProtectedRoute =
   | 'Research'
   | 'DataManagement'
   | 'Statistics'
-  | 'ScientistManagement';
+  | 'ScientistManagement'
+  | 'VpnInstallation';
 
-/**
- * Configuration des permissions pour un rôle
- */
 export interface RolePermissions {
   routes: ProtectedRoute[];
   canManageUsers?: boolean;
@@ -31,7 +30,4 @@ export interface RolePermissions {
   canViewAnalytics?: boolean;
 }
 
-/**
- * Configuration complète des permissions par rôle
- */
 export type PermissionsConfig = Record<UserRole, RolePermissions>;

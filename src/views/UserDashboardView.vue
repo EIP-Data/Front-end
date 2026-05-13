@@ -14,7 +14,7 @@ const userStore = useUserStore();
 <template>
   <LayoutDashboard>
     <div class="mb-8">
-      <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-2">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-2">
         {{ t('dashboard.welcome') }}
       </h1>
       <p class="text-lg text-gray-600 dark:text-gray-300">
@@ -53,13 +53,13 @@ const userStore = useUserStore();
       />
     </div>
 
-    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
       <DataCollectionChart />
       <UserActivityChart />
     </div>
 
-    <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
-      <div class="xl:col-span-2">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2">
         <DataCollectionChart />
       </div>
       <DataDistributionChart />

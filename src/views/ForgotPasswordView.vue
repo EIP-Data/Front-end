@@ -41,7 +41,6 @@ const handleSubmit = async () => {
     <div class="min-h-screen bg-gray-100 dark:bg-slate-900 flex items-center justify-center">
     <div class="w-full max-w-6xl px-6 py-12">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <!-- Left illustration -->
         <div class="hidden md:flex justify-center">
           <img
             :src="heroImage"
@@ -50,9 +49,8 @@ const handleSubmit = async () => {
           />
         </div>
 
-        <!-- Right form -->
         <div>
-          <h1 class="text-5xl md:text-6xl font-semibold text-slate-900 dark:text-slate-100 leading-tight mb-4">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 dark:text-slate-100 leading-tight mb-4">
             {{ t('forgotPassword.title') }}<br>
             <span class="text-amber-500 dark:text-amber-400 font-bold">{{ t('forgotPassword.titleHighlight') }}</span>
           </h1>

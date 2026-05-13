@@ -2,8 +2,7 @@
 import { RouterView } from 'vue-router'
 import { useSettingsStore } from '@/stores/settingsStore.ts';
 
-const settingsStore = useSettingsStore();
-settingsStore.setDarkMode();
+useSettingsStore();
 </script>
 
 <template>

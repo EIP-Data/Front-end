@@ -1,22 +1,24 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import LayoutDashboard from '@/components/common/LayoutDashboard.vue';
+import { getScientists, addScientist, deleteScientist } from '@/client/clientAdmin';
 
 const { t } = useI18n();
 
-// État de la modal d'ajout
 const isModalOpen = ref(false);
 const newScientistUsername = ref('');
 const newScientistEmail = ref('');
 const usernameError = ref('');
 const emailError = ref('');
 
-// État de la modal de suppression
 const isDeleteModalOpen = ref(false);
 const scientistToDelete = ref<Scientist | null>(null);
 
-// Interface pour un scientifique
+const isLoading = ref(false);
+const loadError = ref('');
+const submitError = ref('');
+
 interface Scientist {
   id: number;
   username: string;
@@ -24,35 +26,26 @@ interface Scientist {
   registrationDate: string;
 }
 
-// Données mockées
-const scientists = ref<Scientist[]>([
-  {
-    id: 1,
-    username: 'dr.smith',
-    email: 'john.smith@research.org',
-    registrationDate: '2024-01-15',
-  },
-  {
-    id: 2,
-    username: 'marie.curie',
-    email: 'marie.curie@science.edu',
-    registrationDate: '2024-02-20',
-  },
-  {
-    id: 3,
-    username: 'alan.turing',
-    email: 'a.turing@computing.ac.uk',
-    registrationDate: '2024-03-10',
-  },
-  {
-    id: 4,
-    username: 'ada.lovelace',
-    email: 'ada.lovelace@algorithm.com',
-    registrationDate: '2024-04-05',
-  },
-]);
+const scientists = ref<Scientist[]>([]);
 
-// Ouvrir la modal d'ajout
+onMounted(async () => {
+  isLoading.value = true;
+  loadError.value = '';
+  try {
+    const users = await getScientists();
+    scientists.value = users.map(u => ({
+      id: u.id,
+      username: u.username,
+      email: u.email,
+      registrationDate: u.created_at ?? '',
+    }));
+  } catch {
+    loadError.value = 'Impossible de charger la liste des scientifiques.';
+  } finally {
+    isLoading.value = false;
+  }
+});
+
 const openModal = () => {
   isModalOpen.value = true;
   newScientistUsername.value = '';
@@ -61,7 +54,6 @@ const openModal = () => {
   emailError.value = '';
 };
 
-// Fermer la modal d'ajout
 const closeModal = () => {
   isModalOpen.value = false;
   newScientistUsername.value = '';
@@ -70,26 +62,20 @@ const closeModal = () => {
   emailError.value = '';
 };
 
-// Validation username
 const validateUsername = (username: string): boolean => {
-  // Min 3 caractères, alphanumérique avec points, underscores et tirets
   const usernameRegex = /^[a-zA-Z0-9._-]{3,}$/;
   return usernameRegex.test(username);
 };
 
-// Validation email simple
 const validateEmail = (email: string): boolean => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
 
-// Soumettre le formulaire d'ajout
-const handleSubmit = () => {
-  // Reset des erreurs
+const handleSubmit = async () => {
   usernameError.value = '';
   emailError.value = '';
 
-  // Validation username
   if (!newScientistUsername.value) {
     usernameError.value = t('scientistManagement.errors.usernameRequired');
     return;
@@ -100,7 +86,6 @@ const handleSubmit = () => {
     return;
   }
 
-  // Validation email
   if (!newScientistEmail.value) {
     emailError.value = t('scientistManagement.errors.emailRequired');
     return;
@@ -111,41 +96,40 @@ const handleSubmit = () => {
     return;
   }
 
-  // Pour l'instant, juste log dans la console
-  console.log('New scientist:', {
-    username: newScientistUsername.value,
-    email: newScientistEmail.value,
-  });
-
-  // TODO: Appel API backend pour ajouter le scientifique
-  // await addScientist({ username: newScientistUsername.value, email: newScientistEmail.value });
-
-  // Fermer la modal
-  closeModal();
+  submitError.value = '';
+  try {
+    await addScientist(newScientistUsername.value, newScientistEmail.value);
+    const users = await getScientists();
+    scientists.value = users.map(u => ({
+      id: u.id,
+      username: u.username,
+      email: u.email,
+      registrationDate: u.created_at ?? '',
+    }));
+    closeModal();
+  } catch {
+    submitError.value = 'Impossible d\'ajouter le scientifique. Veuillez réessayer.';
+  }
 };
 
-// Ouvrir la modal de suppression
 const openDeleteModal = (scientist: Scientist) => {
   scientistToDelete.value = scientist;
   isDeleteModalOpen.value = true;
 };
 
-// Fermer la modal de suppression
 const closeDeleteModal = () => {
   isDeleteModalOpen.value = false;
   scientistToDelete.value = null;
 };
 
-// Confirmer la suppression
-const confirmDelete = () => {
+const confirmDelete = async () => {
   if (scientistToDelete.value) {
-    const index = scientists.value.findIndex(s => s.id === scientistToDelete.value!.id);
-    if (index !== -1) {
-      scientists.value.splice(index, 1);
-      console.log('Scientist deleted:', scientistToDelete.value.username);
-
-      // TODO: Appel API backend pour supprimer le scientifique
-      // await deleteScientist(scientistToDelete.value.id);
+    try {
+      await deleteScientist(scientistToDelete.value.id);
+      const index = scientists.value.findIndex(s => s.id === scientistToDelete.value!.id);
+      if (index !== -1) scientists.value.splice(index, 1);
+    } catch {
+      loadError.value = 'Impossible de supprimer le scientifique. Veuillez réessayer.';
     }
   }
   closeDeleteModal();
@@ -155,7 +139,6 @@ const confirmDelete = () => {
 <template>
   <LayoutDashboard>
     <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-10 transition-colors">
-      <!-- Header -->
       <div class="flex items-center justify-between mb-8">
         <div>
           <h1 class="text-4xl font-semibold text-slate-800 dark:text-white mb-2">
@@ -176,9 +159,23 @@ const confirmDelete = () => {
         </button>
       </div>
 
-      <!-- Table -->
+      <div
+        v-if="loadError"
+        class="mb-6 px-4 py-3 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm"
+      >
+        {{ loadError }}
+      </div>
+
       <div class="overflow-x-auto">
-        <table class="w-full border-collapse">
+        <div v-if="isLoading" class="text-center py-12 text-slate-400 dark:text-gray-500">
+          <svg class="animate-spin w-8 h-8 mx-auto mb-3" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+          </svg>
+          Chargement...
+        </div>
+
+        <table v-else class="w-full border-collapse">
           <thead>
             <tr class="border-b-2 border-gray-200 dark:border-gray-700">
               <th class="text-left py-4 px-6 text-slate-700 dark:text-gray-300 font-semibold">
@@ -208,7 +205,7 @@ const confirmDelete = () => {
                 {{ scientist.email }}
               </td>
               <td class="py-4 px-6 text-slate-600 dark:text-gray-400">
-                {{ new Date(scientist.registrationDate).toLocaleDateString() }}
+                {{ scientist.registrationDate ? new Date(scientist.registrationDate).toLocaleDateString() : '—' }}
               </td>
               <td class="py-4 px-6 text-right">
                 <button
@@ -225,9 +222,8 @@ const confirmDelete = () => {
           </tbody>
         </table>
 
-        <!-- Empty state -->
         <div
-          v-if="scientists.length === 0"
+          v-if="!isLoading && scientists.length === 0"
           class="text-center py-12 text-slate-500 dark:text-gray-400"
         >
           {{ t('scientistManagement.noScientists') }}
@@ -235,7 +231,6 @@ const confirmDelete = () => {
       </div>
     </div>
 
-    <!-- Modal -->
     <Teleport to="body">
       <Transition
         enter-active-class="transition-opacity duration-300"
@@ -258,7 +253,6 @@ const confirmDelete = () => {
               v-if="isModalOpen"
               class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-8"
             >
-              <!-- Modal Header -->
               <div class="flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-semibold text-slate-800 dark:text-white">
                   {{ t('scientistManagement.modal.title') }}
@@ -273,9 +267,7 @@ const confirmDelete = () => {
                 </button>
               </div>
 
-              <!-- Modal Body -->
               <form @submit.prevent="handleSubmit">
-                <!-- Username Field -->
                 <div class="mb-6">
                   <label
                     for="scientist-username"
@@ -299,7 +291,6 @@ const confirmDelete = () => {
                   </p>
                 </div>
 
-                <!-- Email Field -->
                 <div class="mb-6">
                   <label
                     for="scientist-email"
@@ -323,7 +314,10 @@ const confirmDelete = () => {
                   </p>
                 </div>
 
-                <!-- Modal Footer -->
+                <p v-if="submitError" class="mb-4 text-sm text-red-600 dark:text-red-400">
+                  {{ submitError }}
+                </p>
+
                 <div class="flex items-center justify-end gap-3">
                   <button
                     type="button"
@@ -346,7 +340,6 @@ const confirmDelete = () => {
       </Transition>
     </Teleport>
 
-    <!-- Delete Confirmation Modal -->
     <Teleport to="body">
       <Transition
         enter-active-class="transition-opacity duration-300"
@@ -369,7 +362,6 @@ const confirmDelete = () => {
               v-if="isDeleteModalOpen"
               class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-8"
             >
-              <!-- Modal Header -->
               <div class="flex items-center justify-between mb-6">
                 <h2 class="text-2xl font-semibold text-slate-800 dark:text-white">
                   {{ t('scientistManagement.deleteModal.title') }}
@@ -384,14 +376,12 @@ const confirmDelete = () => {
                 </button>
               </div>
 
-              <!-- Modal Body -->
               <div class="mb-8">
                 <p class="text-slate-600 dark:text-gray-300 text-lg">
                   {{ t('scientistManagement.deleteModal.message', { username: scientistToDelete?.username || '' }) }}
                 </p>
               </div>
 
-              <!-- Modal Footer -->
               <div class="flex items-center justify-end gap-3">
                 <button
                   type="button"
