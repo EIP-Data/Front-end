@@ -129,19 +129,18 @@ jobs:
             ls -la .env
 
             # Stop and remove existing containers
-            docker-compose down || true
+            docker compose down || true
             docker image prune -f
 
             # Build and start the frontend container
-            docker-compose up --build -d
+            docker compose up --build -d
 
             # Wait for container to be ready
             sleep 20
 
             # Check container status
-            docker-compose ps
-            docker-compose logs --tail=50
-
+            docker compose ps
+            docker compose logs --tail=50
 
       - name: Verify deployment
         run: |
