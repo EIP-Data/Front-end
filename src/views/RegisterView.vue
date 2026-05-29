@@ -54,7 +54,7 @@ const handleSubmit = async () => {
         errorMessage.value = '';
         userStore.setInformation(response.username, response.email);
         userStore.isAuthenticated = true;
-        router.push('/user-dashboard');
+        router.push('/onboarding');
       })
       .catch((error: Error) => {
         errorMessage.value = error.message;
