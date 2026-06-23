@@ -2,8 +2,8 @@ import { useCookies } from 'vue3-cookies'
 
 const { cookies } = useCookies()
 
-function storeToken(token: string): void {
-    cookies.set('token', token)
+function storeToken(token: string, remember = false): void {
+    cookies.set('token', token, remember ? '30d' : '0')
 }
 
 function getToken(): string {

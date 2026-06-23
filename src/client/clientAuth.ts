@@ -1,6 +1,7 @@
 import axios, {type AxiosResponse} from 'axios'
 import { useUserStore } from '@/stores/userStore'
-import {storeToken} from "./clientCommon.ts";
+import { storeToken, getAuthenticatedHeader } from "./clientCommon.ts";
+import { type BackendRole, mapBackendRole } from '@/types/permissions';
 
 type RegisterCredentials = {
     username: string
@@ -11,6 +12,7 @@ type RegisterCredentials = {
 type LoginCredentials = {
     email: string
     password: string
+    remember?: boolean
 }
 
 type RegisterResponse = {
@@ -21,6 +23,16 @@ type RegisterResponse = {
 
 type LoginResponse = {
     jwt: string
+    role: BackendRole
+}
+
+type CurrentUserResponse = {
+    user: {
+        email: string
+        username: string
+        token: string
+        role: BackendRole
+    }
 }
 
 type ForgotPasswordRequest = {
@@ -44,6 +56,10 @@ type VerifyEmailResponse = {
     message: string
 }
 
+type ResendVerificationResponse = {
+    message: string
+}
+
 async function login(credentials: LoginCredentials): Promise<LoginResponse> {
     return axios
         .post('/login', credentials)
@@ -55,9 +71,9 @@ async function login(credentials: LoginCredentials): Promise<LoginResponse> {
             console.log('Login successful', response)
             const data = response.data as LoginResponse;
             const userStore = useUserStore();
-            userStore.setEmail(credentials.email);
-            storeToken(data.jwt);
-            return response.data as LoginResponse;
+            userStore.login(credentials.email, mapBackendRole(data.role));
+            storeToken(data.jwt, credentials.remember);
+            return data;
         })
         .catch(
             (error: Error) => {
@@ -77,9 +93,6 @@ async function register(credentials: RegisterCredentials): Promise<RegisterRespo
             }
             console.log('Register successful', response);
             const data = response.data as RegisterResponse;
-            const userStore = useUserStore();
-            userStore.setInformation(data.username, data.email);
-            storeToken(data.jwt);
             return data;
         })
         .catch(
@@ -147,5 +160,42 @@ async function resetPassword(request: ResetPasswordRequest): Promise<ResetPasswo
         )
 }
 
+async function resendVerificationEmail(email: string): Promise<ResendVerificationResponse> {
+    return axios
+        .post('/resend-verification', { email })
+        .then((response: AxiosResponse) => {
+            if (response.status !== 200) {
+                throw new Error('Failed to resend verification email');
+            }
+            return response.data as ResendVerificationResponse;
+        })
+        .catch((error: Error) => {
+            console.error('Resend verification failed', error)
+            throw error;
+        })
+}
+
+async function deleteAccount(): Promise<void> {
+    return axios
+        .delete('/user', { headers: getAuthenticatedHeader() })
+        .then((response: AxiosResponse) => {
+            if (response.status !== 200) {
+                throw new Error('Failed to delete account');
+            }
+        })
+        .catch((error: Error) => {
+            console.error('Delete account failed', error);
+            throw error;
+        });
+}
+
+async function fetchCurrentUser(): Promise<void> {
+    const userStore = useUserStore();
+    const response = await axios.get('/user', { headers: getAuthenticatedHeader() });
+    const { user } = response.data as CurrentUserResponse;
+    userStore.setInformation(user.username, user.email);
+    userStore.setRole(mapBackendRole(user.role));
+}
+
 export type {RegisterCredentials, LoginCredentials, ForgotPasswordRequest, ResetPasswordRequest}
-export {login, register, forgotPassword, resetPassword, verifyEmail}
+export {login, register, forgotPassword, resetPassword, verifyEmail, fetchCurrentUser, resendVerificationEmail, deleteAccount}

@@ -7,12 +7,11 @@ const { t } = useI18n();
 
 <template>
   <Hero
-      class="flex flex-col-reverse md:flex-row items-center justify-center text-center md:text-left gap-8 md:gap-10 px-8 md:px-16 py-24 bg-gray-50 dark:bg-gray-900"
+      class="flex flex-col-reverse md:flex-row items-center justify-center text-center md:text-left gap-6 md:gap-10 px-4 sm:px-8 md:px-16 py-12 md:py-24 bg-gray-50 dark:bg-gray-900"
   >
-    <!-- Texte -->
     <div class="md:w-1/2 flex flex-col items-center md:items-start space-y-6">
       <h1
-          class="text-4xl md:text-6xl font-extrabold leading-tight text-gray-800 dark:text-gray-100"
+          class="text-2xl sm:text-4xl md:text-6xl font-extrabold leading-tight text-gray-800 dark:text-gray-100"
       >
         {{ t('home.hero.titleStart') }}
         <br />
@@ -30,7 +29,6 @@ const { t } = useI18n();
       </button>
     </div>
 
-    <!-- Image -->
     <div class="md:w-1/2 flex justify-center">
       <img
           src="../../assets/images/home/hero_image.png"

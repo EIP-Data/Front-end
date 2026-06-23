@@ -1,6 +1,18 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHistory, type RouteRecordRaw} from 'vue-router'
+import type { UserRole } from '@/types/permissions'
+import { usePermissionsStore } from '@/stores/permissionsStore'
 
-const routes = [
+const APP_NAME = import.meta.env.VITE_APP_NAME || 'Datalyz'
+
+declare module 'vue-router' {
+  interface RouteMeta {
+    title?: string
+    roles?: UserRole[]
+    requiresAuth?: boolean
+  }
+}
+
+const routes: RouteRecordRaw[] = [
     {
         path: '/',
         name: 'Home',
@@ -118,7 +130,117 @@ const routes = [
         name: 'UserDashboard',
         component: () => import('../views/UserDashboardView.vue'),
         meta: {
-            title: 'Dashboard'
+            title: 'Dashboard',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist', 'User']
+        }
+    },
+    {
+        path: '/scientist-management',
+        name: 'ScientistManagement',
+        component: () => import('../views/ScientistManagementView.vue'),
+        meta: {
+            title: 'Scientist Management',
+            requiresAuth: true,
+            roles: ['Administrator']
+        }
+    },
+    {
+        path: '/privacy-policy',
+        name: 'PrivacyPolicy',
+        component: () => import('../views/PrivacyPolicyView.vue'),
+        meta: { title: 'Privacy Policy' }
+    },
+    {
+        path: '/cookies',
+        name: 'Cookies',
+        component: () => import('../views/CookiesView.vue'),
+        meta: { title: 'Cookie Policy' }
+    },
+    {
+        path: '/user-data',
+        name: 'UserData',
+        component: () => import('../views/UserDataView.vue'),
+        meta: {
+            title: 'My Data',
+            requiresAuth: true,
+            roles: ['Administrator', 'User']
+        }
+    },
+    {
+        path: '/research',
+        name: 'Research',
+        component: () => import('../views/ResearchView.vue'),
+        meta: {
+            title: 'Research',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist']
+        }
+    },
+    {
+        path: '/data-management',
+        name: 'DataManagement',
+        component: () => import('../views/DataManagementView.vue'),
+        meta: {
+            title: 'Data Management',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist']
+        }
+    },
+    {
+        path: '/admin-panel',
+        name: 'AdminPanel',
+        component: () => import('../views/AdminPanelView.vue'),
+        meta: {
+            title: 'Admin Panel',
+            requiresAuth: true,
+            roles: ['Administrator']
+        }
+    },
+    {
+        path: '/user-preferences',
+        name: 'UserPreferences',
+        component: () => import('../views/UserPreferencesView.vue'),
+        meta: {
+            title: 'Preferences',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist', 'User']
+        }
+    },
+    {
+        path: '/user-settings',
+        name: 'UserSettings',
+        component: () => import('../views/UserSettingsView.vue'),
+        meta: {
+            title: 'Settings',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist', 'User']
+        }
+    },
+    {
+        path: '/vpn-installation',
+        name: 'VpnInstallation',
+        component: () => import('../views/VpnInstallationView.vue'),
+        meta: {
+            title: 'VPN Installation',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist', 'User']
+        }
+    },
+    {
+        path: '/onboarding',
+        name: 'Onboarding',
+        component: () => import('../views/OnboardingView.vue'),
+        meta: {
+            title: 'Privacy Preferences'
+        }
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: () => import('../views/NotFoundView.vue'),
+        meta: {
+            title: 'Page Not Found'
         }
     }
 ]
@@ -132,7 +254,28 @@ const router = createRouter({
 })
 
 router.beforeEach((to, _from, next) => {
-    document.title = `Datalyz | ${to.meta.title}`
+    document.title = `${APP_NAME} | ${to.meta.title}`
+
+    const permissionsStore = usePermissionsStore()
+    const requiresAuth = to.meta.requiresAuth
+    const allowedRoles = to.meta.roles
+
+    if (requiresAuth) {
+        const currentRole = permissionsStore.currentRole
+
+        if (!currentRole) {
+            next({ name: 'Login' })
+            return
+        }
+
+        if (allowedRoles && allowedRoles.length > 0) {
+            if (!allowedRoles.includes(currentRole)) {
+                next({ name: 'UserDashboard' })
+                return
+            }
+        }
+    }
+
     next()
 })
 

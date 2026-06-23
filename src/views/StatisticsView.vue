@@ -81,7 +81,7 @@ const pieChartData = ref({
         </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
           <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6">{{
               t('statistics.dataCollectedByMonth')

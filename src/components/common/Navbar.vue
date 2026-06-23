@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useBrandStore } from '@/stores/brandStore';
+import { usePermissionsStore } from '@/stores/permissionsStore';
 
 const { t } = useI18n();
+const brandStore = useBrandStore();
+const permissionsStore = usePermissionsStore();
 
 const isMenuOpen = ref(false);
 const toggleMenu = () => {
@@ -14,12 +18,12 @@ const toggleMenu = () => {
   <nav class="bg-white dark:bg-gray-800 shadow-md fixed top-0 left-0 w-full z-50">
     <div class="container mx-auto px-6 nav-height flex justify-between items-center">
       <router-link to="/" class="flex items-center space-x-2">
-        <img src="@/assets/images/common/logo.webp" :alt="t('navbar.company') + ' Logo'" class="h-8 w-auto" />
-        <span class="text-2xl font-bold text-[#F9AB3B] dark:text-[#F9AB3B]">{{ t("navbar.company") }}</span>
+        <img src="@/assets/images/common/logo.webp" :alt="brandStore.appName + ' Logo'" class="h-8 w-auto" />
+        <span class="text-2xl font-bold text-brand">{{ brandStore.appName }}</span>
       </router-link>
 
       <div class="md:hidden">
-        <button @click="toggleMenu" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] focus:outline-none">
+        <button @click="toggleMenu" class="text-gray-700 dark:text-gray-300 hover:text-brand focus:outline-none">
           <svg
               class="w-8 h-8"
               fill="none"
@@ -38,21 +42,31 @@ const toggleMenu = () => {
       </div>
 
       <div class="hidden md:flex flex-1 justify-center space-x-6">
-        <router-link to="/" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.home") }}</router-link>
-        <router-link to="/our_work" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.our_work") }}</router-link>
-        <router-link to="/get_involved" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.get_involved") }}</router-link>
-        <router-link to="/about_us" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.about_us") }}</router-link>
-        <router-link to="/contact" class="text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B]">{{ t("navbar.links.contact") }}</router-link>
+        <router-link to="/" class="text-gray-700 dark:text-gray-300 hover:text-brand">{{ t("navbar.links.home") }}</router-link>
+        <router-link to="/our_work" class="text-gray-700 dark:text-gray-300 hover:text-brand">{{ t("navbar.links.our_work") }}</router-link>
+        <router-link to="/get_involved" class="text-gray-700 dark:text-gray-300 hover:text-brand">{{ t("navbar.links.get_involved") }}</router-link>
+        <router-link to="/about_us" class="text-gray-700 dark:text-gray-300 hover:text-brand">{{ t("navbar.links.about_us") }}</router-link>
+        <router-link to="/contact" class="text-gray-700 dark:text-gray-300 hover:text-brand">{{ t("navbar.links.contact") }}</router-link>
       </div>
 
       <div class="hidden md:flex items-center space-x-6">
-        <router-link to="/login" class="text-[#F9AB3B] hover:text-[#e6952e] transition duration-300">{{ t("navbar.links.signIn") }}</router-link>
-        <router-link
-            to="/register"
-            class="bg-[#F9AB3B] text-white px-4 py-2 rounded-lg hover:bg-[#e6952e] transition duration-300"
-        >
-          {{ t("navbar.links.signUp") }}
-        </router-link>
+        <template v-if="permissionsStore.isAuthenticated">
+          <router-link
+              to="/user-dashboard"
+              class="bg-brand text-white px-4 py-2 rounded-lg hover:bg-brand-dark transition duration-300"
+          >
+            {{ t("navbar.links.dashboard") }}
+          </router-link>
+        </template>
+        <template v-else>
+          <router-link to="/login" class="text-brand hover:text-brand-dark transition duration-300">{{ t("navbar.links.signIn") }}</router-link>
+          <router-link
+              to="/register"
+              class="bg-brand text-white px-4 py-2 rounded-lg hover:bg-brand-dark transition duration-300"
+          >
+            {{ t("navbar.links.signUp") }}
+          </router-link>
+        </template>
       </div>
     </div>
 
@@ -67,19 +81,29 @@ const toggleMenu = () => {
         :class="{ '-translate-x-full': !isMenuOpen, 'translate-x-0': isMenuOpen }"
     >
       <div class="p-6">
-        <router-link to="/" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.home") }}</router-link>
-        <router-link to="/our_work" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.our_work") }}</router-link>
-        <router-link to="/get_involved" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.get_involved") }}</router-link>
-        <router-link to="/about_us" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.about_us") }}</router-link>
-        <router-link to="/contact" class="block text-gray-700 dark:text-gray-300 hover:text-[#F9AB3B] mb-4">{{ t("navbar.links.contact") }}</router-link>
+        <router-link to="/" class="block text-gray-700 dark:text-gray-300 hover:text-brand mb-4">{{ t("navbar.links.home") }}</router-link>
+        <router-link to="/our_work" class="block text-gray-700 dark:text-gray-300 hover:text-brand mb-4">{{ t("navbar.links.our_work") }}</router-link>
+        <router-link to="/get_involved" class="block text-gray-700 dark:text-gray-300 hover:text-brand mb-4">{{ t("navbar.links.get_involved") }}</router-link>
+        <router-link to="/about_us" class="block text-gray-700 dark:text-gray-300 hover:text-brand mb-4">{{ t("navbar.links.about_us") }}</router-link>
+        <router-link to="/contact" class="block text-gray-700 dark:text-gray-300 hover:text-brand mb-4">{{ t("navbar.links.contact") }}</router-link>
 
-        <router-link to="/login" class="block text-[#F9AB3B] hover:text-[#e6952e] mb-4 transition duration-300">{{ t("navbar.links.signIn") }}</router-link>
-        <router-link
-            to="/register"
-            class="block bg-[#F9AB3B] text-white px-4 py-2 rounded-lg hover:bg-[#e6952e] transition duration-300"
-        >
-          {{ t("navbar.links.signUp") }}
-        </router-link>
+        <template v-if="permissionsStore.isAuthenticated">
+          <router-link
+              to="/user-dashboard"
+              class="block bg-brand text-white px-4 py-2 rounded-lg hover:bg-brand-dark transition duration-300"
+          >
+            {{ t("navbar.links.dashboard") }}
+          </router-link>
+        </template>
+        <template v-else>
+          <router-link to="/login" class="block text-brand hover:text-brand-dark mb-4 transition duration-300">{{ t("navbar.links.signIn") }}</router-link>
+          <router-link
+              to="/register"
+              class="block bg-brand text-white px-4 py-2 rounded-lg hover:bg-brand-dark transition duration-300"
+          >
+            {{ t("navbar.links.signUp") }}
+          </router-link>
+        </template>
       </div>
     </div>
   </nav>

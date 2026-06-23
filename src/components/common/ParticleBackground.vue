@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import {onMounted} from 'vue';
+import { useBrandStore } from '@/stores/brandStore';
+
+const brandStore = useBrandStore();
 
 onMounted(async () => {
   window.tsParticles.load("tsparticles", {
@@ -8,7 +11,7 @@ onMounted(async () => {
         value: 150,
       },
       color: {
-        value: "#F9AB3B",
+        value: brandStore.primaryColor,
       },
       shape: {
         type: "circle",
@@ -22,7 +25,7 @@ onMounted(async () => {
       links: {
         enable: true,
         distance: 150,
-        color: "#F9AB3B",
+        color: brandStore.primaryColor,
         opacity: 0.4,
         width: 1,
       },

@@ -39,7 +39,7 @@ const people = computed(() => [
           {{ t('home.aboutUs.description') }}
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
         <div v-for="person in people" :key="person.name">
           <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
             <img :src="person.image" alt="Person picture" class="mx-auto w-40 mb-4 rounded-full"/>

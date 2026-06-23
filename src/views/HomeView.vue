@@ -6,6 +6,9 @@ import Purpose from "@/components/home/Purpose.vue";
 import Research from "@/components/home/Research.vue";
 import FilterYourData from "@/components/home/FilterYourData.vue";
 import Testimonial from "@/components/home/Testimonial.vue";
+import { usePermissionsStore } from '@/stores/permissionsStore';
+
+const permissionsStore = usePermissionsStore();
 </script>
 
 <template>
@@ -15,10 +18,10 @@ import Testimonial from "@/components/home/Testimonial.vue";
       <template v-slot:paragraph>{{ $t('home.heroBanner.paragraph') }}</template>
       <template v-slot:call-to-action>
         <router-link
-            to="/register"
+            :to="permissionsStore.isAuthenticated ? '/user-dashboard' : '/register'"
             class="bg-[#F9AB3B] text-white px-8 py-3 rounded-lg hover:bg-[#e6952e] transition duration-300"
         >
-          {{ $t('home.heroBanner.getStarted') }}
+          {{ permissionsStore.isAuthenticated ? $t('navbar.links.dashboard') : $t('home.heroBanner.getStarted') }}
         </router-link>
         <router-link
             to="/"
@@ -40,10 +43,10 @@ import Testimonial from "@/components/home/Testimonial.vue";
           {{ $t('home.ctaBanner.description') }}
         </p>
         <router-link
-            to="/register"
+            :to="permissionsStore.isAuthenticated ? '/user-dashboard' : '/register'"
             class="bg-[#F9AB3B] text-white px-8 py-3 rounded-lg hover:bg-[#e6952e] transition duration-300"
         >
-          {{ $t('home.ctaBanner.getStarted') }}
+          {{ permissionsStore.isAuthenticated ? $t('navbar.links.dashboard') : $t('home.ctaBanner.getStarted') }}
         </router-link>
       </div>
     </DatalyzBanner>
