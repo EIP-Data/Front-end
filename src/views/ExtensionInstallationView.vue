@@ -90,7 +90,7 @@ onMounted(() => {
     <div class="max-w-3xl flex flex-col gap-6">
 
       <div class="flex items-start gap-3 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 px-5 py-4 rounded-r-xl">
-        <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg aria-hidden="true" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
         <p class="text-sm text-blue-800 dark:text-blue-300">
@@ -124,14 +124,14 @@ onMounted(() => {
         </h2>
 
         <div v-if="detectedBrowser !== 'unknown'" class="mb-4 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
           {{ t(`extensionInstallation.download.detected.${detectedBrowser}`) }}
         </div>
 
-        <div v-if="loading" class="flex items-center gap-3 text-gray-500 dark:text-gray-400">
-          <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+        <div v-if="loading" role="status" aria-live="polite" class="flex items-center gap-3 text-gray-500 dark:text-gray-400">
+          <svg aria-hidden="true" class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
           </svg>
@@ -144,6 +144,7 @@ onMounted(() => {
             :href="chromeAsset.browser_download_url"
             target="_blank"
             rel="noopener noreferrer"
+            :aria-label="detectedBrowser === 'chrome' ? `Chrome – ${t('extensionInstallation.download.recommended')} (${t('common.opensInNewTab')})` : `Chrome (${t('common.opensInNewTab')})`"
             :class="[
               'flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg transition-colors',
               detectedBrowser === 'chrome'
@@ -151,7 +152,7 @@ onMounted(() => {
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
             ]"
           >
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <svg aria-hidden="true" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
               <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
               <path d="M12 8h5.196A6.002 6.002 0 0012 6C9.188 6 6.78 7.67 5.633 10.1L8.1 14.05A4 4 0 0112 8z"/>
@@ -168,6 +169,7 @@ onMounted(() => {
             :href="firefoxAsset.browser_download_url"
             target="_blank"
             rel="noopener noreferrer"
+            :aria-label="detectedBrowser === 'firefox' ? `Firefox – ${t('extensionInstallation.download.recommended')} (${t('common.opensInNewTab')})` : `Firefox (${t('common.opensInNewTab')})`"
             :class="[
               'flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg transition-colors',
               detectedBrowser === 'firefox'
@@ -175,7 +177,7 @@ onMounted(() => {
                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
             ]"
           >
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <svg aria-hidden="true" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-1.48.41-2.86 1.12-4.06C5.98 9.37 7.5 10 9 10c1.5 0 2.9-.56 3.95-1.49A5.97 5.97 0 0118 12c0 4.41-3.59 8-6 8z"/>
             </svg>
             Firefox
@@ -199,16 +201,16 @@ onMounted(() => {
           {{ t('extensionInstallation.release.title') }}
         </h2>
 
-        <div v-if="loading" class="flex items-center gap-3 text-gray-500 dark:text-gray-400">
-          <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+        <div v-if="loading" role="status" aria-live="polite" class="flex items-center gap-3 text-gray-500 dark:text-gray-400">
+          <svg aria-hidden="true" class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
           </svg>
           <span class="text-sm">{{ t('extensionInstallation.release.loading') }}</span>
         </div>
 
-        <div v-else-if="error" class="flex items-start gap-3 text-red-600 dark:text-red-400">
-          <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div v-else-if="error" role="alert" class="flex items-start gap-3 text-red-600 dark:text-red-400">
+          <svg aria-hidden="true" class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
           <span class="text-sm">{{ t(`extensionInstallation.release.errors.${error}`) }}</span>
@@ -217,7 +219,7 @@ onMounted(() => {
         <div v-else-if="release" class="flex flex-col gap-3">
           <div class="flex flex-wrap items-center gap-3">
             <span class="inline-flex items-center gap-1.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-medium px-3 py-1 rounded-full">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+              <svg aria-hidden="true" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
               </svg>
               {{ release.tag_name }}

@@ -5,7 +5,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <section class="bg-gray-50 dark:bg-gray-900 py-24 px-6 md:px-16">
+  <section aria-labelledby="testimonial-heading" class="bg-gray-50 dark:bg-gray-900 py-24 px-6 md:px-16">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
 
       <!-- Image -->
@@ -24,18 +24,19 @@ const { t } = useI18n();
         </p>
 
         <div class="space-y-1 mb-10">
-          <h3 class="text-amber-500 font-semibold text-lg">{{ t('home.testimonial.author') }}</h3>
+          <h3 id="testimonial-heading" class="text-amber-500 font-semibold text-lg">{{ t('home.testimonial.author') }}</h3>
           <p class="text-gray-400 dark:text-gray-500">
             {{ t('home.testimonial.organization') }}
           </p>
         </div>
 
-        <a
-            href="#"
+        <router-link
+            to="/about_us"
             class="inline-flex items-center gap-2 text-amber-500 font-semibold hover:text-amber-600 transition-all"
         >
           {{ t('home.testimonial.meetContributors') }}
           <svg
+              aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -45,7 +46,7 @@ const { t } = useI18n();
           >
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
           </svg>
-        </a>
+        </router-link>
       </div>
     </div>
   </section>

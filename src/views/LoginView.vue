@@ -74,10 +74,10 @@ const handleResendEmail = async () => {
     <div class="min-h-screen bg-gray-100 dark:bg-slate-900 flex items-center justify-center">
     <div class="w-full max-w-6xl px-6 py-12">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="hidden md:flex justify-center">
+        <div class="hidden md:flex justify-center" aria-hidden="true">
           <img
             :src="heroImage"
-            alt="Dashboard illustration"
+            alt=""
             class="w-full max-w-md object-contain"
           />
         </div>
@@ -88,15 +88,21 @@ const handleResendEmail = async () => {
             <span class="text-amber-500 dark:text-amber-400 font-bold">{{ t('login.back') }}</span>
           </h1>
 
-          <div v-if="errorMessage"
-               class="mb-5 p-4 text-sm text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700">
+          <div
+            v-if="errorMessage"
+            role="alert"
+            class="mb-5 p-4 text-sm text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700"
+          >
             {{ errorMessage }}
           </div>
 
-          <div v-if="emailNotVerified"
-               class="mb-5 p-4 text-sm bg-amber-50 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-600">
+          <div
+            v-if="emailNotVerified"
+            role="alert"
+            class="mb-5 p-4 text-sm bg-amber-50 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-600"
+          >
             <p class="text-amber-800 dark:text-amber-300 font-medium mb-3">{{ t('login.emailNotVerified') }}</p>
-            <div v-if="resendSuccess" class="text-green-700 dark:text-green-400">{{ t('login.resendEmailSuccess') }}</div>
+            <div v-if="resendSuccess" role="status" class="text-green-700 dark:text-green-400">{{ t('login.resendEmailSuccess') }}</div>
             <div v-else-if="resendError" class="text-red-600 dark:text-red-400 mb-2">{{ t('login.resendEmailError') }}</div>
             <button
               v-if="!resendSuccess"
@@ -109,31 +115,39 @@ const handleResendEmail = async () => {
             </button>
           </div>
 
-          <form @submit.prevent="handleSubmit" class="space-y-5">
+          <form @submit.prevent="handleSubmit" class="space-y-5" novalidate>
             <div>
+              <label for="login-email" class="sr-only">{{ t('login.email') }}</label>
               <input
+                id="login-email"
                 v-model="email"
                 type="email"
                 required
+                aria-required="true"
                 :placeholder="t('login.email')"
                 class="w-full rounded-none border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-6 py-3 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
               />
             </div>
 
             <div class="relative">
+              <label for="login-password" class="sr-only">{{ t('login.password') }}</label>
               <input
+                id="login-password"
                 v-model="password"
                 :type="showPassword ? 'text' : 'password'"
                 required
+                aria-required="true"
                 :placeholder="t('login.password')"
                 class="w-full rounded-none border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-6 py-3 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
               />
               <button
                 type="button"
                 @click="showPassword = !showPassword"
+                :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                :aria-pressed="showPassword"
                 class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 hover:text-amber-500 dark:hover:text-amber-400"
               >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path v-if="showPassword" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                   <path v-if="showPassword" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -5,9 +5,9 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <section class="bg-white dark:bg-gray-800 py-12 md:py-24 px-4 sm:px-6 md:px-16 text-center">
+  <section aria-labelledby="purpose-heading" class="bg-white dark:bg-gray-800 py-12 md:py-24 px-4 sm:px-6 md:px-16 text-center">
     <div class="max-w-3xl mx-auto mb-10 md:mb-16">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-2">
+      <h2 id="purpose-heading" class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-800 dark:text-gray-100 mb-2">
         {{ t('home.purpose.title') }}
       </h2>
       <p class="text-gray-500 dark:text-gray-400 text-lg">

@@ -98,6 +98,7 @@ const navigateTo = (route: string) => {
 <template>
   <div
     v-if="isOpen"
+    aria-hidden="true"
     @click="emit('close')"
     class="fixed inset-0 bg-black/50 z-40 lg:hidden transition-opacity"
   ></div>
@@ -107,23 +108,24 @@ const navigateTo = (route: string) => {
       'fixed inset-y-0 left-0 z-50 w-80 h-screen bg-[#f7f7f7] dark:bg-gray-800 shadow-2xl flex flex-col py-10 px-6 transition-all duration-300',
       isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
     ]"
+    aria-label="Application navigation"
   >
     <button
       @click="emit('close')"
       class="lg:hidden absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-brand transition-colors"
       :aria-label="t('sidebar.close')"
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
 
     <div class="flex items-center gap-3 mb-12">
       <img :src="logo" class="w-12 h-12" :alt="brandStore.appName + ' logo'" />
-      <h1 class="text-4xl font-light text-brand tracking-wide">{{ brandStore.appName }}</h1>
+      <span class="text-4xl font-light text-brand tracking-wide">{{ brandStore.appName }}</span>
     </div>
 
-    <nav class="flex flex-col gap-6 flex-1 overflow-y-auto mb-8">
+    <nav aria-label="Main" class="flex flex-col gap-6 flex-1 overflow-y-auto mb-8">
       <div
           v-for="category in filteredMenuItems"
           :key="category.label"
@@ -131,10 +133,13 @@ const navigateTo = (route: string) => {
       >
         <button
             @click="toggleCategory(category.label)"
+            :aria-expanded="expandedCategory === category.label"
+            :aria-controls="'category-' + category.label.replace(/\s+/g, '-')"
             class="w-full flex items-center justify-between text-gray-700 dark:text-gray-300 font-medium text-lg mb-3 hover:text-brand transition-colors"
         >
           <span>{{ category.label }}</span>
           <svg
+              aria-hidden="true"
               class="w-5 h-5 transition-transform"
               :class="expandedCategory === category.label ? 'rotate-180' : ''"
               fill="none"
@@ -155,6 +160,7 @@ const navigateTo = (route: string) => {
         >
           <div
               v-if="expandedCategory === category.label && category.children"
+              :id="'category-' + category.label.replace(/\s+/g, '-')"
               class="flex flex-col gap-2 ml-4 overflow-hidden"
           >
             <button
@@ -175,7 +181,7 @@ const navigateTo = (route: string) => {
         @click="handleLogout"
         class="w-full bg-brand text-white py-4 rounded-xl text-xl font-light flex items-center justify-center gap-3 hover:bg-brand-dark transition-colors"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
         </svg>
         {{ t('sidebar.logout') }}

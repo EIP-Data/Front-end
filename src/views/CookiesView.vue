@@ -8,9 +8,9 @@ const { t } = useI18n();
 <template>
   <LayoutShowcase>
 
-    <section class="bg-gray-50 dark:bg-gray-900 py-20">
+    <section aria-labelledby="cookies-heading" class="bg-gray-50 dark:bg-gray-900 py-20">
       <div class="container mx-auto px-6 text-center max-w-4xl">
-        <h1 class="text-4xl md:text-5xl font-bold text-brand mb-6">
+        <h1 id="cookies-heading" class="text-4xl md:text-5xl font-bold text-brand mb-6">
           {{ t('footer.links.cookies') }}
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -19,7 +19,7 @@ const { t } = useI18n();
       </div>
     </section>
 
-    <section class="bg-white dark:bg-gray-800">
+    <section aria-label="Cookies policy content" class="bg-white dark:bg-gray-800">
       <div class="max-w-4xl mx-auto px-6 py-16 space-y-12">
 
         <div>
@@ -33,11 +33,12 @@ const { t } = useI18n();
           <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-3">2. {{ t('cookiesPolicy.sections.list.title') }}</h2>
           <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
             <table class="w-full text-sm text-left">
+              <caption class="sr-only">{{ t('cookiesPolicy.sections.list.title') }}</caption>
               <thead class="bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
                 <tr>
-                  <th class="px-4 py-3 font-semibold">{{ t('cookiesPolicy.table.name') }}</th>
-                  <th class="px-4 py-3 font-semibold">{{ t('cookiesPolicy.table.purpose') }}</th>
-                  <th class="px-4 py-3 font-semibold">{{ t('cookiesPolicy.table.duration') }}</th>
+                  <th scope="col" class="px-4 py-3 font-semibold">{{ t('cookiesPolicy.table.name') }}</th>
+                  <th scope="col" class="px-4 py-3 font-semibold">{{ t('cookiesPolicy.table.purpose') }}</th>
+                  <th scope="col" class="px-4 py-3 font-semibold">{{ t('cookiesPolicy.table.duration') }}</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-100 dark:divide-gray-700">

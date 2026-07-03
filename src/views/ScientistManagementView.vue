@@ -149,10 +149,11 @@ const confirmDelete = async () => {
           </p>
         </div>
         <button
+          type="button"
           @click="openModal"
           class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-semibold px-6 py-3 rounded-xl flex items-center gap-2 transition-colors"
         >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
           </svg>
           {{ t('scientistManagement.addButton') }}
@@ -161,14 +162,15 @@ const confirmDelete = async () => {
 
       <div
         v-if="loadError"
+        role="alert"
         class="mb-6 px-4 py-3 rounded-lg bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm"
       >
         {{ loadError }}
       </div>
 
       <div class="overflow-x-auto">
-        <div v-if="isLoading" class="text-center py-12 text-slate-400 dark:text-gray-500">
-          <svg class="animate-spin w-8 h-8 mx-auto mb-3" fill="none" viewBox="0 0 24 24">
+        <div v-if="isLoading" role="status" aria-live="polite" class="text-center py-12 text-slate-400 dark:text-gray-500">
+          <svg aria-hidden="true" class="animate-spin w-8 h-8 mx-auto mb-3" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
           </svg>
@@ -176,18 +178,19 @@ const confirmDelete = async () => {
         </div>
 
         <table v-else class="w-full border-collapse">
+          <caption class="sr-only">{{ t('scientistManagement.title') }}</caption>
           <thead>
             <tr class="border-b-2 border-gray-200 dark:border-gray-700">
-              <th class="text-left py-4 px-6 text-slate-700 dark:text-gray-300 font-semibold">
+              <th scope="col" class="text-left py-4 px-6 text-slate-700 dark:text-gray-300 font-semibold">
                 {{ t('scientistManagement.table.username') }}
               </th>
-              <th class="text-left py-4 px-6 text-slate-700 dark:text-gray-300 font-semibold">
+              <th scope="col" class="text-left py-4 px-6 text-slate-700 dark:text-gray-300 font-semibold">
                 {{ t('scientistManagement.table.email') }}
               </th>
-              <th class="text-left py-4 px-6 text-slate-700 dark:text-gray-300 font-semibold">
+              <th scope="col" class="text-left py-4 px-6 text-slate-700 dark:text-gray-300 font-semibold">
                 {{ t('scientistManagement.table.registrationDate') }}
               </th>
-              <th class="text-right py-4 px-6 text-slate-700 dark:text-gray-300 font-semibold">
+              <th scope="col" class="text-right py-4 px-6 text-slate-700 dark:text-gray-300 font-semibold">
                 {{ t('scientistManagement.table.actions') }}
               </th>
             </tr>
@@ -209,11 +212,12 @@ const confirmDelete = async () => {
               </td>
               <td class="py-4 px-6 text-right">
                 <button
+                  type="button"
                   @click="openDeleteModal(scientist)"
                   class="text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors p-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20"
-                  :title="t('scientistManagement.deleteModal.title')"
+                  :aria-label="t('scientistManagement.deleteModal.title') + ' ' + scientist.username"
                 >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                   </svg>
                 </button>
@@ -251,23 +255,28 @@ const confirmDelete = async () => {
           >
             <div
               v-if="isModalOpen"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="add-scientist-modal-title"
               class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-8"
             >
               <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-semibold text-slate-800 dark:text-white">
+                <h2 id="add-scientist-modal-title" class="text-2xl font-semibold text-slate-800 dark:text-white">
                   {{ t('scientistManagement.modal.title') }}
                 </h2>
                 <button
+                  type="button"
                   @click="closeModal"
+                  :aria-label="t('scientistManagement.modal.cancelButton')"
                   class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
                 >
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
 
-              <form @submit.prevent="handleSubmit">
+              <form @submit.prevent="handleSubmit" novalidate>
                 <div class="mb-6">
                   <label
                     for="scientist-username"
@@ -279,12 +288,18 @@ const confirmDelete = async () => {
                     id="scientist-username"
                     v-model="newScientistUsername"
                     type="text"
+                    required
+                    aria-required="true"
+                    :aria-describedby="usernameError ? 'username-error' : undefined"
+                    :aria-invalid="!!usernameError"
                     :placeholder="t('scientistManagement.modal.usernamePlaceholder')"
                     class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors"
                     :class="{ 'border-red-500 focus:ring-red-500 focus:border-red-500': usernameError }"
                   />
                   <p
                     v-if="usernameError"
+                    id="username-error"
+                    role="alert"
                     class="mt-2 text-sm text-red-600 dark:text-red-400"
                   >
                     {{ usernameError }}
@@ -302,19 +317,25 @@ const confirmDelete = async () => {
                     id="scientist-email"
                     v-model="newScientistEmail"
                     type="email"
+                    required
+                    aria-required="true"
+                    :aria-describedby="emailError ? 'email-error' : undefined"
+                    :aria-invalid="!!emailError"
                     :placeholder="t('scientistManagement.modal.emailPlaceholder')"
                     class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors"
                     :class="{ 'border-red-500 focus:ring-red-500 focus:border-red-500': emailError }"
                   />
                   <p
                     v-if="emailError"
+                    id="email-error"
+                    role="alert"
                     class="mt-2 text-sm text-red-600 dark:text-red-400"
                   >
                     {{ emailError }}
                   </p>
                 </div>
 
-                <p v-if="submitError" class="mb-4 text-sm text-red-600 dark:text-red-400">
+                <p v-if="submitError" role="alert" class="mb-4 text-sm text-red-600 dark:text-red-400">
                   {{ submitError }}
                 </p>
 
@@ -360,17 +381,22 @@ const confirmDelete = async () => {
           >
             <div
               v-if="isDeleteModalOpen"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="delete-scientist-modal-title"
               class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-8"
             >
               <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl font-semibold text-slate-800 dark:text-white">
+                <h2 id="delete-scientist-modal-title" class="text-2xl font-semibold text-slate-800 dark:text-white">
                   {{ t('scientistManagement.deleteModal.title') }}
                 </h2>
                 <button
+                  type="button"
                   @click="closeDeleteModal"
+                  :aria-label="t('scientistManagement.deleteModal.cancelButton')"
                   class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
                 >
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>

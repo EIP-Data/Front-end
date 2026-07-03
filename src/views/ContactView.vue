@@ -32,16 +32,16 @@ const submitForm = () => {
     <Hero class="dark:bg-gray-900">
       <div class="container mx-auto px-6">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-[#F9AB3B] dark:text-[#F9AB3B] mb-4">
+          <h1 class="text-3xl font-bold text-[#F9AB3B] dark:text-[#F9AB3B] mb-4">
             {{ t('contact.title') }}
-          </h2>
+          </h1>
           <p class="text-gray-600 dark:text-gray-300">
             {{ t('contact.description') }}
           </p>
         </div>
 
         <div class="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg shadow-md">
-          <form @submit.prevent="submitForm">
+          <form @submit.prevent="submitForm" novalidate>
             <div class="mb-6">
               <label for="name" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
                 {{ t('contact.form.name') }}
@@ -53,6 +53,7 @@ const submitForm = () => {
                   :placeholder="t('contact.form.placeholder.name')"
                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F9AB3B] bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                   required
+                  aria-required="true"
               />
             </div>
 
@@ -67,6 +68,7 @@ const submitForm = () => {
                   :placeholder="t('contact.form.placeholder.email')"
                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F9AB3B] bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                   required
+                  aria-required="true"
               />
             </div>
 
@@ -81,6 +83,7 @@ const submitForm = () => {
                   rows="5"
                   class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#F9AB3B] bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300"
                   required
+                  aria-required="true"
               ></textarea>
             </div>
 

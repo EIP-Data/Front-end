@@ -23,6 +23,7 @@ const { t } = useI18n();
       </p>
 
       <button
+          type="button"
           class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300"
       >
         {{ t('home.hero.register') }}

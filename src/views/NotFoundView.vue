@@ -14,6 +14,7 @@ const router = useRouter();
         You seem to be lost!
       </h1>
       <button
+        type="button"
         @click="router.push('/')"
         class="rounded-none bg-amber-400 px-8 py-3 text-slate-900 text-lg font-semibold hover:bg-amber-500 transition-colors"
       >

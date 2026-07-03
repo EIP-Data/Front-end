@@ -71,10 +71,10 @@ const handleSubmit = async () => {
     <div class="min-h-screen bg-gray-100 dark:bg-slate-900 flex items-center justify-center">
       <div class="w-full max-w-6xl px-6 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div class="hidden md:flex justify-center">
+          <div class="hidden md:flex justify-center" aria-hidden="true">
             <img
               :src="heroImage"
-              alt="Dashboard illustration"
+              alt=""
               class="w-full max-w-md object-contain"
             />
           </div>
@@ -85,7 +85,7 @@ const handleSubmit = async () => {
               <span class="text-amber-500 dark:text-amber-400 font-bold">{{ t('register.you') }}</span>
             </h1>
 
-            <div v-if="registered" class="space-y-5">
+            <div v-if="registered" role="status" aria-live="polite" class="space-y-5">
               <div class="p-5 bg-green-50 dark:bg-green-900/30 border border-green-300 dark:border-green-600">
                 <p class="font-semibold text-green-800 dark:text-green-300 mb-1">{{ t('register.successTitle') }}</p>
                 <p class="text-sm text-green-700 dark:text-green-400">{{ t('register.successMessage', { email: email }) }}</p>
@@ -100,46 +100,60 @@ const handleSubmit = async () => {
             </div>
 
             <template v-if="!registered">
-            <div v-if="errorMessage"
-                 class="mb-5 p-4 text-sm text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700">
+            <div
+              v-if="errorMessage"
+              role="alert"
+              class="mb-5 p-4 text-sm text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700"
+            >
               {{ errorMessage }}
             </div>
 
-            <form @submit.prevent="handleSubmit" class="space-y-5">
+            <form @submit.prevent="handleSubmit" class="space-y-5" novalidate>
               <div>
+                <label for="register-name" class="sr-only">{{ t('register.name') }}</label>
                 <input
+                  id="register-name"
                   v-model="name"
                   type="text"
                   required
+                  aria-required="true"
                   :placeholder="t('register.name')"
                   class="w-full rounded-none border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-6 py-3 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
                 />
               </div>
 
               <div>
+                <label for="register-email" class="sr-only">{{ t('register.email') }}</label>
                 <input
+                  id="register-email"
                   v-model="email"
                   type="email"
                   required
+                  aria-required="true"
                   :placeholder="t('register.email')"
                   class="w-full rounded-none border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-6 py-3 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
                 />
               </div>
 
               <div class="relative">
+                <label for="register-password" class="sr-only">{{ t('register.password') }}</label>
                 <input
+                  id="register-password"
                   v-model="password"
                   :type="showPassword ? 'text' : 'password'"
                   required
+                  aria-required="true"
                   :placeholder="t('register.password')"
                   class="w-full rounded-none border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-6 py-3 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
                 />
                 <button
                   type="button"
                   @click="showPassword = !showPassword"
+                  :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                  :aria-pressed="showPassword"
                   class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 hover:text-amber-500 dark:hover:text-amber-400"
                 >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path v-if="showPassword" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                     <path v-if="showPassword" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -151,19 +165,24 @@ const handleSubmit = async () => {
               </div>
 
               <div class="relative">
+                <label for="register-confirm-password" class="sr-only">{{ t('register.confirmPassword') }}</label>
                 <input
+                  id="register-confirm-password"
                   v-model="confirmPassword"
                   :type="showConfirmPassword ? 'text' : 'password'"
                   required
+                  aria-required="true"
                   :placeholder="t('register.confirmPassword')"
                   class="w-full rounded-none border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-6 py-3 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400"
                 />
                 <button
                   type="button"
                   @click="showConfirmPassword = !showConfirmPassword"
+                  :aria-label="showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'"
+                  :aria-pressed="showConfirmPassword"
                   class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 hover:text-amber-500 dark:hover:text-amber-400"
                 >
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path v-if="showConfirmPassword" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                     <path v-if="showConfirmPassword" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -179,6 +198,7 @@ const handleSubmit = async () => {
                   id="acceptTerms"
                   v-model="acceptTerms"
                   type="checkbox"
+                  aria-required="true"
                   class="mt-1 h-4 w-4 rounded border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-amber-500 focus:ring-amber-400 focus:ring-2 cursor-pointer"
                 />
                 <label for="acceptTerms" class="text-sm text-slate-600 dark:text-slate-400 cursor-pointer">
@@ -198,7 +218,7 @@ const handleSubmit = async () => {
                 :disabled="loading"
                 class="mt-4 w-full rounded-none bg-amber-400 px-6 py-3 text-slate-900 text-lg font-semibold hover:bg-amber-500 transition-colors disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                <svg v-if="loading" class="animate-spin h-5 w-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <svg v-if="loading" aria-hidden="true" class="animate-spin h-5 w-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
                 </svg>

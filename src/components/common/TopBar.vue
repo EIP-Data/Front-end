@@ -39,7 +39,7 @@ const navigateToSettings = () => {
         class="lg:hidden text-gray-700 dark:text-gray-300 hover:text-brand transition-colors"
         :aria-label="t('topbar.toggleMenu')"
       >
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg aria-hidden="true" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
@@ -56,11 +56,11 @@ const navigateToSettings = () => {
           class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           :aria-label="t('sidebar.toggleDarkMode')"
         >
-          <svg v-if="settingsStore.isDarkMode" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg v-if="settingsStore.isDarkMode" aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
           </svg>
-          <svg v-else class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg v-else aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
           </svg>
@@ -69,6 +69,8 @@ const navigateToSettings = () => {
       <div class="relative">
         <button
           @click="toggleUserMenu"
+          :aria-expanded="showUserMenu"
+          aria-controls="user-menu"
           class="flex items-center gap-3 hover:opacity-80 transition-opacity"
           :aria-label="t('topbar.userMenu')"
         >
@@ -81,7 +83,7 @@ const navigateToSettings = () => {
             </span>
           </div>
           <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
-            <img :src="userIcon" alt="User" class="w-full h-full object-cover" />
+            <img :src="userIcon" alt="" aria-hidden="true" class="w-full h-full object-cover" />
           </div>
         </button>
 
@@ -95,13 +97,15 @@ const navigateToSettings = () => {
         >
           <div
             v-if="showUserMenu"
+            id="user-menu"
             class="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-700 rounded-xl shadow-lg py-2 border border-gray-200 dark:border-gray-600"
           >
             <button
+              type="button"
               @click="navigateToSettings"
               class="w-full px-4 py-3 text-left text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors flex items-center gap-3"
             >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
