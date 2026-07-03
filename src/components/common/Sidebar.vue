@@ -57,7 +57,8 @@ const menuItems: MenuItem[] = [
     children: [
       { label: t('sidebar.preferences'),      route: '/user-preferences',   requiredRoute: 'UserPreferences' },
       { label: t('sidebar.settings'),         route: '/user-settings',      requiredRoute: 'UserSettings' },
-      { label: t('sidebar.vpnInstallation'),  route: '/vpn-installation',   requiredRoute: 'VpnInstallation' },
+      { label: t('sidebar.vpnInstallation'),       route: '/vpn-installation',       requiredRoute: 'VpnInstallation' },
+      { label: t('sidebar.extensionInstallation'), route: '/extension-installation', requiredRoute: 'ExtensionInstallation' },
     ]
   }
 ];

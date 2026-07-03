@@ -21,7 +21,8 @@ export type ProtectedRoute =
   | 'DataManagement'
   | 'Statistics'
   | 'ScientistManagement'
-  | 'VpnInstallation';
+  | 'VpnInstallation'
+  | 'ExtensionInstallation';
 
 export interface RolePermissions {
   routes: ProtectedRoute[];

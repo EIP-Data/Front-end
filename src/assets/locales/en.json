@@ -399,6 +399,7 @@
     "preferences": "Preferences",
     "settings": "Settings",
     "vpnInstallation": "VPN Installation",
+    "extensionInstallation": "Extension Installation",
     "privacy": "Privacy",
     "darkMode": "Dark Mode",
     "logout": "Logout",
@@ -757,6 +758,47 @@
       "manage": { "title": "Managing Cookies", "content": "You can configure your browser to refuse all cookies or to be notified when a cookie is sent. However, disabling certain cookies may affect the functionality of the platform." },
       "contact": { "title": "Contact", "content": "For any questions about our cookie policy, contact us via the" }
     }
+  },
+  "extensionInstallation": {
+    "title": "Extension Installation",
+    "subtitle": "Install the Datalyz browser extension to start collecting data",
+    "whyExtension": "The Datalyz extension collects your browsing data directly from your desktop browser, allowing us to analyze how hyper-personalization algorithms interpret your online behaviour.",
+    "steps": {
+      "install": {
+        "title": "Download and install the extension",
+        "description": "Click the download button for your browser below. The extension will be fetched from the latest official GitHub release."
+      },
+      "enable": {
+        "title": "Enable the extension",
+        "description": "Follow your browser's prompt to add the extension. Once installed, make sure it is enabled and pinned to your toolbar for easy access."
+      },
+      "signin": {
+        "title": "Sign in with your Datalyz account",
+        "description": "Open the extension popup and log in using your Datalyz credentials. Data collection will begin automatically once you are authenticated."
+      }
+    },
+    "release": {
+      "title": "Latest release",
+      "loading": "Fetching latest release…",
+      "publishedOn": "Published on",
+      "errors": {
+        "no_release": "No release has been published yet. Please check back later.",
+        "rate_limit": "GitHub API rate limit reached. Please wait a few minutes and refresh the page.",
+        "api_error": "Unable to fetch the latest release. Please try again later.",
+        "no_assets": "No downloadable assets found in this release."
+      }
+    },
+    "download": {
+      "title": "Download for your browser",
+      "recommended": "Recommended",
+      "detected": {
+        "chrome": "Chrome detected.",
+        "firefox": "Firefox detected."
+      },
+      "unknownBrowser": "Your browser could not be detected automatically. Both builds are available below."
+    },
+    "support": "Having trouble? Contact us via the",
+    "supportLink": "contact page"
   },
   "vpnInstallation": {
     "title": "VPN Installation",

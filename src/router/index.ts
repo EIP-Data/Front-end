@@ -218,6 +218,16 @@ const routes: RouteRecordRaw[] = [
         }
     },
     {
+        path: '/extension-installation',
+        name: 'ExtensionInstallation',
+        component: () => import('../views/ExtensionInstallationView.vue'),
+        meta: {
+            title: 'Extension Installation',
+            requiresAuth: true,
+            roles: ['Administrator', 'Scientist', 'User']
+        }
+    },
+    {
         path: '/vpn-installation',
         name: 'VpnInstallation',
         component: () => import('../views/VpnInstallationView.vue'),
