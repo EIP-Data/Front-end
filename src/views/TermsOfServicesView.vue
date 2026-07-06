@@ -12,9 +12,9 @@ const useList = ['scraping', 'impersonation', 'interference', 'illegal'] as cons
 <template>
   <LayoutShowcase>
 
-    <section class="bg-gray-50 dark:bg-gray-900 py-20">
+    <section aria-labelledby="terms-heading" class="bg-gray-50 dark:bg-gray-900 py-20">
       <div class="container mx-auto px-6 text-center max-w-4xl">
-        <h1 class="text-4xl md:text-5xl font-bold text-brand mb-6">
+        <h1 id="terms-heading" class="text-4xl md:text-5xl font-bold text-brand mb-6">
           {{ t('footer.links.terms') }}
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -23,7 +23,7 @@ const useList = ['scraping', 'impersonation', 'interference', 'illegal'] as cons
       </div>
     </section>
 
-    <section class="bg-white dark:bg-gray-800">
+    <section aria-label="Terms of service content" class="bg-white dark:bg-gray-800">
       <div class="max-w-4xl mx-auto px-6 py-16 space-y-12">
 
         <div>
@@ -40,7 +40,7 @@ const useList = ['scraping', 'impersonation', 'interference', 'illegal'] as cons
             {{ t('termsOfServices.sections.description.title') }}
           </h2>
           <div class="flex items-start gap-3 bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-400 px-4 py-3">
-            <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg aria-hidden="true" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
             <p class="text-sm text-amber-800 dark:text-amber-300 font-medium">
@@ -67,7 +67,7 @@ const useList = ['scraping', 'impersonation', 'interference', 'illegal'] as cons
           </p>
           <ul class="space-y-2 mb-4 ml-2">
             <li v-for="type in dataTypes" :key="type" class="flex items-center gap-2 text-gray-600 dark:text-gray-400 text-sm">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>
+              <span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0"></span>
               {{ t(`termsOfServices.sections.data.types.${type}`) }}
             </li>
           </ul>
@@ -81,7 +81,7 @@ const useList = ['scraping', 'impersonation', 'interference', 'illegal'] as cons
             {{ t('termsOfServices.sections.hosting.title') }}
           </h2>
           <div class="flex items-start gap-3 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 px-4 py-3">
-            <svg class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg aria-hidden="true" class="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
             </svg>
             <p class="text-sm text-blue-800 dark:text-blue-300">
@@ -97,7 +97,7 @@ const useList = ['scraping', 'impersonation', 'interference', 'illegal'] as cons
           <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">{{ t('termsOfServices.sections.rights.intro') }}</p>
           <ul class="space-y-2 mb-4 ml-2">
             <li v-for="right in rightsList" :key="right" class="flex items-start gap-2 text-gray-600 dark:text-gray-400 text-sm">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0 mt-1.5"></span>
+              <span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-brand flex-shrink-0 mt-1.5"></span>
               {{ t(`termsOfServices.sections.rights.list.${right}`) }}
             </li>
           </ul>
@@ -111,7 +111,7 @@ const useList = ['scraping', 'impersonation', 'interference', 'illegal'] as cons
           <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">{{ t('termsOfServices.sections.use.intro') }}</p>
           <ul class="space-y-2 ml-2">
             <li v-for="item in useList" :key="item" class="flex items-start gap-2 text-gray-600 dark:text-gray-400 text-sm">
-              <span class="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5"></span>
+              <span aria-hidden="true" class="w-1.5 h-1.5 rounded-full bg-red-400 flex-shrink-0 mt-1.5"></span>
               {{ t(`termsOfServices.sections.use.list.${item}`) }}
             </li>
           </ul>

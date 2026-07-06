@@ -8,9 +8,9 @@ const { t } = useI18n();
 <template>
   <LayoutShowcase>
 
-    <section class="bg-gray-50 dark:bg-gray-900 py-20">
+    <section aria-labelledby="privacy-heading" class="bg-gray-50 dark:bg-gray-900 py-20">
       <div class="container mx-auto px-6 text-center max-w-4xl">
-        <h1 class="text-4xl md:text-5xl font-bold text-brand mb-6">
+        <h1 id="privacy-heading" class="text-4xl md:text-5xl font-bold text-brand mb-6">
           {{ t('footer.links.privacy') }}
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -19,7 +19,7 @@ const { t } = useI18n();
       </div>
     </section>
 
-    <section class="bg-white dark:bg-gray-800">
+    <section aria-label="Privacy policy content" class="bg-white dark:bg-gray-800">
       <div class="max-w-4xl mx-auto px-6 py-16 space-y-12">
 
         <div>

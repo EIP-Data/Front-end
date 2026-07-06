@@ -82,21 +82,23 @@ const pieChartData = ref({
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6">{{
+        <div role="region" aria-labelledby="chart-bar-title" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <h3 id="chart-bar-title" class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6">{{
               t('statistics.dataCollectedByMonth')
             }}</h3>
           <BarChart :data="barChartData"/>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6">{{ t('statistics.userTrends') }}</h3>
+        <div role="region" aria-labelledby="chart-line-title" class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <h3 id="chart-line-title" class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6">{{ t('statistics.userTrends') }}</h3>
           <LineChart :data="lineChartData"/>
         </div>
 
         <div
+            role="region"
+            aria-labelledby="chart-pie-title"
             class="lg:col-span-2 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6">{{
+          <h3 id="chart-pie-title" class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6">{{
               t('statistics.dataDistribution')
             }}</h3>
           <PieChart :data="pieChartData"/>

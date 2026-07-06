@@ -402,6 +402,7 @@
     "preferences": "Préférences",
     "settings": "Paramètres",
     "vpnInstallation": "Installation VPN",
+    "extensionInstallation": "Installation de l'extension",
     "privacy": "Confidentialité",
     "darkMode": "Mode sombre",
     "toggleDarkMode": "Basculer le mode sombre",
@@ -834,6 +835,47 @@
       "manage": { "title": "Gérer les cookies", "content": "Vous pouvez configurer votre navigateur pour refuser tous les cookies ou être averti lorsqu'un cookie est envoyé. Cependant, la désactivation de certains cookies peut affecter les fonctionnalités de la plateforme." },
       "contact": { "title": "Contact", "content": "Pour toute question relative à notre politique de cookies, contactez-nous via la" }
     }
+  },
+  "extensionInstallation": {
+    "title": "Installation de l'extension",
+    "subtitle": "Installez l'extension Datalyz pour commencer à collecter des données",
+    "whyExtension": "L'extension Datalyz collecte vos données de navigation directement depuis votre navigateur de bureau, nous permettant d'analyser comment les algorithmes d'hyper-personnalisation interprètent votre comportement en ligne.",
+    "steps": {
+      "install": {
+        "title": "Télécharger et installer l'extension",
+        "description": "Cliquez sur le bouton de téléchargement correspondant à votre navigateur ci-dessous. L'extension est récupérée depuis la dernière version officielle sur GitHub."
+      },
+      "enable": {
+        "title": "Activer l'extension",
+        "description": "Suivez l'invite de votre navigateur pour ajouter l'extension. Une fois installée, assurez-vous qu'elle est activée et épinglée à votre barre d'outils."
+      },
+      "signin": {
+        "title": "Se connecter avec votre compte Datalyz",
+        "description": "Ouvrez le popup de l'extension et connectez-vous avec vos identifiants Datalyz. La collecte de données démarrera automatiquement une fois authentifié."
+      }
+    },
+    "release": {
+      "title": "Dernière version",
+      "loading": "Récupération de la dernière version…",
+      "publishedOn": "Publiée le",
+      "errors": {
+        "no_release": "Aucune version n'a encore été publiée. Revenez plus tard.",
+        "rate_limit": "Limite de l'API GitHub atteinte. Veuillez patienter quelques minutes et rafraîchir la page.",
+        "api_error": "Impossible de récupérer la dernière version. Veuillez réessayer plus tard.",
+        "no_assets": "Aucun fichier téléchargeable trouvé dans cette version."
+      }
+    },
+    "download": {
+      "title": "Télécharger pour votre navigateur",
+      "recommended": "Recommandé",
+      "detected": {
+        "chrome": "Chrome détecté.",
+        "firefox": "Firefox détecté."
+      },
+      "unknownBrowser": "Votre navigateur n'a pas pu être détecté automatiquement. Les deux versions sont disponibles ci-dessous."
+    },
+    "support": "Un problème ? Contactez-nous via la",
+    "supportLink": "page de contact"
   },
   "vpnInstallation": {
     "title": "Installation VPN",

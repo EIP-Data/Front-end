@@ -15,7 +15,7 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <nav class="bg-white dark:bg-gray-800 shadow-md fixed top-0 left-0 w-full z-50">
+  <nav aria-label="Main navigation" class="bg-white dark:bg-gray-800 shadow-md fixed top-0 left-0 w-full z-50">
     <div class="container mx-auto px-6 nav-height flex justify-between items-center">
       <router-link to="/" class="flex items-center space-x-2">
         <img src="@/assets/images/common/logo.webp" :alt="brandStore.appName + ' Logo'" class="h-8 w-auto" />
@@ -23,8 +23,15 @@ const toggleMenu = () => {
       </router-link>
 
       <div class="md:hidden">
-        <button @click="toggleMenu" class="text-gray-700 dark:text-gray-300 hover:text-brand focus:outline-none">
+        <button
+          @click="toggleMenu"
+          :aria-expanded="isMenuOpen"
+          aria-controls="mobile-menu"
+          :aria-label="isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'"
+          class="text-gray-700 dark:text-gray-300 hover:text-brand focus:outline-none focus:ring-2 focus:ring-amber-400 rounded"
+        >
           <svg
+              aria-hidden="true"
               class="w-8 h-8"
               fill="none"
               stroke="currentColor"
@@ -72,11 +79,14 @@ const toggleMenu = () => {
 
     <div
         v-if="isMenuOpen"
+        aria-hidden="true"
         class="md:hidden fixed inset-0 backdrop-blur-sm bg-opacity-50 z-40"
         @click="toggleMenu"
     ></div>
 
     <div
+        id="mobile-menu"
+        :aria-hidden="!isMenuOpen"
         class="md:hidden fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 shadow-lg z-50 transform transition-transform duration-300 ease-in-out"
         :class="{ '-translate-x-full': !isMenuOpen, 'translate-x-0': isMenuOpen }"
     >

@@ -19,10 +19,10 @@ const desktopFeatures = computed(() => [
 </script>
 
 <template>
-  <section class="bg-white dark:bg-gray-800 py-16">
+  <section aria-labelledby="howitworks-heading" class="bg-white dark:bg-gray-800 py-16">
     <div class="container mx-auto px-6">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+        <h2 id="howitworks-heading" class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4">
           {{ t('getInvolved.howItWorks.title') }}
         </h2>
         <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">

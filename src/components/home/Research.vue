@@ -5,11 +5,11 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <section class="bg-gray-50 dark:bg-gray-900 py-24 px-6 md:px-16">
+  <section aria-labelledby="research-heading" class="bg-gray-50 dark:bg-gray-900 py-24 px-6 md:px-16">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
       <!-- Texte -->
       <div class="md:w-1/2 text-center md:text-left">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-gray-100 leading-tight">
+        <h2 id="research-heading" class="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-gray-100 leading-tight">
           {{ t('home.research.titleStart') }}
           <br />
           <span class="text-amber-500">{{ t('home.research.titleHighlight') }}</span>

@@ -82,47 +82,52 @@ const closeModal = () => {
         <Transition name="modal-slide" mode="out-in">
           <div
             :key="currentStep"
+            role="dialog"
+            aria-modal="true"
+            :aria-labelledby="'onboarding-title-' + currentStep"
             class="relative w-full max-w-2xl bg-white dark:bg-slate-800 shadow-2xl overflow-hidden"
           >
-            <!-- Progress Bar -->
-            <div class="h-1.5 bg-gray-200 dark:bg-slate-700">
+            <div
+              role="progressbar"
+              :aria-valuenow="currentStep + 1"
+              aria-valuemin="1"
+              :aria-valuemax="totalSteps"
+              :aria-label="`Step ${currentStep + 1} of ${totalSteps}`"
+              class="h-1.5 bg-gray-200 dark:bg-slate-700"
+            >
               <div
                 class="h-full bg-gradient-to-r from-amber-400 to-amber-500 transition-all duration-500 ease-out"
                 :style="{ width: `${progressPercentage}%` }"
               ></div>
             </div>
 
-            <!-- Close Button -->
             <button
+              type="button"
               @click="closeModal"
+              :aria-label="t('onboarding.close')"
               class="absolute top-4 right-4 z-10 text-gray-400 hover:text-gray-600 dark:text-slate-400 dark:hover:text-slate-200 transition-colors"
             >
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
             </button>
 
-            <!-- Modal Content -->
             <div class="p-8 md:p-12">
-              <!-- Step Indicator -->
               <div class="text-sm font-medium text-amber-500 dark:text-amber-400 mb-2">
                 {{ t('onboarding.step') }} {{ currentStep + 1 }} {{ t('onboarding.of') }} {{ totalSteps }}
               </div>
 
-              <!-- Title -->
-              <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
+              <h2 :id="'onboarding-title-' + currentStep" class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
                 {{ t(`onboarding.consents.${currentConsentKey}.title`) }}
               </h2>
 
-              <!-- Description -->
               <p class="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                 {{ t(`onboarding.consents.${currentConsentKey}.description`) }}
               </p>
 
-              <!-- Benefit Box -->
               <div class="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-400 p-4 mb-8">
                 <div class="flex items-start">
-                  <svg class="w-6 h-6 text-amber-500 dark:text-amber-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" class="w-6 h-6 text-amber-500 dark:text-amber-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                   </svg>
                   <div>
@@ -136,7 +141,6 @@ const closeModal = () => {
                 </div>
               </div>
 
-              <!-- Consent Checkbox -->
               <div class="mb-8">
                 <label class="flex items-start gap-4 cursor-pointer group">
                   <div class="relative flex items-center justify-center">
@@ -146,6 +150,7 @@ const closeModal = () => {
                       class="peer h-6 w-6 cursor-pointer appearance-none border-2 border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 checked:bg-amber-500 checked:border-amber-500 focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 dark:focus:ring-offset-slate-800 transition-all"
                     />
                     <svg
+                      aria-hidden="true"
                       class="absolute w-4 h-4 text-white pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity"
                       fill="none"
                       stroke="currentColor"
@@ -160,15 +165,16 @@ const closeModal = () => {
                 </label>
               </div>
 
-              <!-- Action Buttons -->
               <div class="flex flex-col sm:flex-row gap-3">
                 <button
+                  type="button"
                   @click="handleSkip"
                   class="flex-1 px-6 py-3 border-2 border-gray-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-semibold hover:border-gray-400 dark:hover:border-slate-500 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all"
                 >
                   {{ t('onboarding.skip') }}
                 </button>
                 <button
+                  type="button"
                   @click="handleNext"
                   class="flex-1 px-6 py-3 bg-gradient-to-r from-amber-400 to-amber-500 text-white font-semibold hover:from-amber-500 hover:to-amber-600 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
                 >
@@ -177,8 +183,7 @@ const closeModal = () => {
               </div>
             </div>
 
-            <!-- Step Dots -->
-            <div class="flex justify-center gap-2 pb-6">
+            <div aria-hidden="true" class="flex justify-center gap-2 pb-6">
               <div
                 v-for="(_, index) in consentKeys"
                 :key="index"

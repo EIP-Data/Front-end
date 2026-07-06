@@ -10,6 +10,7 @@ const PERMISSIONS_CONFIG: PermissionsConfig = {
       'UserPreferences',
       'UserSettings',
       'VpnInstallation',
+      'ExtensionInstallation',
       'AdminPanel',
       'Research',
       'DataManagement',
@@ -21,13 +22,13 @@ const PERMISSIONS_CONFIG: PermissionsConfig = {
     canViewAnalytics: true,
   },
   Scientist: {
-    routes: ['UserDashboard', 'Research', 'DataManagement', 'Statistics', 'UserPreferences', 'UserSettings', 'VpnInstallation'],
+    routes: ['UserDashboard', 'Research', 'DataManagement', 'Statistics', 'UserPreferences', 'UserSettings', 'VpnInstallation', 'ExtensionInstallation'],
     canManageUsers: false,
     canExportData: true,
     canViewAnalytics: true,
   },
   User: {
-    routes: ['UserDashboard', 'UserData', 'UserPreferences', 'UserSettings', 'VpnInstallation'],
+    routes: ['UserDashboard', 'UserData', 'UserPreferences', 'UserSettings', 'VpnInstallation', 'ExtensionInstallation'],
     canManageUsers: false,
     canExportData: false,
     canViewAnalytics: false,

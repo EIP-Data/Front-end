@@ -87,7 +87,7 @@ const handleDownload = async (platform: Platform) => {
     <div class="max-w-3xl flex flex-col gap-6">
 
       <div class="flex items-start gap-3 bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-400 px-5 py-4 rounded-r-xl">
-        <svg class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg aria-hidden="true" class="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
         </svg>
         <p class="text-sm text-amber-800 dark:text-amber-300">
@@ -124,19 +124,22 @@ const handleDownload = async (platform: Platform) => {
           <button
             v-for="platform in platforms"
             :key="platform.key"
+            type="button"
+            :aria-label="downloadLoading === platform.key ? t('vpnInstallation.downloading', { platform: platform.label }) : platform.label"
             @click="handleDownload(platform.key)"
             :disabled="downloadLoading !== null"
             class="flex items-center gap-2 px-5 py-2.5 bg-brand text-white text-sm font-medium rounded-lg hover:bg-brand-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
           >
             <svg
               v-if="downloadLoading !== platform.key"
+              aria-hidden="true"
               class="w-4 h-4"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
               <path :d="platform.icon"/>
             </svg>
-            <svg v-else class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+            <svg v-else aria-hidden="true" class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
               <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
             </svg>
@@ -144,7 +147,7 @@ const handleDownload = async (platform: Platform) => {
           </button>
         </div>
 
-        <p v-if="downloadError" class="mt-3 text-sm text-red-500">{{ downloadError }}</p>
+        <p v-if="downloadError" role="alert" class="mt-3 text-sm text-red-500">{{ downloadError }}</p>
       </div>
 
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
@@ -153,21 +156,22 @@ const handleDownload = async (platform: Platform) => {
         </h2>
 
         <button
+          type="button"
           @click="handleDownloadProxy"
           :disabled="proxyDownloadLoading"
           class="flex items-center gap-2 px-5 py-2.5 bg-brand text-white text-sm font-medium rounded-lg hover:bg-brand-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          <svg v-if="!proxyDownloadLoading" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg v-if="!proxyDownloadLoading" aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
           </svg>
-          <svg v-else class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+          <svg v-else aria-hidden="true" class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
           </svg>
           {{ t('vpnInstallation.proxy.button') }}
         </button>
 
-        <p v-if="proxyDownloadError" class="mt-3 text-sm text-red-500">{{ proxyDownloadError }}</p>
+        <p v-if="proxyDownloadError" role="alert" class="mt-3 text-sm text-red-500">{{ proxyDownloadError }}</p>
       </div>
 
       <p class="text-sm text-gray-500 dark:text-gray-400">

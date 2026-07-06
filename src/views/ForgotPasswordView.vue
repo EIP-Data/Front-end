@@ -60,21 +60,27 @@ const handleSubmit = async () => {
           </p>
 
           <div v-if="errorMessage"
+               role="alert"
                class="mb-5 p-4 text-sm text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/50 border border-red-300 dark:border-red-700">
             {{ errorMessage }}
           </div>
 
           <div v-if="successMessage"
+               role="status"
+               aria-live="polite"
                class="mb-5 p-4 text-sm text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/50 border border-green-300 dark:border-green-700">
             {{ successMessage }}
           </div>
 
-          <form @submit.prevent="handleSubmit" class="space-y-5">
+          <form @submit.prevent="handleSubmit" class="space-y-5" novalidate>
             <div>
+              <label for="forgot-email" class="sr-only">{{ t('forgotPassword.email') }}</label>
               <input
+                id="forgot-email"
                 v-model="email"
                 type="email"
                 required
+                aria-required="true"
                 :placeholder="t('forgotPassword.email')"
                 :disabled="isLoading"
                 class="w-full rounded-none border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-6 py-3 text-slate-900 dark:text-slate-100 placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -88,7 +94,7 @@ const handleSubmit = async () => {
             >
               <span v-if="!isLoading">{{ t('forgotPassword.submit') }}</span>
               <span v-else class="flex items-center justify-center">
-                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <svg aria-hidden="true" class="animate-spin -ml-1 mr-3 h-5 w-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
