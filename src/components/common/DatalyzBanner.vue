@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useBrandStore } from '@/stores/brandStore';
-const brandStore = useBrandStore();
 </script>
 
 <template>
